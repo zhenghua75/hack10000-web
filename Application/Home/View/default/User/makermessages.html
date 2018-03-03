@@ -1,0 +1,204 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makermessages.css" rel="stylesheet">
+    <link href="__CSS__/mymessages.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+    <script type="text/javascript" src="__JS__/messageread.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>创客时空</span>
+</div>
+<div class="mgrcenter">
+    <include file="User:makerleft"/>
+<div id="settings-content">
+<div class="am-tabs" data-am-tabs>
+<ul class="am-tabs-nav am-nav am-nav-tabs">
+    <li class="am-active"><a href="#tab1">服务通知<if condition="($msgcnt[1] lt 10) AND ($msgcnt[1] gt 0)"><sup class="newtipone">{$msgcnt[1]}</sup><elseif condition="($msgcnt[1] egt 10)"/><sup class="newtipdouble">{$msgcnt[1]}</sup></if></a></li>
+    <li><a href="#tab2">活动通知<if condition="($msgcnt[2] lt 10) AND ($msgcnt[2] gt 0)"><sup class="newtipone">{$msgcnt[2]}</sup><elseif condition="($msgcnt[2] egt 10)"/><sup class="newtipdouble">{$msgcnt[2]}</sup></if></a></li>
+    <li><a href="#tab3">派单通知<if condition="($msgcnt[3] lt 10) AND ($msgcnt[3] gt 0)"><sup class="newtipone">{$msgcnt[3]}</sup><elseif condition="($msgcnt[3] egt 10)"/><sup class="newtipdouble">{$msgcnt[3]}</sup></if></a></li>
+</ul>
+
+<div class="am-tabs-bd">
+
+<div class="am-tab-panel am-fade am-in am-active <empty name='msg1list'>emptybg</empty>" id="tab1">
+    <div id="tab1-content">
+        <notempty name="msg1list">
+        <volist name="msg1list" id="vomsg1">
+        <div class="tab1-goods" onclick="openmessage({$vomsg2.id})" style="cursor:pointer">
+            <div class="tab1-goods-img1">
+                <a href="#">
+                    <img src="__IMG__/msg1.png" alt=""/>
+                </a>
+            </div>
+            <div class="tab1-goods-explain1">
+                <h4 class="explain-h4">尊敬的{$Think.session.user_auth.nickname}您好！</h4>
+                <p class="explain-p">{$vomsg1.title}</p>
+            </div>
+        </div>
+        </volist>
+        <else/>
+        <div class="tab1-goods">
+            您没有任何消息！
+        </div>
+        </notempty>
+        <div id="tab1-goods-tel">
+            <h1 id="tab1-tel-h1">如有疑问请拨打：<span>13888918732</span></h1>
+        </div>
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade <empty name='msg2list'>emptybg</empty>" id="tab2">
+    <div id="tab2-content">
+        <div class="topbtn">
+        <a class="btnlink" href="{:U('User/makerevent')}">去看看</a>
+        </div>
+        <notempty name="msg2list">
+        <volist name="msg2list" id="vomsg2">
+        <div class="tab1-goods" onclick="openmessage({$vomsg2.id})" style="cursor:pointer">
+            <div class="tab1-goods-img1">
+                <img src="__IMG__/msg2.png" alt=""/>
+            </div>
+            <div class="tab1-goods-explain1">
+                <h4 class="explain-h4">尊敬的{$Think.session.user_auth.nickname}您好！</h4>
+                <p class="explain-p">{$vomsg2.title}</p>
+            </div>
+        </div>
+        </volist>
+        <else/>
+        <div class="tab1-goods">
+            您没有任何消息！
+        </div>
+        </notempty>
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade <empty name='msg3list'>emptybg</empty>" id="tab3">
+    <div id="tab3-content">
+        <notempty name="msg3list">
+        <volist name="msg3list" id="vomsg3">
+        <div class="tab1-goods">
+            <div class="tab1-goods-img1">
+                <a href="#">
+                    <img src="__IMG__/product-img3.png" alt=""/>
+                </a>
+            </div>
+            <div class="tab2-goods-explain1">
+                <h4 class="explain-h4">尊敬的{$Think.session.user_auth.nickname}您好！</h4>
+                <p class="explain-p">您购买的<a href="#">奢华玫瑰香型爽肤水</a>美妆正在派送中注意查收。</p>
+            </div>
+            <div class="tab2-good-btn">
+                <button type="button" data-am-modal="{target: '#doc-modal-send', closeViaDimmer: 0, width: 770, height: 630}">查看物流</button>
+            </div>
+        </div>
+        <button class="tab-btn-save tab-btn-more" type="submit">更多</button>
+        </volist>
+        <else/>
+        <div class="tab1-goods">
+            您没有任何消息！
+        </div>
+        </notempty>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-send">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="logistics-details">
+                <span>物流详情</span>
+            </div>
+            <div class="logistics-process">
+                <img src="__IMG__/logistics-process.png" alt=""/>
+            </div>
+            <div class="logistics-content">
+                <h2>您的包裹正在运输途中，请耐心等待......</h2>
+                <p>
+                    <span class="logistics-red-span">11月12日</span>
+                    <span class="logistics-margin-span">周四</span>
+                    <span class="logistics-margin-span">14:22:48</span>
+                    <span class="logistics-none-span">供应商已把包裹移交给顺丰快递公司</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+            </div>
+            <div class="delivery-details">
+                <p>
+                    <span class="logistics-margin-span">运送单号：25599426</span>
+                    <span class="logistics-margin-span">物流公司：顺丰快递公司</span>
+                    <span class="logistics-none-span">客服电话：95338</span>
+                </p>
+                <p>
+                    <span class="logistics-margin-span">发货人：郭老板</span>
+                    <span class="logistics-margin-span2">发货地址：北京市石景山区289号沃尔玛对面</span>
+                    <span class="logistics-none-span">联系电话：15338135401</span>
+                </p>
+                <p>
+                    <span class="logistics-margin-span">收货人：某某某</span>
+                    <span class="logistics-margin-span2">收货地址：云南省昆明市五华区小菜园249号二栋二单元602室</span>
+                    <span class="logistics-none-span">联系电话：15643133301</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="am-popup" tabindex="-1" id="messageread">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title"></h4>
+            <span data-am-modal-close class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd">
+
+        </div>
+    </div>
+</div>
+
+</block>

@@ -1,0 +1,92 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/supplierproductclass.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div class="return-center">
+            <a href="{:U('User/supplierindex')}">返回个人中心>></a>
+        </div>
+        <div class="producatadd-content">
+            <div class="producatadd-classes">
+                <div class="prodaddclassprom">*所有商品必须选择三级分类，请先选择三级分类，然后点击“下一步”</div>
+                <input type="hidden" value="{$productid}" id="poid">
+                <div class="classes-block">
+                    <ul id="lv1">
+                        <volist name='catalog' id='list'>
+                        <li><a href="#" id="li-{$list.id}" onclick="showclass({$list.id},2)">{$list.name}</a></li>
+                        </volist>
+                    </ul>
+                </div>
+                <div class="classes-block">
+                    <ul id="lv2">
+                    </ul>
+                </div>
+                <div class="classes-block-last">
+                    <ul id="lv3">
+                    </ul>
+                </div>
+                <div class="productadd-btn">
+                    <a id="addnext" class="productadd-btn-a" href="#">下一步</a>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function showclass(id,target){
+                $('#lv'+(target-1)+' li').each(function(){
+                    if($(this).children().hasClass('select')){
+                        $(this).children().removeClass('select');
+                    }
+                });
+                $('#li-'+id).addClass('select');
+                var list='<?php echo json_encode($catalog) ?>';
+                var jlist=eval('(' + list + ')');
+                if(target==2){
+                    $('#lv'+target).empty();
+                    for(var x in jlist){
+                        if(jlist[x].id==id){
+                            var child=jlist[x]['_'];
+                            for(var im in child){
+                                var li='<li><a href="#" id="li-'+child[im].id+'" onclick="showclass('+child[im].id+',3)">'+child[im].name+'</a></li>';
+                                $('#lv'+target).append(li);
+                            }
+                            break;
+                        }
+                    }
+                }
+                if(target==3){
+                    $('#lv'+target).empty();
+                    for(var x in jlist){
+                        var child=jlist[x]['_'];
+                        for(var c1 in child){
+                            if(child[c1].id==id){
+                                var child2=child[c1]['_'];
+                                for(var im in child2){
+                                    var li='<li><a href="#" id="li-'+child2[im].id+'" onclick="showclass('+child2[im].id+',4)">'+child2[im].name+'</a></li>';
+                                    $('#lv'+target).append(li);
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(target==4){
+                    var poid=$('#poid').val();
+                    if(poid=='0'){
+                        $('#addnext').attr('href','supplierproductadd?cid='+id);
+                    }else{
+                        $('#addnext').attr('href','supplierproductedit?cid='+id+'&pid='+poid);
+                    }
+                    
+                }
+            }
+        </script>
+    </div>
+</block>

@@ -1,0 +1,106 @@
+<extend name="Base/common" />
+
+<block name="style">
+    <link href="__CSS__/register.css" rel="stylesheet">
+</block>
+
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/numbertime1.js"></script>
+</block>
+
+<block name="body">
+<section>
+  <div id="content-layout">
+    <div id="enroll-layout">
+      <div id="enroll-window">
+        <div id="enroll-head">
+          <h3>忘记密码</h3>
+        </div>
+        <div class="span12">
+          <form class="register-form am-form" action="__SELF__" method="post" id="resetpassform" data-am-validator>
+            <fieldset>
+              <div class="am-form-group">
+                  <label for="mobile"><span>*</span>手机号</label>
+                  <input placeholder="请输入手机号码" type="text" class="js-pattern-mobile" id="mobile" name="mobile" required pattern="^1((3|5|8){1}\d{1}|70|76|77|78)\d{8}$">
+              </div>
+              <div class="am-form-group">
+                <label class="control-label" for="verify"><span>*</span>图形验证码</label>
+                <div class="controls">
+                  <input type="text" id="verify" class="span3" placeholder="请输入图形验证码" autocomplete="off" name="verify" required>
+                </div>
+              </div>
+              <div class="am-form-group">
+                <div class="controls ">
+                    <img class="verifyimg reloadverify" alt="点击切换" src="{:U('verify')}" style="cursor:pointer;">
+                </div>
+                <div class="controls Validform_checktip text-warning"></div>
+              </div>
+              <div class="am-form-group">
+                  <label for="validcode"><span>*</span>手机验证码</label>
+                  <div class="rowvalidcode">
+                  <input type="tel" placeholder="请输入手机验证码" id="validcode" name="validcode" autocomplete="off" pattern="^\d{6}$" required>
+                  <input class="am-btn am-btn-default" type="button" id="btcode" value="">
+                  </div>
+              </div>
+              <div class="am-form-group">
+                  <label for="inputPassword"><span>*</span>请设置密码</label>
+                  <input placeholder="6-12位，可由数字、字母组成" type="password" id="inputPassword" name="password" autocomplete="off" minlength="6" required>
+              </div>
+              <div class="am-form-group">
+                  <label for="repassword"><span>*</span>请确认密码</label>
+                  <input placeholder="请再次输入您的密码" type="password" id="repassword" recheck="password" name="repassword" autocomplete="off" minlength="6" data-equal-to="#inputPassword" required>
+              </div>
+              <div class="reg-submit">
+                  <button type="submit" name="submit">提交</button>
+              </div>
+            </fieldset>
+          </form>
+          <style>
+            #vld-tooltip {
+              position: absolute;
+              z-index: 1000;
+              padding: 5px 10px;
+              background: #F37B1D;
+              min-width: 150px;
+              color: #fff;
+              transition: all 0.15s;
+              box-shadow: 0 0 5px rgba(0,0,0,.15);
+              display: none;
+            }
+
+            #vld-tooltip:before {
+              position: absolute;
+              top: -8px;
+              left: 50%;
+              width: 0;
+              height: 0;
+              margin-left: -8px;
+              content: "";
+              border-width: 0 8px 8px;
+              border-color: transparent transparent #F37B1D;
+              border-style: none inset solid;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</block>
+
+<block name="side"> </block>
+<block name="script">
+<script type="text/javascript">
+$(function(){
+    var verifyimg = $(".verifyimg").attr("src");
+        $(".reloadverify").click(function(){
+            if( verifyimg.indexOf('?')>0){
+                $(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+            }else{
+                $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+            }
+        });
+});
+</script>
+</block>

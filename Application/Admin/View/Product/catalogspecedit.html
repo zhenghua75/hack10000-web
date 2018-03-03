@@ -1,0 +1,116 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>{:isset($info['id'])?'编辑':'新增'}商品分类对应规格</h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="wrapleft" style="float:left">
+			<form action="{:U()}" method="post" class="form-horizontal">
+				<!-- 基础 -->
+				<div id="tab1" class="tab-pane in tab1">
+					<div class="form-item">
+						<label class="item-label">
+							三级分类名称<span class="check-tips"></span>
+						</label>
+						<div class="controls">
+							<input type="text" class="text input-large" value="{$info.name|default=''}" readonly="true">
+							<input type="hidden" name="cid" value="{$info.id|default=''}">
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							可用规格<span class="check-tips">（可添加的规格）</span>
+						</label>
+						<div class="controls">
+							<select id="sid" name="sid">
+								<notempty name="specunuse">
+								<volist name='specunuse' id="vo">
+								<option value="{$vo.sid}">{$vo.name}-{$vo.comment}</option>
+								</volist>
+								<else/>
+								<option value="0">无</option>
+								</notempty>
+							</select>
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							排序<span class="check-tips">（规格显示顺序）</span>
+						</label>
+						<div class="controls">
+							<input type="text" name="sort" class="text input-small" value="0">
+						</div>
+					</div>
+				</div>
+				<div class="form-item">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">添 加</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+			<div class="data-table table-striped">
+				<table>
+					<thead>
+						<tr>
+							<th>规格ID</th>
+							<th>规格名称</th>
+							<th>排序</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<volist name="speclist" id="vodef">
+							<tr>
+								<td>{$vodef.sid}</td>
+								<td><a href="{:U('specdefedit?sid='.$vodef['sid'])}">{$vodef.name}<if condition="$vodef.comment neq ''">[{$vodef.comment}]</if></a></td>
+								<td>{$vodef.sort}</td>
+								<td>
+									<a class="confirm ajax-get" title="删除" href="{:U('catalogspecdel?cid='.$info['id'].'&sid='.$vodef['sid'])}">删除</a>
+								</td>
+							</tr>
+						</volist>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		(function($){
+			/* 实时更新分类信息 */
+			$(".category")
+				.on("submit", "form", function(){
+					var self = $(this);
+					$.post(
+						self.attr("action"),
+						self.serialize(),
+						function(data){
+							/* 提示信息 */
+							var name = data.status ? "success" : "error", msg;
+							msg = self.find(".msg").addClass(name).text(data.info)
+									  .css("display", "inline-block");
+							setTimeout(function(){
+								msg.fadeOut(function(){
+									msg.text("").removeClass(name);
+								});
+							}, 1000);
+						},
+						"json"
+					);
+					return false;
+				})
+                .on("focus","input",function(){
+                    $(this).data('param',$(this).closest("form").serialize());
+
+                })
+                .on("blur", "input", function(){
+                    if($(this).data('param')!=$(this).closest("form").serialize()){
+                        $(this).closest("form").submit();
+                    }
+                });
+		})(jQuery);
+	</script>
+</block>
+

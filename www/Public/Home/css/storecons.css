@@ -1,0 +1,179 @@
+#left-layout{
+    top:-20px;
+    z-index: 301;
+    margin-left: 0;
+}
+#store-list{
+    width: 100%;
+}
+.left-nav-list{
+    width: 100%;
+    margin-bottom: 0;
+}
+
+#leftbar{
+    height: 630px;
+}
+.left-nav-list a{
+    height: 55px;
+}
+.left-nav-list a.actived{
+    background-color: #292A2D;
+    color: #f0b003;
+}
+#cons-ico{
+    position: relative;
+    top: 20px;
+    margin-left: 0.9%;
+    float: left;
+}
+#cons-ico span{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+.caveat p{
+    color: #f0b003;
+}
+.caveat span{
+    padding: 0;
+}
+.price p:nth-child(1){
+    padding-top: 28px;
+    line-height: 1;
+}
+.price p:nth-child(2){
+    font-size: 16px;
+}
+
+.fixed-head{
+    position: relative;
+    z-index: 1;
+    top: 42px;
+    width: 100%;
+    margin:0 auto;
+}
+.fixed-head .bgcolor{
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+}
+.fixed-head .top{
+    float: left;
+    width: 100%;
+    background: rgba(41,42,45,.5);
+}
+.fixed-head .shop-logo{
+    float: left;
+    width: 9.1%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+.fixed-head .shop-logo img{
+    width: 100%;
+}
+.fixed-head .shop-name{
+    float: left;
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+}
+.fixed-head span{
+    color: #fff;
+}
+.fixed-head .shop-name span:first-child{
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 1em;
+}
+.fixed-head .shopnamecollect{
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-top:15px;
+    padding-bottom:15px;
+    width: 20%;
+    float: left;
+}
+.fixed-head .collectbutton{
+    float: left;
+    text-align: left;
+    width: 100%;
+}
+.fixed-head .collectbutton button{
+    background-color: #292A2D;
+    color: #f0b003;
+    border: none;
+    padding: 5px 8px;
+}
+
+.fixed-head .shop-name span:last-child{
+    float: left;
+    font-size: 1em;
+    width: 60%;
+    font-family: "微软雅黑";
+}
+.fixed-head .shop-referral{
+    float: left;
+    width: 50%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-top:15px;
+    padding-bottom:15px;
+    text-align: left;
+    height: 110px;
+    overflow: hidden;
+}
+.fixed-head .shop-referral span{
+    float: left;
+    width: 100%;
+    font-family: "微软雅黑";
+    font-size: 1em;
+}
+.fixed-head .shop-code{
+    float: left;
+    width: 100%;
+}
+.fixed-head .shop-qrcode{
+    float: left;
+    width: 9.1%;
+}
+.fixed-head .shop-qrcode img{
+    width: 100%;
+}
+.fixed-head .shop-code img{
+    width: 100%;
+}
+.page-shopindex #content-layout{
+    top:42px;
+}
+.page-shopindex #left-layout{
+    top:0;
+}
+
+@media all and (max-width: 751px){
+    .fixed-head{
+        top: 59px;
+    }
+    .fixed-head .shop-name{
+        font-size: 14px;
+        padding: 3px 0px;
+    }
+    .fixed-head .shop-referral{
+        height: auto;
+        padding: 0;
+        font-size: 13px;
+        float: left;
+        width: 60%;
+        margin-left: 1%;
+        margin-right: 1%;
+        text-align: left;
+        overflow: hidden;
+    }
+    .fixed-head .shop-referral span{
+        font-size: 0.8em;
+    }
+    .fixed-head .shop-qrcode{
+        display: none;
+    }
+}

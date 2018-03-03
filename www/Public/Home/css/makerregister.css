@@ -1,0 +1,777 @@
+#settings-content{
+    width: 100%;
+    height: inherit;
+    border: none;
+}
+
+#be-ck{
+    background-image: url("../images/be-ckicohover.png");
+}
+#user-nav{
+    background-image: url("../images/maker-directbg.png");
+}
+.am-nav-tabs > li{
+    width: 150px;
+}
+.asterisk-span{
+    color: red;
+    vertical-align: middle;
+    font-size: 20px;
+}
+.doc-vld-tel-2{
+    width: 100%;
+    display: inline-block;
+    height: 36px;
+    border: 1px solid #CCCCCC;
+}
+.tab1-label{
+    float: left;
+    margin-bottom: 0;
+    line-height: 1;
+    width: 100%;
+    text-align: left;
+    font-weight: normal;
+}
+.tab1-register{
+    width: 78%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.tab1-register-left{
+    width: 45%;
+    float: left;
+}
+.tab1-register-right{
+    width: 45%;
+    float: right;
+}
+.am-form-group{
+    margin-top: 0;
+    margin-bottom: 10px;
+    height: 58px;
+}
+.am-selected{
+    height: 36px;
+    padding-left: 0;
+    bottom: 0;
+}
+.am-btn-default:active, .am-btn-default.am-active, .am-active .am-btn-default.am-dropdown-toggle{
+    height: 36px;
+}
+.birthday-year{
+    margin-left: 2px;
+    margin-right: 3px;
+    line-height: 2;
+}
+.am-active > .am-dropdown-content{
+    width: 88px;
+    margin-left: 0;
+    height: 160px;
+}
+.am-btn-default:active, .am-btn-default.am-active, .am-active .am-btn-default.am-dropdown-toggle{
+    width: 100%;
+}
+.am-selected-status{
+    font-size: 16px;
+    line-height: 20px;
+}
+.am-form-field{
+    float: left;
+    width: 65%!important;
+}
+.am-input-group-btn{
+    width: 35%;
+    float: left;
+}
+#service-agreement{
+    margin-top: 6px;
+    float: left;
+    width: 100%;
+}
+.process-service-agreement{
+    margin-top: 6px;
+}
+.read-span{
+    font-family: "微软雅黑";
+    font-size: 13px;
+    color: #adacac;
+    vertical-align: text-top;
+}
+.am-input-group .am-form-field, .am-input-group-btn > .am-btn{
+    height: 36px;
+}
+#doc-vld-pwd-2,#doc-vld-pwd-1{
+    height: 36px;
+}
+.makerregsubmit{
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.set-shop{
+    background-color: #f0b003;
+    color: #292A2D;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    padding: 5px 40px;
+    border: none;
+}
+.process-next{
+    margin-top: 15px;
+}
+.process-next-step{
+    background-color: #f0b003;
+    color: #292A2D;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    padding: 5px 40px;
+    border: none;
+}
+.process-head1{
+    width: 50%;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/reg-step1.png");
+    background-repeat: no-repeat;
+}
+.process-head2{
+    width: 50%;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/reg-step2.png");
+    background-repeat: no-repeat;
+}
+.process-head3{
+    width: 50%;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/reg-step3.png");
+    background-repeat: no-repeat;
+    margin-bottom: 120px;
+}
+.process-register{
+    width: 33.3%;
+    float: left;
+    height: 80px;
+    background-image: url("../images/process1-hover.png");
+    background-repeat: no-repeat;
+    background-position: 50% 85%;
+}
+.process-span{
+    font-family: "微软雅黑";
+    font-size: 20px;
+}
+.process-message{
+    width: 33.3%;
+    float: left;
+    height: 80px;
+    background-image: url("../images/process2.png");
+    background-repeat: no-repeat;
+    background-position: 50% 85%;
+}
+.process-span-none{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #8c8c8c;
+}
+.process-submit{
+    width: 33.3%;
+    float: left;
+    height: 80px;
+    background-image: url("../images/process3.png");
+    background-repeat: no-repeat;
+    background-position: 50% 85%;
+}
+.process-body{
+    width: 50%;
+    margin: 0 243px;
+    float: left;
+    margin-top: 15px;
+}
+.process-label{
+    float: left;
+    margin-bottom: 0;
+    line-height: 1;
+    width: 45%;
+    margin-left: 68px;
+    text-align: left;
+}
+.process-tel{
+    height: 40px!important;
+    width: 350px!important;
+    border: 1px solid #cccccc;
+    padding-left: 5px;
+    background-image: url("../images/tel-emailicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+}
+.process-password{
+    height: 40px;
+    width: 350px;
+    border: 1px solid #cccccc;
+    padding-left: 5px;
+    background-image: url("../images/set-passwordicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+}
+.process-tel-none{
+    height: 40px!important;
+    width: 350px!important;
+    border: 1px solid #cccccc;
+    padding-left: 5px;
+}
+.input-span-btn{
+    width: 20%;
+    float: left;
+}
+.yan-zheng-btn{
+    width: 100px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    background-color: #DDDDDD;
+    padding: 0;
+    border-left: none;
+}
+.process-code-none{
+    float: left;
+    width: 250px!important;
+    margin-left: 68px;
+    height: 40px!important;
+    border: 1px solid #cccccc;
+    padding-left: 5px;
+}
+
+.am-nav-tabs{
+    border: 1px solid #d9d9d9;
+    border-bottom: 3px solid #d9d9d9;
+}
+#tab1{
+    border: 1px solid #d9d9d9;
+}
+#tab2{
+    border: 1px solid #d9d9d9;
+}
+
+.upload-img-permit{
+    width: 100%;
+    float: left;
+    border: 1px solid rgba(25, 16, 25, 0.2);
+    margin-top: 0;
+    margin-bottom: 10px;
+    height: 40px;
+}
+.upload-permit{
+    float: left;
+    width: 100%;
+    height: 38px;
+    border: 1px solid #CCCCCC;
+}
+.am-btn{
+    float: right;
+ }
+.am-form input.upload-permit-span{
+    font-size: 16px;
+    color: #9A9A9A;
+    float: left;
+    width: 295px;
+}
+.ck-register-fieldset{
+    margin: 0;
+}
+.ckjg-service-agreement{
+    margin-top: 0;
+    width: 100%;
+    float: left;
+    margin-bottom: 8px;
+}
+.register-success{
+    width: 100%;
+    float: left;
+}
+.submit-success{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.submit-success-span{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #292A2D;
+}
+.view-progress{
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#view-progress-btn{
+    padding: 20px;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: bold;
+    color: #292A2D;
+    background-color: #f0b003;
+}
+.register-success-ico{
+    width: 100%;
+    float: left;
+}
+.register-success-ico img{
+    width: 75px!important;
+    height: 75px!important;
+    margin: 0 auto;
+}
+.registprompt{
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    color: red;
+    text-align: left;
+}
+#tab3-content{
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+}
+#tab3{
+    border: 1px solid #d9d9d9;
+    padding: 0;
+}
+.view-inquire{
+    width: 100%;
+    float: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#view-inquire-btn{
+    padding: 10px 50px;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: bold;
+    color: #292A2D;
+    background-color: #f0b003;
+}
+.am-dropdown-content{
+    z-index: 200;
+}
+#be-provider{
+    background-image: url("../images/be-provider.png");
+}
+#be-ck{
+    background-image: url("../images/be-ckicohover.png");
+}
+#user-nav{
+    background-image: url("../images/maker-directbg.png")!important;
+    background-position: 0;
+}
+.progressreview-head{
+    width: 65%;
+    margin: 50px auto;
+}
+.progress-span1{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: bold;
+    color: #292A2D;
+}
+.progress-span2{
+    font-weight: normal;
+}
+.audit-process-head1{
+    width: 714px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process1.png");
+    background-repeat: no-repeat;
+}
+.audit-process-head2{
+    width: 714px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process2.png");
+    background-repeat: no-repeat;
+}
+.audit-process-head3{
+    width: 714px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process3.png");
+    background-repeat: no-repeat;
+}
+.audit-process-head4{
+    width: 714px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process4.png");
+    background-repeat: no-repeat;
+}
+.get-entry{
+    width: 100%;
+    margin: 100px auto;
+}
+.get-entry-span{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #FF0000;
+}
+.contact-us{
+    width: 100%;
+    margin: 0 auto;
+}
+.contact-us-h2{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: normal;
+}
+.contact-us-h2 span{
+    color: #FF0000;
+}
+.login-immediately{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+.login-immediately button{
+    width: 190px;
+    height: 50px;
+    background-color: #f0b003;
+    color: #292A2D;
+    font-family: "微软雅黑";
+    font-size: 25px;
+    border: none;
+}
+.register-success{
+    width: 100%;
+    float: left;
+}
+.tab1-register{
+    margin-top: 20px;
+}
+.submit-success{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.submit-success-span{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #292A2D;
+}
+.view-progress{
+    width: 100%;
+    float: left;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.view-progress-btn{
+    padding: 20px;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: bold;
+    color: #292A2D;
+    background-color: #f0b003;
+}
+.page-makerregister .am-form-file input[type="file"]{
+    left: 240px;
+    top:20px;
+    width: 87px;
+    height: 37px;
+}
+.tab3-content{
+    margin-top: 0!important;
+}
+.tab3-content .process-code-none{
+    margin-left: 72px;
+}
+.process-uploading{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.process-uploading .am-btn{
+    float: none;
+}
+.process-uploading .am-form-group{
+    height: auto;
+}
+
+.process-uploading-list{
+    width: 600px;
+    height: 120px;
+    float: left;
+    border: 1px solid #292A2D;
+    padding: 10px;
+    margin-left: -44px;
+}
+.uploading-list-block{
+    float: left;
+    margin-right: 19px;
+}
+.uploading-list-block5{
+    float: left;
+}
+
+.project-description{
+    width: 100%;
+    float: left;
+    margin-top: 14px;
+}
+.project-description-title{
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+.project-description-content{
+    width: 100%;
+    float: left;
+}
+.project-description-content textarea{
+    width:  600px;
+    height: 100px;
+    max-width: 600px;
+    max-height: 100px;
+    margin-left: -44px;
+    text-indent: 10px;
+    border: 1px solid #292A2D;
+}
+
+.process-btn{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+.process-btn button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid #292A2D;
+    font-size: 20px;
+    color: #f0b003;
+    background-color: #292A2D;
+    border-radius: 5px;
+}
+.am-form-group .selarea{
+    width: 83px;
+}
+.am-form-group.chinaarea select,
+.am-form-group.chinaarea span{
+    float: left;
+}
+
+
+
+
+
+@media all and (max-width: 750px){
+    #settings-content{
+        width: 100%;
+    }
+    .am-nav-tabs > li{
+        width: 45%;
+    }
+    #user-nav{
+        background-image: url("../images/member-directbg.png")!important;
+    }
+    .process-head1{
+        width: 95%;
+        background-size: contain;
+    }
+    .process-head2{
+        width: 95%;
+        background-size: contain;
+    }
+    .process-body{
+        width: 90%;
+        margin: 0 5%;
+    }
+    .process-body .am-btn{
+        width: 52%;
+    }
+    .process-label{
+        width: 80%;
+        margin-left: 0;
+    }
+    .process-tel-none{
+        width: 100%!important;
+    }
+    .process-code-none{
+        width: 50%!important;
+        margin-left: 0;
+    }
+    .input-span-btn{
+        width: 50%;
+    }
+    .input-span-btn .yan-zheng-btn{
+        width: 100%;
+    }
+    .tab1-register{
+        margin-top: 0;
+        width: 100%;
+    }
+    .tab1-register .am-form-group{
+        margin-bottom: 0;
+    }
+    .tab1-register-left{
+        width: 100%;
+    }
+    .tab1-register-right{
+        width: 100%;
+    }
+    .am-form select, .am-form textarea, .am-form input[type="text"], .am-form input[type="password"], .am-form input[type="datetime"], .am-form input[type="datetime-local"], .am-form input[type="date"], .am-form input[type="month"], .am-form input[type="time"], .am-form input[type="week"], .am-form input[type="number"], .am-form input[type="email"], .am-form input[type="url"], .am-form input[type="search"], .am-form input[type="tel"], .am-form input[type="color"], .am-form-field{
+        font-size: 1.4rem;
+    }
+    .tab1-register .am-form-group .selarea{
+        width: 25%;
+    }
+    .am-form input.upload-permit-span{
+        width: 65%;
+        font-size: 14px;
+    }
+    .am-btn{
+        width: 35%;
+        padding: 0;
+        height: 100%;
+    }
+    .tab3-content .process-code-none{
+        margin-left: 0;
+    }
+    .process-uploading-list{
+        width: 100%;
+        margin-left: 0;
+        height: auto;
+    }
+    .uploading-list-block5{
+        width: 32%;
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+    .uploading-list-block{
+        width: 32%;
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+    .uploading-list-block img{
+        width: 100%;
+        height: 100%;
+        max-width: 88px;
+    }
+    .uploading-list-block5 img{
+        width: 100%;
+        height: 100%;
+        max-width: 88px;
+    }
+    .project-description-content textarea{
+        width: 100%;
+        margin-left: 0;
+    }
+    .process-btn button{
+        width: 100%;
+    }
+    #user-header{
+        margin-top: 52px;
+    }
+    fieldset{
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .am-nav-tabs > li {
+        width: 18%;
+        margin-left: 6%;
+    }
+    #settings-content{
+        width: 100%;
+    }
+    .am-form-group{
+        height: auto;
+    }
+    .am-form-group .selarea{
+        width: 60%;
+        margin-bottom: 5px;
+    }
+    .am-form input.upload-permit-span{
+        width: 65%;
+        font-size: 14px;
+    }
+    .am-btn{
+        width: 35%;
+    }
+    .tab1-register{
+        width: 100%;
+    }
+    .tab1-register-left{
+        width: 50%;
+    }
+    .tab1-register-right{
+        width: 50%;
+    }
+    .process-body{
+        width: 90%;
+        margin: 0 5%;
+    }
+    .process-uploading-list{
+        width: 100%;
+        margin-left: 0;
+        height: auto;
+    }
+    .uploading-list-block5{
+        width: 32%;
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+    .uploading-list-block{
+        width: 32%;
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+    .uploading-list-block img{
+        width: 100%;
+        height: 100%;
+        max-width: 88px;
+    }
+    .uploading-list-block5 img{
+        width: 100%;
+        height: 100%;
+        max-width: 88px;
+    }
+    .project-description-content textarea{
+        width: 100%;
+        margin-left: 0;
+    }
+    .process-btn button{
+        width: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,261 @@
+#makercomments-ul{
+    border: none;
+}
+#makercomments-ul li{
+    width: 100%;
+    margin: 0;
+    border: none;
+}
+#makercomments-ul a{
+    font-size: 28px;
+    border: none;
+}
+#makercomments-ul .am-active a{
+    background-color: #292A2D;
+    color: #f0b003;
+}
+#tab1-content{
+    margin-top: 30px;
+    padding: 0 20px;
+}
+#tab1-comments{
+    width: 100%;
+    float: left;
+}
+#tab2-comments{
+    width: 100%;
+    float: left;
+}
+.makercomments-mine{
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+}
+.makercomments-head{
+    width: 18%;
+    float: left;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#tab1{
+    padding: 0;
+}
+.makercomments-content{
+    width: 55%;
+    float: left;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+.makercomments-content-spanlg{
+    font-size: 22px;
+}
+.makercomments-content-spansm{
+    font-size: 18px;
+    display: block;
+}
+.makercomments-right{
+    width: 15%;
+    float: right;
+    text-align: right;
+    margin-top: 65px;
+    padding-right: 60px;
+}
+.makercomments-right a{
+    width: 23px;
+    height: 36px;
+    float: right;
+    background-image: url("../images/right-arrow.png");
+    background-repeat: no-repeat;
+}
+.makercomments-time{
+    width: 50%;
+    float: right;
+    text-align: right;
+    padding-right: 30px;
+}
+.makercomments-time-span{
+    font-size: 18px;
+    color: #80828a;
+}
+.makercomments-btn{
+    width: 100%;
+    float: left;
+    padding-right: 108px;
+    margin-top: 32px;
+}
+.makercomments-btn-del{
+    float: right;
+    background-image: url("../images/makercomments-del.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    margin-right: 100px;
+    cursor: pointer;
+}
+.makercomments-btn-reply{
+    float: right;
+    background-image: url("../images/makercomments-reply.png");
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+}
+.makercomments-reply{
+    width: 80%;
+    float: left;
+    text-align: left;
+    padding-left: 30px;
+    margin-top: 28px;
+    margin-bottom: 30px;
+}
+.makercomments-reply-span{
+    font-size: 20px;
+}
+
+.tab4-goods-evaluate{
+    width: auto;
+    margin-top: 34px;
+    margin-right: 1%;
+    float: right;
+}
+.tab4-goods-evaluate button{
+    width: 90px;
+    height: 30px;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+.tab1-goods-img1 {
+    width: 15.5%;
+    float: left;
+    margin-left: 40px;
+}
+.tab1-goods-declare1 {
+    width: 20%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+.tab1-goods-gettime {
+    width: 31%;
+    float: right;
+    text-align: center;
+}
+.tab-declare-span-sm {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.gettime-span-sm {
+    font-size: 14px;
+}
+.give-a-mark {
+    width: 80%;
+    float: left;
+    margin-left: 40px;
+    text-align: left;
+    margin-top: 20px;
+}
+.give-a-mark-span {
+    font-size: 14px;
+    font-family: "微软雅黑";
+    float: left;
+    line-height: 30px;
+    margin-right: 8px;
+}
+.red-starico {
+    color: #FF0000;
+    font-size: 14px;
+    font-style: normal;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+.give-a-remark {
+    width: 80%;
+    float: left;
+    margin-left: 40px;
+    text-align: left;
+}
+.give-a-remark textarea {
+    width: 600px;
+    height: 140px;
+    max-width: 600px;
+    max-height: 140px;
+    border-radius: 5px;
+}
+.anonymous-comments {
+    width: 20%;
+    float: left;
+    margin-left: 40px;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+.anonymous-comments input {
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+}
+.add-a-comment {
+    width: 12%;
+    margin: 0 auto;
+    margin-top: 10px;
+    float: right;
+    margin-right: 300px;
+}
+.add-a-comment button {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #292A2D;
+    color: #f0b003;
+    border-radius: 5px;
+    border: none;
+}
+#default-demo {
+    width: 170px!important;
+}
+
+
+
+@media all and (min-width: 641px){
+    #my-confirm{
+        margin-left: 86px;
+    }
+}
+
+
+
+
+@media all and (max-width: 750px){
+    .makercomments-head{
+        width: auto;
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    .makercomments-content{
+        width: auto;
+        margin: 0;
+    }
+    .makercomments-time{
+        width: auto;
+        padding-right: 20px;
+    }
+}
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .makercomments-head{
+        width: auto;
+    }
+    .makercomments-content{
+        width: 70%;
+    }
+}
+
+
+
+
+

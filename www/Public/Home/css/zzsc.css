@@ -1,0 +1,128 @@
+.icon-large {
+    width: 220px;
+    height: 220px;
+    border-radius: 38px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.icon-clock {
+    overflow: hidden;
+    background-image: url("../images/clock.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.clock {
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+#hour {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #303030;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -7px;
+    margin-left: -7px;
+}
+#hour:before, #hour:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+#hour:before {
+    width: 8px;
+    height: 45px;
+    border-radius: 4px;
+    background: #ccc;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+#min {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #303030;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+#min:before, #min:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+#min:before {
+    width: 6px;
+    height: 55px;
+    border-radius: 4px;
+    background: #fff;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+#sec {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #dd3e1c;
+    border: 2px solid #e13e1b;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -4px;
+    margin-left: -2px;
+}
+#sec:before, #sec:after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+#sec:before {
+    width: 2px;
+    height: 76px;
+    border-radius: 4px;
+    background: #e13e1b;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}

@@ -1,0 +1,358 @@
+    <extend name="Base/common"/>
+    <block name="style">
+        <link href="__CSS__/member-center.css" rel="stylesheet">
+        <link href="__CSS__/supplierproductclass.css" rel="stylesheet">
+    </block>
+    <block name="javascript">
+        <script type="text/javascript" src="__JS__/size-color.js"></script>
+        <script type="text/javascript" src="__JS__/piccanvas-detail.js"></script>
+        <script src='__JS__/jquery.gridly.js' type='text/javascript'></script>
+        <script src='__JS__/productimgadd.js' type='text/javascript'></script>
+    </block>
+
+    <block name="side"></block>
+
+    <block name="body">
+    <div id="content-layout">
+    <div class="return-center">
+
+    </div>
+    <div class="paddingcontent">
+    <div class="producatadd-content2">
+    <div class="productadd-head">
+        <span class="fill-in-goods">填写宝贝信息</span>
+        <span class="must-fill-in"><i class="must-fill-star">*</i>表示该项必填</span>
+    </div>
+    <div class="productadd-left">
+        <span class="product-information-span">产品信息</span>
+        <span class="class-heading-span">类目：</span>
+        <span class="class-heading-span">{$classify[0].name}>>{$classify[1].name}>>{$classify[2].name}</span>
+        <a class="redact-class-heading" href="/User/supplierproductclass?pid={$productid}">编辑类目</a>
+    </div>
+    <div class="productadd-right">
+    <form action="__SELF__" class="am-form" method="post" data-am-validator>
+    <span class="productadd-article">1.宝贝基本信息</span>
+    <input type="hidden" value="{$classify[2].id}" id="cid" name="cid">
+    <input type="hidden" value="{$uid}" id="uid" name="uid">
+    <input type="hidden" value="{$productid}" id="productid" name="productid">
+    <div class="am-form-group">
+        <label class="product-label" for="name">
+            <i class="must-fill-star">*</i>宝贝标题:
+        </label>
+        <input type="text" id="name" name="name" class="product-input" value="{$info['name']}" placeholder="请输入宝贝标题" required />
+    </div>
+    <div class="am-form-group">
+        <label class="product-label" for="simcomment">
+            <i class="must-fill-star">*</i>简单描述:<p>(最多60个字)</p>
+        </label>
+        <textarea id="simcomment" name="simcomment" class="product-simcomment" rows="3" maxlength=60 placeholder="请输入简单描述" required >{$info['simcomment']}</textarea>
+    </div>
+    <div class="am-form-group">
+        <label class="product-label">
+            宝贝图片:
+        </label>
+        <div class="goods-attribute-content3">
+            <div class="am-form-group">
+                <div class="am-form-botton">
+                    <button type="button" class="am-btn am-btn-danger am-btn-sm" id="mypicture" onclick="showdiag1('product')">
+                        <i class="am-icon-image"></i> 我的图片库</button>
+                </div>
+            </div>
+            <div class="pic-comments">图片尺寸必须为1024x768，仅支持JPG、PNG、JPEG格式，文件小于1M</div>
+            <div class="am-form-group">
+                <div class="picture-content">
+                    <section class='example'>
+                        <div class='gridly'>
+                            <volist name="info.images" id="voimgmain">
+                            <div class='brick small'>
+                            <a class='delete' href='#'>&times;</a>
+                            <img id="img[]" src="{$voimgmain}">
+                            <input type="hidden" id="mainpid[]" name="mainpid[]" value="{$key}"/>
+                            </div>
+                            </volist>
+                            <for start='1' end="$emptyimgcnt">
+                            <div class='brick small'>
+                            <a class='delete' href='#'>&times;</a>
+                            </div>
+                            </for>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <notempty name="speclist">
+    <div class="goods-attribute-spec">
+        <label class="product-label">
+            宝贝规格:
+        </label>
+        <div class="goods-attribute-content3">
+            <div class="productspeccheck">
+                <volist name="speclist" id="vo">
+                <div class="am-g">
+                    <h3>{$vo.name}：</h3>
+                    <div class="specvalcheck" id="spec-{$vo.sid}">
+                    <volist name="vo.value" id="voval">
+                    <label class="am-checkbox">
+                      <input type="checkbox" id="{$vo.sid}_{$voval.vid}" value="{$voval.name}" onclick="addspecprice()" <if condition="$prodspecslist[$vo['sid'].'_'.$voval['vid']] eq 1">checked="checked"</if>data-am-ucheck> {$voval.name}
+                    </label>
+                    </volist>
+                    </div>
+                    <button type="button" class="am-btn am-btn-success" onclick="custspecadd({$vo.sid})">自定义</button>
+                </div>
+                </volist>
+            </div>
+            <script type="text/javascript">
+                function custspecadd(sid){
+                    var divspc=$('#spec-'+sid);
+                    if(sid=='' || sid=='0'){
+                        alert('您要添加的规格不存在，不能添加规格值');
+                        return false;
+                    }else{
+                        $('#my-custspec .am-modal-btn.ok').attr('id',sid);
+                        $('#my-custspec').modal({closeViaDimmer: 0});
+                    }
+                };
+                $(function(){
+                    $('#my-custspec .am-modal-btn.cancel').on('click',function(){
+                        $('#my-custspec').modal('close');
+                    });
+                    $('#my-custspec .am-modal-btn.ok').on('click',function(){
+                        var sid=$(this).attr('id');
+                        var divspc=$('#spec-'+sid);
+                        var newname=$.trim($('#inputcust').val());
+                        var isexist=false;
+                        if(newname.length==0){
+                            alert('请输入规格值');
+                        }else{
+                            divspc.children('label.am-checkbox').each(function(){
+                                if($(this).children('input[type="checkbox"]').val()==newname){
+                                    isexist=true;
+                                    alert('规格值：'+newname+' 已存在');
+                                }
+                            });
+                            if(!isexist){
+                                var data1={
+                                    sid:sid,
+                                    name:newname,
+                                    uid:$('#uid').val()
+                                };
+                                $.post("cust_specval",{data:data1},
+                                function(data){
+                                    if(data.status){
+                                        var strcheck='<label class="am-checkbox"><input type="checkbox" id="'+sid+'_'+data.vid+'" value="'+newname+'" onclick="addspecprice()">'+newname+'</label>';
+                                        divspc.append(strcheck);
+                                        var obj=divspc.children('label:last-child').children('input[type="checkbox"]');
+                                        obj.uCheck();
+                                    }else{
+                                        alert('添加自定义规格值失败:'+data.info);
+                                    }
+                                },'json');
+                            }
+                        }
+                    });
+                    addspecprice();
+                });
+            </script>
+            <script type="text/javascript">
+                var tmpspecs='<?php echo json_encode($prodspecs) ?>';
+                var prodspecs=eval('(' + tmpspecs + ')');
+            </script>
+            <div class="prompt">请选择规格，并输入相应规格的价格/库存:</div>
+            <div class="am-form-group">
+                <ul id="specprice">
+                    
+                </ul>
+            </div>
+            <script type="text/javascript">
+                function addspecprice(){
+                    var allspecval=new Array();
+                    $("div.specvalcheck").each(function(){
+                        var tmp=new Array();
+                        $(this).find('input[type="checkbox"]').each(function(){
+                            if($(this).is(":checked")){
+                                tmp.push([$(this).attr('id'),$(this).val()]);
+                            }
+                        });
+                        allspecval.push(tmp);
+                    });
+                    var ishavespec=false;
+                    $.each(allspecval,function(key,val){
+                        if(val.length>0){
+                            ishavespec=true;
+                            return false;
+                        }
+                    });
+                    if(ishavespec){
+                        $('#div-supprice').hide();
+                        $('#div-inventory').hide();
+                    }else{
+                        $('#div-supprice').show();
+                        $('#div-inventory').show();
+                    }
+                    var selectedkey=new Array();
+                    var index=0;
+                    $.each(allspecval,function(key,val){
+                        var tmp=new Array();
+                        if(selectedkey.length==0){
+                            selectedkey.push(val);
+                            index=index+1;
+                        }else{
+                            if(val.length==0){
+                                selectedkey[index]=selectedkey[index-1];
+                                index=index+1;
+                            }else{
+                                if(selectedkey[index-1].length==0){
+                                    selectedkey.push(val);
+                                }else{
+                                    $.each(val, function(key1, val1) {
+                                        $.each(selectedkey[index-1], function(key2, val2) {
+                                            var gname=val2[1]+'-'+val1[1];
+                                            var gid=val2[0]+'-'+val1[0];
+                                            tmp.push([gid,gname]);
+                                        });
+                                    });
+                                    selectedkey.push(tmp);
+                                }
+                                index=index+1;
+                            }
+                        }
+                    });
+                    var selectedkeyfin=selectedkey[allspecval.length-1];
+                    $("#specprice li").each(function(){
+                        var likey=$(this).attr('id');
+                        var isexist=false;
+                        $.each(selectedkeyfin,function(key,val){
+                            if(val[0]==likey){
+                                isexist=true;
+                            }
+                        });
+                        if(!isexist){
+                            $(this).remove();
+                        }
+                    });
+                    var tbind=20;
+                    $.each(selectedkeyfin,function(key,val){
+                        $("#specprice li").each(function(){
+                            var maxtbind=$(this).children('input[type="text"]').attr('tabindex');
+                            if(maxtbind>tbind){
+                                tbind=maxtbind;
+                            }
+                        });
+                    });
+                    $.each(selectedkeyfin,function(key,val){
+                        var isnotexist=true;
+                        $("#specprice li").each(function(){
+                            var likey=$(this).attr('id');
+                            if(val[0]==likey){
+                                isnotexist=false;
+                            }
+                        });
+                        if(isnotexist){
+                            tbind++;
+                            var tmpind=tbind;
+                            var tmpind1=tmpind+1;
+                            if(prodspecs[val[0]]){
+                                var strli='<li class="specli" id="'+val[0]+'"><span>'+val[1]+'</span><img name="imgprice[]" src="'+prodspecs[val[0]].linkimgpath+'" style="width:56px;height:42px;"><input type="hidden" name="pidprice[]" id="pidprice" value="'+prodspecs[val[0]].linkimg+'"><button type="button" class="am-btn am-btn-danger am-btn-sm" onclick="showdiag2(\'product\',\''+val[0]+'\')"><i class="am-icon-image"></i> 我的图片库</button><input type="text" name="sinventory[]" value="'+prodspecs[val[0]].inventory+'" placeholder="库存" tabindex='+tmpind1+' required onkeyup="value=value.replace(/\\D/g,\'\')" onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/\\D/g,\'\'))"/><input type="text" name="sprice[]" placeholder="价格" value="'+prodspecs[val[0]].supprice+'" tabindex='+tmpind+' required onkeyup="if(isNaN(value))execCommand(\'undo\')" onbeforepaste="if(isNaN(value))execCommand(\'undo\')" /><input type="hidden" name="specgroupprice[]" value="'+val[0]+'"></li>';
+                            }else{
+                                var strli='<li class="specli" id="'+val[0]+'"><span>'+val[1]+'</span><img name="imgprice[]" src="" style="width:56px;height:42px;display:none"><input type="hidden" name="pidprice[]" id="pidprice" value=""><button type="button" class="am-btn am-btn-danger am-btn-sm" onclick="showdiag2(\'product\',\''+val[0]+'\')"><i class="am-icon-image"></i> 我的图片库</button><input type="text" name="sinventory[]" placeholder="库存" tabindex='+tmpind1+' required onkeyup="value=value.replace(/\\D/g,\'\')" onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/\\D/g,\'\'))"/><input type="text" name="sprice[]" placeholder="价格" tabindex='+tmpind+' required onkeyup="if(isNaN(value))execCommand(\'undo\')" onbeforepaste="if(isNaN(value))execCommand(\'undo\')" /><input type="hidden" name="specgroupprice[]" value="'+val[0]+'"></li>';
+                            }
+                            $("#specprice").append(strli);
+                            tbind++;
+                        }
+                    });
+                }
+            </script>
+        </div>
+    </div>
+    </notempty>
+    <div class="am-form-group" id="div-supprice">
+        <label class="product-label" for="supprice">
+            <i class="must-fill-star">*</i>供货价:
+        </label>
+        <input type="text" id="supprice" name="supprice" class="product-input" value="{$info['supprice']}"
+               placeholder="请输入供货价" required  onkeyup="if(isNaN(value))execCommand('undo')"
+               onbeforepaste="if(isNaN(value))execCommand('undo')"/>
+    </div>
+    <div class="am-form-group" id="div-inventory">
+        <label class="product-label" for="inventory">
+            <i class="must-fill-star">*</i>宝贝库存:
+        </label>
+        <input type="text" id="inventory" name="inventory" class="product-input" value="{$info['inventory']}"
+               placeholder="请输入宝贝库存" required  onkeyup="value=value.replace(/\D/g,'')"
+               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>
+    </div>
+    <div class="am-form-group" id="div-weight">
+        <label class="product-label" for="weight">
+            <i class="must-fill-star">*</i>重量-公斤(每数量单位，可精确到2位小数):
+        </label>
+        <input type="number" id="weight" name="weight" class="product-input" value="{$info['weight']}"
+               placeholder="请输入宝贝重量" required />
+    </div>
+    <div class="am-form-group" id="div-volume">
+        <label class="product-label" for="volume">
+            <i class="must-fill-star">*</i>体积-立方米(每数量单位，可精确到2位小数):
+        </label>
+        <input type="number" id="volume" name="volume" class="product-input" value="{$info['volume']}"
+               placeholder="请输入宝贝体积" required />
+    </div>
+    <div class="am-form-group">
+        <label class="product-label" for="detailimg">
+            <i class="must-fill-star">*</i>详情描述:<span>(以图片形式展示，要求最大宽度1200px)</span>
+        </label>
+        <div class="am-form-botton">
+            <button type="button" class="am-btn am-btn-danger am-btn-sm" id="detailcomimg" onclick="showdiag3()">
+                <i class="am-icon-image"></i> 我的图片库</button>
+        </div>
+        <input type="hidden" name="detailimgid" id="detailimgid" value="{$info['detailpid']}">
+        <img src="{$info['detailpath']}" id="detailimg" name="detailimg" required>
+    </div>
+    
+    <div class="fa-bu-btn">
+        <button>提交修改</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="my-custspec">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">请输入自定义规格值名称：</div>
+        <div class="am-modal-bd">
+          <input type="text" class="am-modal-prompt-input" id="inputcust" value="">
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn cancel">取消</span>
+          <span class="am-modal-btn ok">确定</span>
+        </div>
+      </div>
+    </div>
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="pic-uploading">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">正在上传中...</div>
+        <div class="am-modal-bd">
+          <span class="am-icon-spinner am-icon-spin"></span>
+        </div>
+      </div>
+    </div>
+    <div class="am-popup" tabindex="-1" id="picturedialog">
+      <div class="am-popup-inner">
+        <div class="am-popup-hd">我的图片库
+          <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+          <div class="error"></div>
+        </div>
+        <div class="am-popup-bd">
+            <div class="diagtop">
+            </div>
+            <div class="picturedialog-all">
+                <span class="am-icon-spinner am-icon-spin"></span>
+                <ul>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+    </block>

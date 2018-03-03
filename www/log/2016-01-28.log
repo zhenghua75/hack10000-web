@@ -1,0 +1,118 @@
+2016-01-28 14:48:20, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[504]------ 
+ =====签名报文开始====== 
+2016-01-28 14:48:20, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[510]------ 
+ 签名key=val&...串 >accessType=0&backUrl=http://www.hack10000.com/Unionpay/notify&bizType=000201&certId=69794759496&channelType=07&currencyCode=156&encoding=utf-8&frontUrl=http://www.hack10000.com/Unionpay/usernotify&merId=898530173920218&orderId=10002713&signMethod=01&txnAmt=3500&txnSubType=01&txnTime=20160128144820&txnType=01&version=5.0.0 
+2016-01-28 14:48:20, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[513]------ 
+ 摘要sha1x16 >9ca9f77afa98d0052568cf74692c278f1b982e7d 
+2016-01-28 14:48:20, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[523]------ 
+ 签名串为 >GJsX/lFYtiMLGJYRWMHcaAb5fmdfX4uUw3NiZzzFJ3aAu5kyzF89dxBWlJ2FDkaKsCGRP9HpTgzWTbjg2zlETzecZruU7I0A25dvsalwTLGkHxPgHIwXRUiOclNzCiPfqGmmnFVJ5iKNORbSOmD+qE6+7P+9iGfLOUkYAtApun90AWPFt3RfyjvO2gl2hn2OkaMNljvaKi3iEknjIouHc0hu79HrdabxtBrm0CxVozbCgrRBCV8PtU4tH/pKXWHm1U8QJtX9D2kbK8aBQKH1A1YitD/fOfG8+6Ra9L3hcXDhj+ZJ0s6UBHBizOjnpW5pYOYKxjmyTUU08Nyi0cVpZg== 
+2016-01-28 14:48:20, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[528]------ 
+ =====签名报文结束====== 
+2016-01-28 14:57:53, INFO, 140.207.168.56, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[401]------ 
+ {"accessType":"0","bizType":"000201","certId":"69597475696","currencyCode":"156","encoding":"utf-8","merId":"898530173920218","orderId":"10002713","queryId":"201601281456202480078","respCode":"00","respMsg":"Success!","settleAmt":"1","settleCurrencyCode":"156","settleDate":"0128","signMethod":"01","traceNo":"248007","traceTime":"0128145620","txnAmt":"1","txnSubType":"01","txnTime":"20160128145620","txnType":"01","version":"5.0.0","signature":"rZcizB\/Hwh1BxgbM1e0A8kpfC695HA4OYF1tirwQQpvoLZpLWNsBYg0a9twDA5KQDcjrQBisq1tqsAW\/rarF3lT\/FpPqz\/ZasjGl8qc7LFBVnml9XKMI2Siqrhp5IHH\/neL2UKfSb6YzAztHfctJBzPZiG5uNUnkJlibFzxRFOJHIg5my9q3SkPP\/K5qqRSpj2MrecCqxkI\/OFinP7D7PBjfbi0oGKFwa1zdzqIoc1mkA1uWUKPlS+nmnZlQ7vHA0Fpx0hO4z3LhwSFY4+p9KdgORDcdPk5IhpYpUhmF9hiErAfDhMEDuzAyrN1CJbKge8ml6BSVtr9z9N0lJeQkCQ=="} 
+2016-01-28 14:57:56, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[564]------ 
+ 报文返回的证书ID>69597475696 
+2016-01-28 14:57:56, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[567]------ 
+ 验证签名证书目录 :>/alidata/www/hack10000/www/Public/certs/ 
+2016-01-28 14:57:56, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[577]------ 
+ 加载验签证书成功 
+2016-01-28 14:57:56, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[546]------ 
+ 报文去[signature] key=val&串>accessType=0&bizType=000201&certId=69597475696&currencyCode=156&encoding=utf-8&merId=898530173920218&orderId=10002713&queryId=201601281456202480078&respCode=00&respMsg=success&settleAmt=1&settleCurrencyCode=156&settleDate=0128&signMethod=01&traceNo=248007&traceTime=0128145620&txnAmt=1&txnSubType=01&txnTime=20160128145620&txnType=01&version=5.0.0 
+2016-01-28 14:57:56, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[550]------ 
+ 摘要shax16>fb842e4ee1347b2673890f1db6c2c9b8949645fa 
+2016-01-28 14:57:56, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[552]------ 
+ 验签成功 
+2016-01-28 15:01:09, INFO, 140.207.168.56, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[401]------ 
+ {"accessType":"0","bizType":"000201","certId":"69597475696","currencyCode":"156","encoding":"utf-8","merId":"898530173920218","orderId":"10002713","queryId":"201601281456202480078","respCode":"00","respMsg":"Success!","settleAmt":"1","settleCurrencyCode":"156","settleDate":"0128","signMethod":"01","traceNo":"248007","traceTime":"0128145620","txnAmt":"1","txnSubType":"01","txnTime":"20160128145620","txnType":"01","version":"5.0.0","signature":"rZcizB\/Hwh1BxgbM1e0A8kpfC695HA4OYF1tirwQQpvoLZpLWNsBYg0a9twDA5KQDcjrQBisq1tqsAW\/rarF3lT\/FpPqz\/ZasjGl8qc7LFBVnml9XKMI2Siqrhp5IHH\/neL2UKfSb6YzAztHfctJBzPZiG5uNUnkJlibFzxRFOJHIg5my9q3SkPP\/K5qqRSpj2MrecCqxkI\/OFinP7D7PBjfbi0oGKFwa1zdzqIoc1mkA1uWUKPlS+nmnZlQ7vHA0Fpx0hO4z3LhwSFY4+p9KdgORDcdPk5IhpYpUhmF9hiErAfDhMEDuzAyrN1CJbKge8ml6BSVtr9z9N0lJeQkCQ=="} 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[504]------ 
+ =====签名报文开始====== 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[510]------ 
+ 签名key=val&...串 >accessType=0&backUrl=http://www.hack10000.com/Unionpay/notify&bizType=000201&certId=69794759496&channelType=08&currencyCode=156&encoding=utf-8&frontUrl=http://www.hack10000.com/Unionpay/usernotify&merId=898530173920218&orderId=1000272154&signMethod=01&txnAmt=1&txnSubType=01&txnTime=20160128150352&txnType=01&version=5.0.0 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[513]------ 
+ 摘要sha1x16 >99229ad6b0fcdab453423b3d42d5a7965b4a53d4 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[523]------ 
+ 签名串为 >b8CIYiQMni1QXHsz8ioz64dIXK3ZcjFsEpt0xdps/4EigZdy4RsDpgbl0KJj/QfmRWYLUYbwe0yR0pdrRG293HgQpOG/ILralvZOqGaSF2eD6fq60m/kEhYi4B3CnrR79UClyg1yUFAx1RKbpCZYhLqG+EsumOWyzFkU8x4FEDPpN++QwvINB8vnd1LErxqKdvMKTb1oPY0ZdJtHkIGb+XpN5a2hgislTGOmP7cCUEnIOKKz82IpMj4QCqw4ccJUGtG46PWTE9a1p8pm+xuqzWN50wcwuhXHfWSvnEDfmMb7+Q8mhFSBVMiesgbyHEUGddALjA2GOO0YzgBWG8kgHA== 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[528]------ 
+ =====签名报文结束====== 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[292]------ 
+ 后台请求地址为>https://gateway.95516.com/gateway/api/appTransReq.do 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[299]------ 
+ 后台返回结果为>accessType=0&bizType=000201&certId=69597475696&encoding=utf-8&merId=898530173920218&orderId=1000272154&respCode=00&respMsg=成功[0000000]&signMethod=01&tn=201601281459248277308&txnSubType=01&txnTime=20160128150352&txnType=01&version=5.0.0&signature=TBRm5sTe8ywYBGfSkIkR4yv/pgd6fdMU8xWQ2FkRExHXBI2sp1XSfgGGVZ9BHNci8QOnTjXXxdcwiONjmnK/TfIuk7DmbTzQ3hJ9z40DqRxN2M++zbs4cCoOEnqa6scF0ZwBNi7HM9rVMg7yB/s42wttLr0ncGJ6zCJTY0EmwY8QUZM01EoMzIxNIvh5ZcmGJQmnNZ85RWVzANR81oZFbxCRVBGj9fnj+JveTBnOlaZ8xl8eO6fFHNt6q1DAa/G0WZYyJpXHEgOql37B/oIMHmmAhz6pD+mJDTV816mohLin771w6W8W92fpIBITE/sCWqZdVx9HEUH2/4i+U4mJIg== 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1092]------ 
+ ============= 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1093]------ 
+ 地址：https://gateway.95516.com/gateway/api/appTransReq.do 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1094]------ 
+ 请求：version=5.0.0&amp;encoding=utf-8&amp;txnType=01&amp;txnSubType=01&amp;bizType=000201&amp;signMethod=01&amp;channelType=08&amp;accessType=0&amp;currencyCode=156&amp;merId=898530173920218&amp;certId=69794759496&amp;frontUrl=http%3A%2F%2Fwww.hack10000.com%2FUnionpay%2Fusernotify&amp;backUrl=http%3A%2F%2Fwww.hack10000.com%2FUnionpay%2Fnotify&amp;orderId=1000272154&amp;txnTime=20160128150352&amp;txnAmt=1&amp;signature=b8CIYiQMni1QXHsz8ioz64dIXK3ZcjFsEpt0xdps%2F4EigZdy4RsDpgbl0KJj%2FQfmRWYLUYbwe0yR0pdrRG293HgQpOG%2FILralvZOqGaSF2eD6fq60m%2FkEhYi4B3CnrR79UClyg1yUFAx1RKbpCZYhLqG%2BEsumOWyzFkU8x4FEDPpN%2B%2BQwvINB8vnd1LErxqKdvMKTb1oPY0ZdJtHkIGb%2BXpN5a2hgislTGOmP7cCUEnIOKKz82IpMj4QCqw4ccJUGtG46PWTE9a1p8pm%2BxuqzWN50wcwuhXHfWSvnEDfmMb7%2BQ8mhFSBVMiesgbyHEUGddALjA2GOO0YzgBWG8kgHA%3D%3D 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1095]------ 
+ 应答：accessType=0&amp;bizType=000201&amp;certId=69597475696&amp;encoding=utf-8&amp;merId=898530173920218&amp;orderId=1000272154&amp;respCode=00&amp;respMsg=成功[0000000]&amp;signMethod=01&amp;tn=201601281459248277308&amp;txnSubType=01&amp;txnTime=20160128150352&amp;txnType=01&amp;version=5.0.0&amp;signature=TBRm5sTe8ywYBGfSkIkR4yv/pgd6fdMU8xWQ2FkRExHXBI2sp1XSfgGGVZ9BHNci8QOnTjXXxdcwiONjmnK/TfIuk7DmbTzQ3hJ9z40DqRxN2M++zbs4cCoOEnqa6scF0ZwBNi7HM9rVMg7yB/s42wttLr0ncGJ6zCJTY0EmwY8QUZM01EoMzIxNIvh5ZcmGJQmnNZ85RWVzANR81oZFbxCRVBGj9fnj+JveTBnOlaZ8xl8eO6fFHNt6q1DAa/G0WZYyJpXHEgOql37B/oIMHmmAhz6pD+mJDTV816mohLin771w6W8W92fpIBITE/sCWqZdVx9HEUH2/4i+U4mJIg== 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1096]------ 
+ ============= 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[564]------ 
+ 报文返回的证书ID>69597475696 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[567]------ 
+ 验证签名证书目录 :>/alidata/www/hack10000/www/Public/certs/ 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[577]------ 
+ 加载验签证书成功 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[546]------ 
+ 报文去[signature] key=val&串>accessType=0&bizType=000201&certId=69597475696&encoding=utf-8&merId=898530173920218&orderId=1000272154&respCode=00&respMsg=成功[0000000]&signMethod=01&tn=201601281459248277308&txnSubType=01&txnTime=20160128150352&txnType=01&version=5.0.0 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[550]------ 
+ 摘要shax16>2cf4b046914827207afc7158eb1714c9a2223eae 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[552]------ 
+ 验签成功 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[309]------ 
+ 应答报文验签成功<br>
+ 
+2016-01-28 15:03:52, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[315]------ 
+ 成功接收tn：201601281459248277308<br>
+ 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[504]------ 
+ =====签名报文开始====== 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[510]------ 
+ 签名key=val&...串 >accessType=0&backUrl=http://www.hack10000.com/Unionpay/notify&bizType=000201&certId=69794759496&channelType=08&currencyCode=156&encoding=utf-8&frontUrl=http://www.hack10000.com/Unionpay/usernotify&merId=898530173920218&orderId=1000272154&signMethod=01&txnAmt=1&txnSubType=01&txnTime=20160128150936&txnType=01&version=5.0.0 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[513]------ 
+ 摘要sha1x16 >ed4231f5d61c6f478a0c6ea4826875f36a8fc9d2 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[523]------ 
+ 签名串为 >kaYQFK6ge2uGfEvrhRYPIzjhm9LJmasdAGTULrDoUJKTwb32Jnfj4Yb7yG7MBrFhaLppVQmm5mCuF7X3/h19FOYhBoOUe477ONYsyZX7r44t7aFoD+mSZ/evxrIzdTW3WU9+faeKymef7RPEwGZ3k3lrDmFIPqmaN0C8oD6VAjTnHAI/oew3v662Cw62psKHcJV3Ede3P5wngbY/wMSfUDYoIm1eIQlltqmGTpu8VGAoQ9LJhy6pI2ncjVYxFrPrgvnbU1vShzTCZRLYJ6dndWClau+YIWXeECJV5fBifqC/hfbCa/grxw0lL/ILMX6EplAxqZcr/3ZbKzXtsrjtMQ== 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[528]------ 
+ =====签名报文结束====== 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[292]------ 
+ 后台请求地址为>https://gateway.95516.com/gateway/api/appTransReq.do 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[299]------ 
+ 后台返回结果为>accessType=0&bizType=000201&certId=69597475696&encoding=utf-8&merId=898530173920218&orderId=1000272154&respCode=00&respMsg=成功[0000000]&signMethod=01&tn=201601281459248277308&txnSubType=01&txnTime=20160128150936&txnType=01&version=5.0.0&signature=LPvDiY3Xp8SPq4Ydq/Ojq2B1AOv/CmyP0wS/XNhBdeq2JTbgtjl81d7KH5r1VPtbvWZFkp2Oe08rCJ1129zRHYbmkOwy4mLyu2gxd3dcqy5aR+dHfovb8QpadltC+4VoUWNXvrUuVjZAOtk+VVNNsE3sRDDGheUAQ3z9I5ippRBiihzbm0W8aLgsJgTiB/qsMzclW8dQJyJQsTU7/V4D2hA2sF86VEhGEM5va8thnIjpAN09F4cdV2C1Y6p7fz1LrQKQ/cx8AICHvoqEOb5otRmMvxOsIfVO2I04K4LxT2NvKYGVGHAQfvt9i8N+3fewjkVSFd+AysFKVk83Msrocw== 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1092]------ 
+ ============= 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1093]------ 
+ 地址：https://gateway.95516.com/gateway/api/appTransReq.do 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1094]------ 
+ 请求：version=5.0.0&amp;encoding=utf-8&amp;txnType=01&amp;txnSubType=01&amp;bizType=000201&amp;signMethod=01&amp;channelType=08&amp;accessType=0&amp;currencyCode=156&amp;merId=898530173920218&amp;certId=69794759496&amp;frontUrl=http%3A%2F%2Fwww.hack10000.com%2FUnionpay%2Fusernotify&amp;backUrl=http%3A%2F%2Fwww.hack10000.com%2FUnionpay%2Fnotify&amp;orderId=1000272154&amp;txnTime=20160128150936&amp;txnAmt=1&amp;signature=kaYQFK6ge2uGfEvrhRYPIzjhm9LJmasdAGTULrDoUJKTwb32Jnfj4Yb7yG7MBrFhaLppVQmm5mCuF7X3%2Fh19FOYhBoOUe477ONYsyZX7r44t7aFoD%2BmSZ%2FevxrIzdTW3WU9%2BfaeKymef7RPEwGZ3k3lrDmFIPqmaN0C8oD6VAjTnHAI%2Foew3v662Cw62psKHcJV3Ede3P5wngbY%2FwMSfUDYoIm1eIQlltqmGTpu8VGAoQ9LJhy6pI2ncjVYxFrPrgvnbU1vShzTCZRLYJ6dndWClau%2BYIWXeECJV5fBifqC%2FhfbCa%2Fgrxw0lL%2FILMX6EplAxqZcr%2F3ZbKzXtsrjtMQ%3D%3D 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1095]------ 
+ 应答：accessType=0&amp;bizType=000201&amp;certId=69597475696&amp;encoding=utf-8&amp;merId=898530173920218&amp;orderId=1000272154&amp;respCode=00&amp;respMsg=成功[0000000]&amp;signMethod=01&amp;tn=201601281459248277308&amp;txnSubType=01&amp;txnTime=20160128150936&amp;txnType=01&amp;version=5.0.0&amp;signature=LPvDiY3Xp8SPq4Ydq/Ojq2B1AOv/CmyP0wS/XNhBdeq2JTbgtjl81d7KH5r1VPtbvWZFkp2Oe08rCJ1129zRHYbmkOwy4mLyu2gxd3dcqy5aR+dHfovb8QpadltC+4VoUWNXvrUuVjZAOtk+VVNNsE3sRDDGheUAQ3z9I5ippRBiihzbm0W8aLgsJgTiB/qsMzclW8dQJyJQsTU7/V4D2hA2sF86VEhGEM5va8thnIjpAN09F4cdV2C1Y6p7fz1LrQKQ/cx8AICHvoqEOb5otRmMvxOsIfVO2I04K4LxT2NvKYGVGHAQfvt9i8N+3fewjkVSFd+AysFKVk83Msrocw== 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[1096]------ 
+ ============= 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[564]------ 
+ 报文返回的证书ID>69597475696 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[567]------ 
+ 验证签名证书目录 :>/alidata/www/hack10000/www/Public/certs/ 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[577]------ 
+ 加载验签证书成功 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[546]------ 
+ 报文去[signature] key=val&串>accessType=0&bizType=000201&certId=69597475696&encoding=utf-8&merId=898530173920218&orderId=1000272154&respCode=00&respMsg=成功[0000000]&signMethod=01&tn=201601281459248277308&txnSubType=01&txnTime=20160128150936&txnType=01&version=5.0.0 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[550]------ 
+ 摘要shax16>1c87c8c3661a97014250cceca0634f9cf2385712 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[552]------ 
+ 验签成功 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[309]------ 
+ 应答报文验签成功<br>
+ 
+2016-01-28 15:09:36, INFO, 106.59.234.61, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[315]------ 
+ 成功接收tn：201601281459248277308<br>
+ 
+2016-01-28 15:10:46, INFO, 140.207.168.56, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[401]------ 
+ {"accessType":"0","bizType":"000201","certId":"69597475696","currencyCode":"156","encoding":"utf-8","merId":"898530173920218","orderId":"1000272154","queryId":"201601281509364272078","respCode":"00","respMsg":"Success!","settleAmt":"1","settleCurrencyCode":"156","settleDate":"0128","signMethod":"01","traceNo":"427207","traceTime":"0128150936","txnAmt":"1","txnSubType":"01","txnTime":"20160128150936","txnType":"01","version":"5.0.0","signature":"YyYF6E55NZxlGT0FdjAUfTIPZvNjTslbZu5IM3x7qxA+qfuwGeqzvX9a1ZkFOqdKsp8OHKlI1iz\/68ITx32s4d3rahQSLz2uAtTdQCE2fCJcm0J8HfilWJPboxNMbfs0OwWQkJ+gUX6lzilG3hX8NN9jEsObr\/6ax51QPB95LemuVk2Ak8P2RhgEA\/Ra3179+pExtNt\/We6l5bNEPeQLHDburXk\/ht2EPePKVicV\/igtPXzwo0Uz+qfAIBe98oAs13bNvHuIhookdBFOVBACKyP5C24JkfdSmKTWyDekPA9rznCeRBbW8KVm7z7M75O8GVEGdIax+\/gHkVBwbsk8Ew=="} 
+2016-01-28 15:11:47, INFO, 140.207.168.56, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[401]------ 
+ {"accessType":"0","bizType":"000201","certId":"69597475696","currencyCode":"156","encoding":"utf-8","merId":"898530173920218","orderId":"1000272154","queryId":"201601281509364272078","respCode":"00","respMsg":"Success!","settleAmt":"1","settleCurrencyCode":"156","settleDate":"0128","signMethod":"01","traceNo":"427207","traceTime":"0128150936","txnAmt":"1","txnSubType":"01","txnTime":"20160128150936","txnType":"01","version":"5.0.0","signature":"YyYF6E55NZxlGT0FdjAUfTIPZvNjTslbZu5IM3x7qxA+qfuwGeqzvX9a1ZkFOqdKsp8OHKlI1iz\/68ITx32s4d3rahQSLz2uAtTdQCE2fCJcm0J8HfilWJPboxNMbfs0OwWQkJ+gUX6lzilG3hX8NN9jEsObr\/6ax51QPB95LemuVk2Ak8P2RhgEA\/Ra3179+pExtNt\/We6l5bNEPeQLHDburXk\/ht2EPePKVicV\/igtPXzwo0Uz+qfAIBe98oAs13bNvHuIhookdBFOVBACKyP5C24JkfdSmKTWyDekPA9rznCeRBbW8KVm7z7M75O8GVEGdIax+\/gHkVBwbsk8Ew=="} 
+2016-01-28 15:13:47, INFO, 140.207.168.56, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[401]------ 
+ {"accessType":"0","bizType":"000201","certId":"69597475696","currencyCode":"156","encoding":"utf-8","merId":"898530173920218","orderId":"1000272154","queryId":"201601281509364272078","respCode":"00","respMsg":"Success!","settleAmt":"1","settleCurrencyCode":"156","settleDate":"0128","signMethod":"01","traceNo":"427207","traceTime":"0128150936","txnAmt":"1","txnSubType":"01","txnTime":"20160128150936","txnType":"01","version":"5.0.0","signature":"YyYF6E55NZxlGT0FdjAUfTIPZvNjTslbZu5IM3x7qxA+qfuwGeqzvX9a1ZkFOqdKsp8OHKlI1iz\/68ITx32s4d3rahQSLz2uAtTdQCE2fCJcm0J8HfilWJPboxNMbfs0OwWQkJ+gUX6lzilG3hX8NN9jEsObr\/6ax51QPB95LemuVk2Ak8P2RhgEA\/Ra3179+pExtNt\/We6l5bNEPeQLHDburXk\/ht2EPePKVicV\/igtPXzwo0Uz+qfAIBe98oAs13bNvHuIhookdBFOVBACKyP5C24JkfdSmKTWyDekPA9rznCeRBbW8KVm7z7M75O8GVEGdIax+\/gHkVBwbsk8Ew=="} 
+2016-01-28 15:22:48, INFO, 140.207.168.56, File[ /alidata/www/hack10000/Application/Home/Controller/UnionpayController.class.php ], Line[401]------ 
+ {"accessType":"0","bizType":"000201","certId":"69597475696","currencyCode":"156","encoding":"utf-8","merId":"898530173920218","orderId":"1000272154","queryId":"201601281509364272078","respCode":"00","respMsg":"Success!","settleAmt":"1","settleCurrencyCode":"156","settleDate":"0128","signMethod":"01","traceNo":"427207","traceTime":"0128150936","txnAmt":"1","txnSubType":"01","txnTime":"20160128150936","txnType":"01","version":"5.0.0","signature":"YyYF6E55NZxlGT0FdjAUfTIPZvNjTslbZu5IM3x7qxA+qfuwGeqzvX9a1ZkFOqdKsp8OHKlI1iz\/68ITx32s4d3rahQSLz2uAtTdQCE2fCJcm0J8HfilWJPboxNMbfs0OwWQkJ+gUX6lzilG3hX8NN9jEsObr\/6ax51QPB95LemuVk2Ak8P2RhgEA\/Ra3179+pExtNt\/We6l5bNEPeQLHDburXk\/ht2EPePKVicV\/igtPXzwo0Uz+qfAIBe98oAs13bNvHuIhookdBFOVBACKyP5C24JkfdSmKTWyDekPA9rznCeRBbW8KVm7z7M75O8GVEGdIax+\/gHkVBwbsk8Ew=="} 

@@ -1,0 +1,214 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>{:isset($info['product_id'])?'编辑':'新增'}"{$info['name']}"商品信息</h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="wrapleft" style="float:left">
+			<form action="{:U()}" method="post" class="form-horizontal">
+				<div class="form-item">
+					<label class="item-label">
+						状态<span class="check-tips"></span>
+					</label>
+					<div class="controls">
+						<select name="status" id="status">
+						<volist name="statusinfo" id="vo">
+							<option value="{$key}" <if condition="$key eq $info['status']">selected</if>>{$vo}</option>
+						</volist>
+						</select>
+						<input type="hidden" name="product_id" value="{$info.product_id}">
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						栏目<span class="check-tips"></span>
+					</label>
+					<div class="controls">
+						<select name="productpart" id="productpart">
+						<volist name="Think.config.PRODUCTPART" id="vo">
+							<option value="{$key}" <if condition="$key eq $info['productpart']">selected</if>>{$vo}</option>
+						</volist>
+						</select>
+					</div>
+				</div>
+				<empty name='prodspec'>
+				<div id="tab1" class="tab-pane in tab1">
+					<div class="form-item">
+						<label class="item-label">
+							供货价：{$info.supprice}<span class="check-tips"></span>
+						</label>
+						<input type="hidden" name="pricemode" value="0">
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							创客价<span class="check-tips"></span>
+						</label>
+						<div class="controls">
+							<input type="text" class="text input-large" name="hackprice" value="{$info.hackprice|default=''}" >
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							市场价<span class="check-tips"></span>
+						</label>
+						<div class="controls">
+							<input type="text" class="text input-large" name="marketprice" value="{$info.marketprice|default=''}">
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							销售价<span class="check-tips"></span>
+						</label>
+						<div class="controls">
+							<input type="text" class="text input-large" name="price" value="{$info.price|default=''}">
+						</div>
+					</div>
+				</div>
+				<else/>
+				<div class="data-table table-striped">
+					<input type="hidden" name="pricemode" value="1">
+					<table id="priceedit">
+						<thead>
+							<tr>
+								<th>规格组合</th>
+								<th>供货价</th>
+								<th>创客价</th>
+								<th>市场价</th>
+								<th>销售价</th>
+								<th>库存</th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="prodspec" id="vo">
+								<tr>
+									<td>
+										{$vo.groupname}
+										<input type="hidden" name="groupid[]" value="{$vo.group_id}">
+										<input type="hidden" class="groupcode" value="{$vo.specgroup}">
+									</td>
+									<td>{$vo.supprice}</td>
+									<td><input type="text" name="hackprice[]" class="text input-mid hackprice" value="{$vo.hackprice|default=''}"></td>
+									<td><input type="text" name="marketprice[]" class="text input-mid marketprice" value="{$vo.marketprice|default=''}"></td>
+									<td><input type="text" name="price[]" class="text input-mid price" value="{$vo.price|default=''}"></td>
+									<td>{$vo.inventory}</td>
+								</tr>
+							</volist>
+						</tbody>
+					</table>
+				</div>
+				</empty>
+				<div class="form-item">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+		</div>
+		<notempty name='prodspec'>
+		<div class="wrapright" style="float:left;margin-left:30px; width:300px;">
+			<volist name="usespec" id='vodef'>
+			<div class="controls" style="margin-top:15px;">
+				<label class="item-label">{$vodef.name}</label>
+				<select id="def{$key}" style="width:200px;">
+					<option value="0">不限</option>
+				<volist name="vodef.subs" id="voval">
+					<option value="{$key}">{$voval}</option>
+				</volist>
+				</select>
+			</div>
+			</volist>
+			<div class="controls" style="margin-top:15px;">
+				<label class="item-label">创客价</label>
+				<input type="text" id="prehackprice" class="text input-mid" value="">
+			</div>
+			<div class="controls" style="margin-top:15px;">
+				<label class="item-label">市场价</label>
+				<input type="text" id="premarketprice" class="text input-mid" value="">
+			</div>
+			<div class="controls" style="margin-top:15px;">
+				<label class="item-label">销售价</label>
+				<input type="text" id="preprice" class="text input-mid" value="">
+			</div>
+			<div class="controls" style="margin-top:15px;">
+				<button id="preset" class="btn submit-btn ajax-post" onclick="presetprice()">预设置</button>
+			</div>
+		</div>
+		</notempty>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		(function($){
+			/* 实时更新分类信息 */
+			$(".category")
+				.on("submit", "form", function(){
+					var self = $(this);
+					$.post(
+						self.attr("action"),
+						self.serialize(),
+						function(data){
+							/* 提示信息 */
+							var name = data.status ? "success" : "error", msg;
+							msg = self.find(".msg").addClass(name).text(data.info)
+									  .css("display", "inline-block");
+							setTimeout(function(){
+								msg.fadeOut(function(){
+									msg.text("").removeClass(name);
+								});
+							}, 1000);
+						},
+						"json"
+					);
+					return false;
+				})
+                .on("focus","input",function(){
+                    $(this).data('param',$(this).closest("form").serialize());
+
+                })
+                .on("blur", "input", function(){
+                    if($(this).data('param')!=$(this).closest("form").serialize()){
+                        $(this).closest("form").submit();
+                    }
+                });
+		})(jQuery);
+	</script>
+
+	<script type="text/javascript">
+		function presetprice(){
+			var selcon=new Array();
+			var k=0;
+			var prehackprice=$('#prehackprice').val();
+			var premarketprice=$('#premarketprice').val();
+			var preprice=$('#preprice').val();
+			if(prehackprice=='' || premarketprice=='' || preprice==''){
+				alert('请输入预设置价格');
+				return false;
+			}
+			$('.wrapright select').each(function(){
+				var sid=$(this).attr('id');
+				sid=sid.substr(3);
+				if($(this).val()!='0'){
+					selcon[k]=sid+'_'+$(this).val();
+					k=k+1;
+				}
+			});
+			$('#priceedit tbody tr').each(function(){
+				var findres=true;
+				var trcode=$(this).children('td').children('input.groupcode').val();
+				$.each(selcon,function(key,val){
+					var find=trcode.indexOf(val);
+					if(find==-1){
+						findres=false;
+					}
+				});
+				if(findres){
+					$(this).children('td').children('input.hackprice').val(prehackprice);
+					$(this).children('td').children('input.marketprice').val(premarketprice);
+					$(this).children('td').children('input.price').val(preprice);
+				}
+			});
+		}
+	</script>
+</block>
+

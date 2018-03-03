@@ -1,0 +1,50 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>机构</span>
+</div>
+<div class="mgrcenter">
+    <include file="User:supplierleft"/>
+    <div id="settings-content">
+        <div class="am-tabs" data-am-tabs>
+            <div class="am-tabs-bd">
+
+                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                    <div id="tab1-content">
+                        <div class="makerauth-head">
+                            <i></i>
+                            <span>恭喜您，认证成功</span>
+                        </div>
+                        <div class="makerauth-content">
+                            <span>公司名称：{$memberstatus[4].name|mb_substr=0,2,'utf-8'}****</span>
+                            <span>营业执照：{$memberstatus[4].idno|substr=0,6}****{$memberstatus[4].idno|substr=-4,-1}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</block>

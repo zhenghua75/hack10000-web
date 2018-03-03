@@ -1,0 +1,51 @@
+.medal-layout{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+.medal-block{
+    width: 33%;
+    float: left;
+    margin-bottom: 40px;
+    position: relative;
+}
+.medal-block img{
+    width: 100%;
+    max-width: 200px;
+}
+.medal-block span{
+    text-align: center;
+    font-size: 24px;
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+.medal-display{
+    width: 100%;
+    float: left;
+    background: rgba(41,42,45,.8);
+    height: 100%;
+    position: absolute;
+    display: none;
+    top: 0;
+    color: #fff;
+}
+.medal-display span{
+    font-size: 16px;
+}
+.medal-display a{
+    font-size: 16px;
+    color: #FF0000;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+@media all and (max-width: 751px){
+    .medal-block span{
+        font-size: 18px;
+    }
+    .medal-display span{
+        font-size: 15px;
+    }
+}

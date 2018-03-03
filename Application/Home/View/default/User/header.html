@@ -1,0 +1,39 @@
+<div id="user-header">
+    <div class="three-block1">
+        <notempty name="memberstatus[1]">
+            <eq name="memberstatus[1].status" value="1">
+            <a href="{:U('User/makerindex')}" id="ck-end"><div class="disname1">{$memberstatus[1]['name']}</div></a>
+            <else/>
+            <a href="{:U('User/makerregister')}" id="be-ck"></a>
+            </eq>
+        <else/>
+            <notempty name="memberstatus[2]">
+            <eq name="memberstatus[2].status" value="1">
+            <a href="{:U('User/makerindex')}" id="ck-end"><div class="disname1">{$memberstatus[2]['name']}</div></a>
+            <else/>
+            <a href="{:U('User/makerregister')}" id="be-ck"></a>
+            </eq>
+            <else/>
+            <a href="{:U('User/makerregister')}" id="be-ck"></a>
+            </notempty>
+        </notempty>
+    </div>
+    <div class="three-block1">
+        <a href="{:U('User/index')}" id="be-member" style="background-image:none"><img src="{$Think.session.user_auth.portrait_path}"/></a>
+        <a href="{:U('User/index')}" id="member-name">
+            {$Think.session.user_auth.nickname}
+            <img src="__IMG__/member-lv{$Think.session.user_auth.level}.png" alt=""/>
+        </a>
+    </div>
+    <div class="three-block1">
+        <notempty name="memberstatus[4]">
+            <eq name="memberstatus[4].status" value="1">
+            <a href="{:U('User/supplierindex')}" id="sup-end"><div class="disname2">{$memberstatus[4]['name']}</div></a>
+            <else/>
+            <a href="{:U('User/supplierregister')}" id="be-provider"></a>
+            </eq>
+        <else/>
+        <a href="{:U('User/supplierregister')}" id="be-provider"></a>
+        </notempty>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<?php
+    if(C('LAYOUT_ON')) {
+        echo '{__NOLAYOUT__}';
+    }
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>跳转提示</title>
+<style type="text/css">
+.control {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+#logo {
+	position: absolute;
+	top: 0;
+	z-index: 400;
+	height: 90px;
+	background-color: #292A2D;
+}
+*{ padding: 0; margin: 0; }
+body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16px; }
+.system-message{width: 500px;height: 464px;position: absolute; top:50%; left: 50%; margin:-270px 0 0 -250px }
+.system-message h1{ font-size: 100px; font-weight: normal; line-height: 120px; margin-bottom: 12px; }
+.system-message .jump{ padding-top: 10px}
+.system-message .jump a{ color: #333;}
+.system-message .success,.system-message .error{ line-height: 1.8em; font-size: 36px }
+.system-message .detail{ font-size: 24px; line-height: 30px; margin-top: 12px;font-weight: bold;}
+@media all and (max-width: 500px) {
+    .system-message{width:320px;height:320px;margin:-200px 0 0 -160px}
+    .system-message .error img{width:320px;}
+    .system-message .success img{width:320px;}
+}
+</style>
+</head>
+<body>
+<div class="control">
+    <div id="logo">
+        <a href="http://www.hack10000.com"><img src="/Public/Home/images/logo.png" alt="慧爱创客"/></a>
+    </div>
+</div>
+<div class="system-message">
+<p class="error"><img src="<?php echo($imgpath); ?>"></p>
+
+<?php if(isset($message)) {?>
+<p class="detail"><?php echo($message); ?></p>
+<?php }else{?>
+<p class="detail"><?php echo($error); ?></p>
+<?php }?>
+<p class="jump">
+页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+</p>
+</div>
+<script type="text/javascript">
+(function(){
+var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+var interval = setInterval(function(){
+    var time = --wait.innerHTML;
+    if(time <= 0) {
+        location.href = href;
+        clearInterval(interval);
+    };
+}, 1000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makerevent.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <include file="User:header"/>
+            <div id="user-content">
+                <div id="user-nav">
+                    <span>创客时空</span>
+                </div>
+                <div class="mgrcenter">
+                    <include file="User:makerleft"/>
+                    <div id="settings-content">
+                        <div class="am-tabs" data-am-tabs>
+                            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                                <volist name="category" id="vocate">
+                                <li <eq name="i" value="0">class="am-active"</eq>><a href="#tab{$vocate['id']}">{$vocate.title}</a></li>
+                                </volist>
+                            </ul>
+                            
+                            <div class="am-tabs-bd">
+                                <volist name="list" id="vodoclt">
+                                <div class="am-tab-panel am-fade <eq name='i' value='0'>am-in am-active</eq> <empty name='vodoclt'>emptybg</empty>" id="tab{$key}">
+                                    <div id="tab{$key}-content">
+                                        <notempty name="vodoclt">
+                                        <volist name="vodoclt" id="vodoc">
+                                        <div class="event-layout">
+                                            <div class="event-list">
+                                                <div class="event-logo">
+                                                    <if condition="$vodoc['signup'] eq '0'"><img src="__IMG__/event-not-attend.png" alt="未参加"/><elseif condition="$vodoc['signup'] eq '1'"/><img src="__IMG__/event-end-attend.png" alt="进行中"/><else /><img src="__IMG__/event-finish.png" alt="已完成"/></if>
+                                                </div>
+                                                <div class="event-right">
+                                                    <div class="event-name">
+                                                        <span>活动名称：</span>
+                                                        <span>{$vodoc.title}</span>
+                                                        <a href="{:U('Article/detail',array('id'=>$vodoc['id']))}" target="_blank"><if condition="$vodoc['signup'] eq '0'">未参加<elseif condition="$vodoc['signup'] eq '1'"/>进行中<else />已完成</if></a>
+                                                    </div>
+                                                    <div class="event-content">
+                                                        <span>活动内容：</span>
+                                                        <span>{$vodoc.description}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </volist>
+                                        <else/>
+                                        <div class="tab1-goods">
+                                            <if condition="$key eq 2 or $key eq 55 or $key eq 56 or $key eq 57">
+                                                暂时还没有任何活动！
+                                            <else/>
+                                                本栏目活动正在策划中，暂不开放，敬请关注。
+                                            </if>
+                                        </div>
+                                        </notempty>
+                                    </div>
+                                </div>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</block>

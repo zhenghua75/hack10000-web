@@ -1,0 +1,76 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makerhcoin.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+    <div id="user-nav">
+        <span>创客时空</span>
+    </div>
+    <div class="mgrcenter">
+        <include file="User:makerleft"/>
+        <div id="settings-content">
+            <div class="am-tabs" data-am-tabs>
+                <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
+                    <!--<li class="am-active"><a href="#tab1">慧币数量</a></li>-->
+                    <!--<li><a href="#tab2">兑换规则</a></li>-->
+                    <!--<li><a href="#tab3">收支明细</a></li>-->
+                <!--</ul>-->
+
+                <div class="am-tabs-bd">
+
+                    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                        <div id="tab1-content">
+                            {$content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-coin-particulars">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="coin-particulars">
+                <div class="window-particulars-header">
+                    <span>账单详情</span>
+                </div>
+                <div class="window-particulars-body">
+                    <p>已确认收货</p>
+                    <p>-37.25</p>
+                    <p>商品信息<span>加绒加厚长袖打底裙 秋冬保暖暴瘦百搭大码显瘦连衣裙</span></p>
+                    <p>收货地址<span>云南省昆明市高新区科医路59号云大科技</span></p>
+                    <p>物流信息<span>已发货</span></p>
+                    <p>创建时间<span>2015-11-20&nbsp;&nbsp;&nbsp;&nbsp;15:35:24</span></p>
+                    <p>物流单号<span>45789654123125465</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</block>

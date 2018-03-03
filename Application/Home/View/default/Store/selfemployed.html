@@ -1,0 +1,140 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/store.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/the-bd.js"></script>
+</block>
+<block name="side"></block>
+
+<block name="body">
+
+    <div id="banner">
+        <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+            <ul class="am-slides">
+                <volist name="slideshow" id="voslide">
+                <li><a href="{$voslide['linkurl']}" target="_blank"><img src="{$voslide['imagepath']}"/></a></li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <div id="content-layout">
+        <div id="left-layout">
+            <div id="fasten">
+                <div id="leftbar" data-am-sticky="{top:42}">
+                    <ul id="store-list">
+                        <li class="left-nav-list">
+                            <div>
+                                <a href="{:U('Article/eventindex?ca=selfemployed')}" class="list-left" target="_blank">自主创业</a>
+                            </div>
+                        </li>
+                        <volist name='Think.config.PRODUCTPART' id="vopart">
+                            <neq name="key" value="0">
+                                <li class="left-nav-list">
+                                    <div>
+                                        <a href="{:U('Store/index',array('part'=>$key))}" class="list-left">{$vopart}</a>
+                                    </div>
+                                </li>
+                            </neq>
+                        </volist>
+                        <volist name='catelist' id="vocate">
+                            <li class="left-nav-list">
+                                <div>
+                                    <a href="{:U('Store/index',array('cate'=>$vocate['id']))}" class="list-left">{$vocate.name}</a>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <div id="search">
+                        <div id="search-frame">
+                            <input type="search" placeholder="搜索"/>
+                        </div>
+                        <div id="click-go">
+                            <button type="submit">GO</button>
+                        </div>
+                    </div>
+                    <div id="code">
+                        <img src="__IMG__/erweima.png" alt=""/>
+                    </div>
+                    <div id="explain">
+                        <p>扫一扫二维码</p>
+                        <a href="http://www.hack10000.com" target="_blank"><h5>www.hack10000.com</h5></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="centre-layout">
+            <div class="topcate">
+                <div class="am-panel-group" id="accordion">
+                    <volist name="catelist" id="vo1cate" key="k1">
+                        <volist name="vo1cate.subs" id="vo2cate" key="k2">
+                            <div class="am-panel am-panel-default topcate-line">
+                                <div class="am-panel-hd cate2level">
+                                    <a href="{:U('Store/index',array('cate'=>$vo2cate['id']))}" class="am-panel-title">{$vo2cate['name']}</a>
+                                    <i class="am-icon-navicon" data-am-collapse="{parent: '#accordion', target: '#do-not-say-{$vo2cate['id']}'}"></i>
+                                </div>
+                                <div id="do-not-say-{$vo2cate['id']}" class="am-panel-collapse am-collapse <notempty name='catelist[0].subs'><if condition='$k1 eq 1 and $k2 eq 1'>am-in</if><else/><if condition='$k2 eq 1'>am-in</if></notempty> cate3level">
+                                    <div class="am-panel-bd">
+                                        <volist name="vo2cate.subs" id="vo3cate" key="k3">
+                                            <a href="{:U('Store/index',array('cate'=>$vo3cate['id']))}">{$vo3cate['name']}</a>
+                                        </volist>
+                                    </div>
+                                </div>
+                            </div>
+                        </volist>
+                    </volist>
+                </div>
+            </div>
+            <div id="wares">
+                <volist name="_list" id="voprod">
+                    <div class="three-block1">
+                        <a id="{$voprod['id']}" onmouseover="pricedisplay({$voprod['id']})" onmouseleave="pricedisappear({$voprod['id']})" href="{:U('Store/product',array('id'=>$voprod['id']))}">
+                            <div class="wares-flow">
+                                <img src="{$voprod['image']}" alt=""/>
+
+                                <div id="tag6" class="price">
+                                    <p>{$voprod.name}</p>
+                                    <p>{$voprod.desc|mb_substr=0,10,'utf-8'}...</p>
+                                </div>
+                                <div id="caveat6" class="caveat">
+                                    <p>价格：<span class="fuhao">￥</span> <span class="shuzi">{$voprod.defaultdisplayprice}</span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </volist>
+            </div>
+            <!-- 分页 -->
+            <div class="page">
+                {$_page}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('#demo-slider-0').flexslider({
+            playAfterPaused: 8000,
+            pauseOnHover: true,
+            before: function(slider) {
+                if (slider._pausedTimer) {
+                    window.clearTimeout(slider._pausedTimer);
+                    slider._pausedTimer = null;
+                }
+            },
+            after: function(slider) {
+                var pauseTime = slider.vars.playAfterPaused;
+                if (pauseTime && !isNaN(pauseTime) && !slider.playing) {
+                    if (!slider.manualPause && !slider.manualPlay && !slider.stopped) {
+                        slider._pausedTimer = window.setTimeout(function() {
+                            slider.play();
+                        }, pauseTime);
+                    }
+                }
+            }
+            // 设置其他参数
+        })
+    </script>
+
+
+</block>

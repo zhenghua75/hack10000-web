@@ -1,0 +1,70 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makercoupon.css" rel="stylesheet">
+</block>
+<block name="javascript"></block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+    <div id="user-nav">
+        <span>会员</span>
+    </div>
+    <div class="mgrcenter">
+        <include file="User:myleft"/>
+        <div id="settings-content">
+            <div class="am-tabs" data-am-tabs>
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="#tab1">我的优惠券</a></li>
+                </ul>
+                <div class="am-tabs-bd">
+                    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                        <div id="tab1-content">
+                            <div class="discount-coupon">
+                                <div class="discount-coupon-body">
+                                    <volist name="list" id="vocoupon">
+                                    <div class="discount-coupon-body-ticket">
+                                        <div class="<if condition="$vocoupon['tplid'] eq 1">ticket-redleft<elseif condition="$vocoupon['tplid'] eq 2"/>ticket-yellowleft<else/>ticket-blueleft</if>">
+                                            <div class="<if condition="$vocoupon['tplid'] eq 1">ticket-redright<elseif condition="$vocoupon['tplid'] eq 2"/>ticket-yellowright<else/>ticket-blueright</if>">
+                                                <div class="ticket-logo">
+                                                    <img src="{$vocoupon['logopath']}" alt=""/>
+                                                </div>
+                                                <div class="ticket-left">
+                                                    <div class="ticket-name">
+                                                        <span>{$vocoupon['shopname']}</span>
+                                                    </div>
+                                                    <div class="ticket-date">
+                                                        <span>使用期限</span>
+                                                        <span>{$vocoupon['begindate']}至{$vocoupon['enddate']}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ticket-money">
+                                                    <span>{$vocoupon['couponvalue']}</span>
+                                                    <span>元优惠券</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </volist>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</block>

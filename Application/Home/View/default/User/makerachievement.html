@@ -1,0 +1,177 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makerachievement.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <include file="User:header"/>
+            <div id="user-content">
+                <div id="user-nav">
+                    <span>创客时空</span>
+                </div>
+                <div class="mgrcenter">
+                    <include file="User:makerleft"/>
+                    <div id="settings-content">
+                        <div class="am-tabs" data-am-tabs>
+                            <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
+                            <!--<li class="am-active"><a href="#tab1">慧币数量</a></li>-->
+                            <!--<li><a href="#tab2">兑换规则</a></li>-->
+                            <!--<li><a href="#tab3">收支明细</a></li>-->
+                            <!--</ul>-->
+
+                            <div class="am-tabs-bd">
+
+                                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                                    <div id="tab1-content">
+                                        <div class="medal-layout">
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal()" onmouseleave="medaler()">
+                                                    <img src="__IMG__/invitation-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display" onmouseover="medal()" onmouseout="medaler()">
+                                                    <span>创客获得参加慧爱创客官网特定活动的机会，且活动主办方给创客发出官方正式邀请函，这个邀请函就由慧爱官网上传到这类勋章版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">邀请函</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal2()" onmouseleave="medaler2()">
+                                                    <img src="__IMG__/accredit-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display2" onmouseover="medal2()" onmouseout="medaler2()">
+                                                    <span>创客获得参加慧爱创客官网特定活动的机会，且活动主办方给创客颁发参加活动的官方授权书，这个授权书就由慧爱官网上传到这类勋章版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">授权书</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal3()" onmouseleave="medaler3()">
+                                                    <img src="__IMG__/honor-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display3" onmouseover="medal3()" onmouseout="medaler3()">
+                                                    <span>创客获得参加慧爱创客官网特定活动的机会，创客因赛事而获奖，活动主办官方给创客颁发获奖证书，这个获奖证书就由慧爱官网上传到这类勋章版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">获奖证书</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal4()" onmouseleave="medaler4()">
+                                                    <img src="__IMG__/achievement-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display4" onmouseover="medal4()" onmouseout="medaler4()">
+                                                    <span>创客获得参加慧爱创客官网特定活动的机会，活动核心任务就是为具体问题提供解决方案。创客因自己的才华而提交解决方案，解决方案会被活动主办方予以成果签定，最终，给创客颁发官方成果签定书，这个成果签定书就由慧爱官网上传到这类勋章版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">成果鉴定书</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal5()" onmouseleave="medaler5()">
+                                                    <img src="__IMG__/qualification-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display5" onmouseover="medal5()" onmouseout="medaler5()">
+                                                    <span>创客获得参加慧爱创客官网特定活动的机会，创客能参加这类活动正是因为具备一定水准的专业技能、综合能力、优秀人格品质、兴趣爱好特长，长期举办这类活动的官方会给创客颁发资质认证书，这个资质认证书就由慧爱官网上传到这类勋章版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">资质认证书</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal6()" onmouseleave="medaler6()">
+                                                    <img src="__IMG__/thesis-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display6" onmouseover="medal6()" onmouseout="medaler6()">
+                                                    <span>创客在论文专利导航栏板块发表一篇自己的论文，慧爱官网就会上传一枚论文勋章到这版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">论文</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal7()" onmouseleave="medaler7()">
+                                                    <img src="__IMG__/patents-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display7" onmouseover="medal7()" onmouseout="medaler7()">
+                                                    <span>创客在论文专利导航栏板块公布一个自己的专利，慧爱官网就会上传一枚专利勋章到这版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">专利</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal11()" onmouseleave="medaler11()">
+                                                    <img src="__IMG__/love-benefit-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display11" onmouseover="medal11()" onmouseout="medaler11()">
+                                                    <span>创客在慧爱创客平台上参加过各种志愿者服务、爱心公益服务，慧爱官网就会上传一枚勋章到这版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">爱心公益</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal8()" onmouseleave="medaler8()">
+                                                    <img src="__IMG__/innovative-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display8" onmouseover="medal8()" onmouseout="medaler8()">
+                                                    <span>创客在慧爱平台上参与创新实验活动，实现了某种或某几种创新实验，慧爱官网就会上传一枚志愿服务勋章到这版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">创新实验</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal9()" onmouseleave="medaler9()">
+                                                    <img src="__IMG__/practice-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display9" onmouseover="medal9()" onmouseout="medaler9()">
+                                                    <span>创客在慧爱平台上参与了某项或某几项社会实践活动，如果这些社会实践活动中标明可以获得社会实践勋章，慧爱官网就会上传一枚社会实践勋章到这版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">社会实践</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal10()" onmouseleave="medaler10()">
+                                                    <img src="__IMG__/volunteer-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display10" onmouseover="medal10()" onmouseout="medaler10()">
+                                                    <span>创客在慧爱平台上参与了某项或某几项社会实践活动，如果这些社会实践活动中标明可以获得社会实践勋章，慧爱官网就会上传一枚社会实践勋章到这版块之中。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">志愿服务</a></span>
+                                            </div>
+                                            <div class="medal-block">
+                                                <a href="#" onmouseover="medal12()" onmouseleave="medaler12()">
+                                                    <img src="__IMG__/staff-medal-inactive.png" alt=""/>
+                                                </a>
+                                                <div class="medal-display" id="medal-display12" onmouseover="medal12()" onmouseout="medaler12()">
+                                                    <span>慧爱创客颁发给校园高级参谋智囊团高参的一枚身份象征勋章，勋章颁发时长表明高参参加慧爱创客机会策划、设计、制造过程的参政议政工作经历，此枚勋章是高参享有一切权益的通行证。</span>
+                                                    <a href="#">>>详情</a>
+                                                </div>
+                                                <span><a href="#">高级参谋</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</block>

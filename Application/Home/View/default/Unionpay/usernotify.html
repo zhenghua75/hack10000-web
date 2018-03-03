@@ -1,0 +1,48 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/ordersettle.css" rel="stylesheet">
+</block>
+<block name="javascript">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <div id="user-content">
+                <div class="mgrcenter">
+                	<eq name="payedinfo.success" value="1">
+                    <div class="paysuccess">
+                        <i></i>
+                        <span class="sp1">支付成功！</span>
+                        <div class="paysuccess-order">
+                            <span>订单号：{$payedinfo['orderid']}</span>
+                            <span>交易流水：{$payedinfo['payqueryid']}</span>
+                            <span>支付金额：{$payedinfo['amount']}元</span>
+                            <span>交易时间：{$payedinfo['paytime']}</span>
+                        </div>
+                        <div class="paysuccess-btn">
+                            <a href="{:U('User/myorders?status=3')}">查看订单</a>
+                        </div>
+                    </div>
+                    <else/>
+                    <div class="payfail">
+                        <i></i>
+                        <span class="sp1">支付失败！</span>
+                        <div class="payfail-order">
+                            <span>订单号：{$payedinfo['orderid']}</span>
+                            <span>错误信息：{$payedinfo['errorinfo']}</span>
+                        </div>
+                        <div class="payfail-btn">
+                            <a href="{:U('User/myorders?status=0')}">查看订单</a>
+                        </div>
+                    </div>
+                    </eq>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

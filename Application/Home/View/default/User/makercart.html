@@ -1,0 +1,101 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makercart.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+    <script type="text/javascript" src="__JS__/commonop.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>创客时空</span>
+</div>
+<div class="mgrcenter">
+<include file="User:makerleft"/>
+<div id="settings-content">
+<div class="am-tabs" data-am-tabs>
+<ul class="am-tabs-nav am-nav am-nav-tabs">
+    <li class="am-active"><a href="#tab1">全部宝贝</a></li>
+</ul>
+
+<div class="am-tabs-bd">
+
+<div class="am-tab-panel am-fade am-in am-active <empty name='list'>emptybg</empty>" id="tab1">
+    <div id="tab1-content">
+        <form action="{:U('Store/ordersettle')}" method="post" id="formcart">
+        <volist name="list" id="voprod">
+        <div class="tab1-goods" id="wrapprod{$key}">
+            <table class="am-table am-table-bordered am-table-radius">
+                <tr>
+                <td><input type="checkbox" name="cartlist[]" value="{$key}" onclick="calcntamount()" <eq name="voprod.status" value="-1">disabled</eq>/>
+                </td>
+                <td><a href="{:U('Store/product',array('id'=>$voprod['id']))}"><img src="{$voprod['selimage']}" alt=""/></a></td>
+                <td class="name"><span class="tab-declare-span">{$voprod.name}</span></td>
+                <td class="spec"><span class="tab-declare-span">{$voprod.selspecname}</span></td>
+                <td class="price"><span class="tab-declare-span" id="price{$key}">金额：￥{$voprod.selamount}</span><input type="hidden" id="rowamount{$key}" value="{$voprod.selamount}"></td>
+                <td class="count">
+                <div class="tab1-goods-input">
+                    <button class="tab1-goods-minus" id="minus{$key}" onclick="quantityminus({$key},1)" <eq name="voprod.status" value="-1">disabled</eq> <eq name="voprod.selquantity" value="1">disabled</eq>></button>
+                    <input type="text" class="tab1-goods-amount" value="{$voprod.selquantity}" id="quantity{$key}" <eq name="voprod.status" value="-1">disabled</eq>/>
+                    <button href="#" class="tab1-goods-add" id="add{$key}" onclick="quantityadd({$key},1)" <eq name="voprod.status" value="-1">disabled</eq>></button>
+                </div>
+                <eq name="voprod.status" value="-1">
+                <span class="tab1-goods-sold">商品已下架</span>
+                </eq>
+                <lt name="voprod.selinventory" value="$voprod['selquantity']">
+                <span class="tab1-goods-sold invent">库存不足</span>
+                </lt>
+                </td>
+                <td>
+                <button class="tab1-goods-btn-del" onclick="cartdel({$key},1)">删除</button>
+                </td>
+                </tr>
+            </table>
+        </div>
+        </volist>
+        <div class="tab1-goods-all">
+            <div class="tab1-goods-pickall">
+                <input type="checkbox" id="allcheck"> 全选
+            </div>
+            <div class="tab1-goods-declare6">
+                <span class="tab1-goods-total-prices1">您选择了0款商品，总价格：￥0（不含运输费用）</span>
+            </div>
+            <div class="tab1-goods-declare7">
+                <span class="tab1-goods-total-prices2">￥0</span>
+            </div>
+        </div>
+        <div class="tab1-goods-clearing">
+            <button class="tab1-goods-btn-pay" type="submit" <empty name='list'>disabled</empty>>结算</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="waitingfor">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">请等待...</div>
+    <div class="am-modal-bd">
+      <span class="am-icon-spinner am-icon-spin"></span>
+    </div>
+  </div>
+</div>
+</block>

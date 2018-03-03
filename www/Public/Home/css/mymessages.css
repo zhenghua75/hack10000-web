@@ -1,0 +1,393 @@
+.tab1-goods{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+.tab1-goods-img1{
+    width: 10%;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.tab1-goods-explain1{
+    width: 74%;
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+.explain-h4{
+    margin-top: 10px;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.explain-p{
+    font-family: "微软雅黑";
+    font-size: 14px!important;
+    text-indent: 0!important;
+}
+.explain-p a{
+    color: #ff4200;
+}
+#tab1-goods-tel{
+    margin-top: 48px;
+    width: 100%;
+    float: left;
+}
+#tab1-tel-h1{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: normal;
+}
+#tab1-tel-h1 span{
+    color: #ff4200;
+}
+.tab2-goods-explain1{
+    width: 55%;
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+.tab2-good-btn{
+    width: 20%;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.tab2-good-btn a{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    padding: 5px 8px;
+}
+#tab2-content .topbtn{
+    width: 100%;
+    text-align: right;
+}
+.btnlink{
+    border: none;
+    border-radius: 5px;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    padding: 5px 8px;
+}
+
+#settings-content .am-nav-tabs > li{
+    margin-right: -42px;
+}
+
+.tab4-chat-date{
+    width: 10%;
+    float: left;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+.tab4-chat-date h4{
+    margin: 0;
+    line-height: 2.5;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: normal;
+}
+.tab4-chat-head{
+    width: 8%;
+    float: left;
+}
+.tab4-chat-record{
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+.tab4-chat-record span{
+    line-height: 3;
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.tab4-chat-more{
+    width: 10%;
+    float: right;
+    margin-right: 28px;
+}
+.tab4-chat-more a{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color: #000;
+    line-height: 3;
+}
+.tab4-chat-more a:hover{
+    color: #ff2626;
+}
+
+#tab5-content{
+    width: 100%;
+    float: left;
+}
+.estimate-h4{
+    margin-top: 24px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.tab5-chat-more{
+    width: 10%;
+    float: right;
+    margin-right: 28px;
+}
+.tab5-chat-more a{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    color: #000;
+    line-height: 7;
+}
+.tab5-chat-more a:hover{
+    color: #ff2626;
+}
+
+
+.am-modal-no-btn .am-modal-dialog{
+    background-color: #fff;
+    border-radius: 5px;
+}
+.logistics-details{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+.logistics-details span{
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+.logistics-process{
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+.logistics-content{
+    width: 90%;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.logistics-content h2{
+    font-size: 18px;
+    float: left;
+    margin: 0;
+}
+.logistics-content p{
+    margin: 0;
+    float: left;
+    margin-top: 14px;
+}
+.logistics-red-span{
+    color: #FF0000;
+    margin-right: 46px;
+    float: left;
+}
+.logistics-margin-span{
+    margin-right: 46px;
+    float: left;
+}
+.logistics-margin-span2{
+    float: left;
+    width: 42%;
+    margin-right: 46px;
+}
+.delivery-details{
+    width: 90%;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.delivery-details p{
+    margin: 0;
+    margin-bottom: 20px;
+    float: left;
+}
+#messageread .am-popup-bd{
+    text-align: left;
+}
+
+
+
+@media all and (max-width: 750px){
+    #settings-content .am-nav-tabs > li{
+        margin-right: 0;
+    }
+    .tab1-goods-img1{
+        width: auto;
+        margin-left: 10px;
+    }
+    .tab1-goods-explain1{
+        width: auto;
+        height: auto;
+        margin-left: 10px;
+    }
+    .tab2-goods-explain1{
+        width: auto;
+        height: auto;
+        margin-left: 10px;
+    }
+    .tab2-good-btn{
+        width: auto;
+        float: left;
+        margin-left: 10px;
+        margin-top: 0;
+    }
+    .tab4-chat-date{
+        width: auto;
+        margin-left: 10px;
+    }
+    .tab4-chat-head{
+        width: auto;
+    }
+    .tab4-chat-record{
+        width: auto;
+    }
+    .tab4-chat-more{
+        width: auto;
+    }
+    .tab4-chat-record span{
+        line-height: normal;
+    }
+    .tab4-chat-more a{
+        line-height: normal;
+    }
+    /*弹出窗*/
+    .am-modal.am-modal-active{
+        width: 100%!important;
+        margin-left: 0!important;
+        margin-top: 0!important;
+        left: 0;
+        top: 0;
+        min-width: 320px;
+    }
+    .logistics-process{
+        margin-top: 0;
+    }
+    .logistics-process img{
+        width: 100%;
+    }
+    .logistics-content{
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+        font-size: 14px;
+    }
+    .logistics-content h2{
+        font-size: 16px;
+    }
+    .logistics-red-span{
+        margin-right: 25px;
+    }
+    .logistics-margin-span{
+        margin-right: 15px;
+    }
+    .delivery-details{
+        width: 100%;
+        margin-left: 0;
+        font-size: 14px;
+        margin-top: 0;
+    }
+    .logistics-margin-span2{
+        width: auto;
+        margin-right: 0;
+    }
+    .delivery-details p{
+        margin-bottom: 5px;
+    }
+    .am-modal-no-btn .am-modal-dialog{
+        float: left;
+        height: auto!important;
+    }
+    .logistics-details{
+        margin-top: 0;
+    }
+    .logistics-details span{
+        font-size: 16px;
+    }
+    .logistics-content p{
+        margin-top: 5px;
+    }
+}
+
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .tab1-goods-img1{
+        width: auto;
+    }
+    .tab1-goods-explain1{
+        width: 70%;
+        margin-left: 10px;
+    }
+    .tab4-chat-date{
+        width: auto;
+        margin-left: 10px;
+    }
+    .tab4-chat-head{
+        width: auto;
+    }
+    .tab4-chat-record{
+        width: auto;
+    }
+    .tab4-chat-more{
+        width: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

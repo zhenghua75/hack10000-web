@@ -1,0 +1,381 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerregister.css" rel="stylesheet">
+    <link href="__CSS__/supplierregister.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript">
+        var pid="<?php echo $param['province']?>";
+        var cid="<?php echo $param['city']?>";
+        var did="<?php echo $param['district']?>";
+    </script>
+    <script type="text/javascript" src="__JS__/chinacity.js"></script>
+    <script type="text/javascript" src="__JS__/piccanvas.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>注册>>机构>></span>
+</div>
+<div id="settings-content">
+<div class="am-tabs" data-am-tabs id="regtabs">
+<ul class="am-tabs-nav am-nav am-nav-tabs">
+    <!--<li class="am-active"><a href="#tab1">大学生个人创客</a></li>-->
+    <li class="am-active"><a href="#tab1">机构</a></li>
+    <li><a href="#tab2">查看审核进度</a></li>
+</ul>
+
+<div class="am-tabs-bd">
+<notempty name="memberstatus[4]">
+<if condition="$memberstatus[4]['status'] neq 0 AND $memberstatus[4]['status'] neq 2">
+<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+<div id="tab1-content">
+    <if condition="$memberstatus[4]['status'] neq 1">
+    <div class="process-head2"></div>
+    <else/>
+    <div class="process-head3"></div>
+    </if>
+    <div class="tab1-register">
+        <div class="register-success-ico">
+            <img src="__IMG__/register-succeedicon.png" alt=""/>
+        </div>
+        <div class="submit-success">
+            <span class="submit-success-span">{$memberstatus[4]['info']}</span>
+        </div>
+        <div class="view-progress">
+            <a id="view-progress-btn" href="javascript:$('#regtabs').tabs('open',1);">立即查看审核进度</a>
+        </div>
+    </div>
+</div>
+</div>
+<else/>
+<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+<div id="tab1-content">
+    <form action="{:U('supplierregister')}" class="am-form" method="post" data-am-validator>
+        <div class="tab1-register">
+            <div class="error"></div>
+            <div class="tab1-register-left">
+                    <fieldset class="ck-register-fieldset">
+                        <input type="hidden" id="uid" name="uid" value="{$userinfo['uid']}">
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="company">
+                                <span class="asterisk-span">*</span>
+                                公司名称
+                            </label>
+                            <input type="text" id="company" name="company" class="doc-vld-tel-2" value="{$meminfo[4]['company']}"  placeholder="请输入公司名称" required />
+                        </div>
+
+                        <div class="am-form-group chinaarea">
+                            <label class="tab1-label" for="doc-vld-tel-2">
+                                <span class="asterisk-span">*</span>
+                                公司所在区域
+                            </label>
+                                <select name="province" id="J_province" class="selarea"></select>
+                                <span class="birthday-year">省</span>
+                                <select name="city" id="J_city" class="selarea"></select>
+                                <span class="birthday-year">市</span>
+                                <select name="district" id="J_district" class="selarea"></select>
+                                <span class="birthday-year">区</span>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="busilicense">
+                                <span class="asterisk-span">*</span>
+                                营业执照注册号
+                            </label>
+                            <input type="text" id="busilicense" name="busilicense" class="doc-vld-tel-2" minlength="15"
+                                   value="{$meminfo[4]['busilicense']}" placeholder="请输入营业执照注册号" required/>
+                        </div>
+                        <div class="am-form-group  am-form-file">
+                            <label class="tab1-label" for="busilicpid">
+                                <span class="asterisk-span">*</span>
+                                营业执照副本照片
+                            </label>
+                            <div class="upload-permit">
+                                <input type="text" readonly="true" name="busilicpidname" id="busilicpidname" value="{$meminfo[4]['busilicpidorgname']}" class="doc-vld-tel-2 upload-permit-span" placeholder="请上传营业执照副本照片" />
+                                <button type="button" class="am-btn">
+                                    <i class="am-icon-cloud-upload"></i> 上传<input type="file" name="file-busilicpid" id="file-busilicpid" onchange="handleFileSelect(this,'SUPPLIER')"></button>
+                                <input type="hidden" name="busilicpid" id="busilicpid" value="{$meminfo[4]['busilicpid']}" required />
+                            </div>
+                        </div>
+                        <div class="am-form-group  am-form-file">
+                            <label class="tab1-label" for="orgpid">
+                                <span class="asterisk-span">*</span>
+                                组织机构代码证副本照片
+                            </label>
+                            <div class="upload-permit">
+                                <input type="text" readonly="true" name="orgpidname" id="orgpidname" value="{$meminfo[4]['orgpidorgname']}" class="doc-vld-tel-2 upload-permit-span" placeholder="请上传组织机构代码证副本照片" />
+                                <button type="button" class="am-btn">
+                                    <i class="am-icon-cloud-upload"></i> 上传<input type="file" name="file-orgpid" id="file-orgpid" onchange="handleFileSelect(this,'SUPPLIER')"></button>
+                                <input type="hidden" name="orgpid" id="orgpid" value="{$meminfo[4]['orgpid']}" />
+                            </div>
+                        </div>
+                        <div class="am-form-group  am-form-file">
+                            <label class="tab1-label" for="banklicpid">
+                                <span class="asterisk-span">*</span>
+                                银行开户行许可证照片
+                            </label>
+                            <div class="upload-permit">
+                                <input type="text" readonly="true" name="banklicpidname" id="banklicpidname" value="{$meminfo[4]['banklicpidorgname']}" class="doc-vld-tel-2 upload-permit-span" placeholder="请上传银行开户行许可证照片" />
+                                <button type="button" class="am-btn">
+                                    <i class="am-icon-cloud-upload"></i> 上传<input type="file" name="file-banklicpid" id="file-banklicpid" onchange="handleFileSelect(this,'SUPPLIER')"></button>
+                                <input type="hidden" name="banklicpid" id="banklicpid" value="{$meminfo[4]['banklicpid']}"  />
+                            </div>
+                        </div>
+                    </fieldset>
+            </div>
+            <div class="tab1-register-right">
+                    <fieldset>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="backno">
+                                <span class="asterisk-span">*</span>
+                                银行账号
+                            </label>
+                            <input type="text" id="backno" name="backno" class="doc-vld-tel-2" minlength="3" value="{$meminfo[4]['backno']}" placeholder="请输入银行账号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="corporatename">
+                                <span class="asterisk-span">*</span>
+                                法人代表姓名
+                            </label>
+                            <input type="text" id="corporatename" name="corporatename" class="doc-vld-tel-2"
+                                   placeholder="请输入法人代表姓名" required  value="{$meminfo[4]['corporatename']}"/>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="corporateidno">
+                                <span class="asterisk-span">*</span>
+                                法人身份证号
+                            </label>
+                            <input type="text" id="corporateidno" name="corporateidno" class="doc-vld-tel-2" minlength="18"
+                                   value="{$meminfo[4]['corporateidno']}" placeholder="请输入法人身份证号"/>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="linkname">
+                                <span class="asterisk-span">*</span>
+                                联系人
+                            </label>
+                            <input type="text" id="linkname" name="linkname" class="doc-vld-tel-2" value="{$meminfo[4]['linkname']}"  placeholder="请输入联系人姓名" required />
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="linkphone">
+                                <span class="asterisk-span">*</span>
+                                联系人手机号
+                            </label>
+                            <input type="text" id="linkphone" name="linkphone" class="doc-vld-tel-2" minlength="11"
+                                   placeholder="请输入联系人手机号" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="{$meminfo[4]['linkphone']}"/>
+                        </div>
+                    </fieldset>
+            </div>
+            <div class="ckjg-service-agreement">
+                <input type="checkbox" id="chagree1"/>
+                <span class="read-span">我已阅读并同意<a href="{:U('Article/detail',array('id'=>$regagrid))}" target="_blank">《网络服务协议》</a></span>
+            </div>
+            <div class="ckjg-service-agreement">
+                <button class="set-shop" type="submit">入驻</button>
+            </div>
+        </div>
+    </form>
+</div>
+    <script type="text/javascript">
+        $('.ckjg-service-agreement button:submit').on('click',function () {
+            if(!$('input#chagree1').is(':checked')){
+                alert('请认真阅读注册协议，同意才能完成注册！');
+                return false;
+            }
+        });
+    </script>
+</div>
+</if>
+<else/>
+<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+<div id="tab1-content">
+    <form action="{:U('supplierregister')}" class="am-form" method="post" data-am-validator>
+        <div class="tab1-register">
+            <div class="error"></div>
+            <div class="tab1-register-left">
+                    <fieldset class="ck-register-fieldset">
+                        <input type="hidden" id="uid" name="uid" value="{$userinfo['uid']}">
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="company">
+                                <span class="asterisk-span">*</span>
+                                公司名称
+                            </label>
+                            <input type="text" id="company" name="company" class="doc-vld-tel-2" value="{$meminfo[4]['company']}"  placeholder="请输入公司名称" required />
+                        </div>
+
+                        <div class="am-form-group chinaarea">
+                            <label class="tab1-label" for="doc-vld-tel-2">
+                                <span class="asterisk-span">*</span>
+                                公司所在区域
+                            </label>
+                                <select name="province" id="J_province" class="selarea"></select>
+                                <span class="birthday-year">省</span>
+                                <select name="city" id="J_city" class="selarea"></select>
+                                <span class="birthday-year">市</span>
+                                <select name="district" id="J_district" class="selarea"></select>
+                                <span class="birthday-year">区</span>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="busilicense">
+                                <span class="asterisk-span">*</span>
+                                营业执照注册号
+                            </label>
+                            <input type="text" id="busilicense" name="busilicense" class="doc-vld-tel-2" minlength="15"
+                                   value="{$meminfo[4]['busilicense']}" placeholder="请输入营业执照注册号" required/>
+                        </div>
+                        <div class="am-form-group  am-form-file">
+                            <label class="tab1-label" for="busilicpid">
+                                <span class="asterisk-span">*</span>
+                                营业执照副本照片
+                            </label>
+                            <div class="upload-permit">
+                                <input type="text" readonly="true" name="busilicpidname" id="busilicpidname" value="{$meminfo[4]['busilicpidorgname']}" class="doc-vld-tel-2 upload-permit-span" placeholder="请上传营业执照副本照片" />
+                                <button type="button" class="am-btn">
+                                    <i class="am-icon-cloud-upload"></i> 上传<input type="file" name="file-busilicpid" id="file-busilicpid" onchange="handleFileSelect(this,'SUPPLIER')"></button>
+                                <input type="hidden" name="busilicpid" id="busilicpid" value="{$meminfo[4]['busilicpid']}" required />
+                            </div>
+                        </div>
+                        <div class="am-form-group  am-form-file">
+                            <label class="tab1-label" for="orgpid">
+                                <span class="asterisk-span">*</span>
+                                组织机构代码证副本照片
+                            </label>
+                            <div class="upload-permit">
+                                <input type="text" readonly="true" name="orgpidname" id="orgpidname" value="{$meminfo[4]['orgpidorgname']}" class="doc-vld-tel-2 upload-permit-span" placeholder="请上传组织机构代码证副本照片" />
+                                <button type="button" class="am-btn">
+                                    <i class="am-icon-cloud-upload"></i> 上传<input type="file" name="file-orgpid" id="file-orgpid" onchange="handleFileSelect(this,'SUPPLIER')"></button>
+                                <input type="hidden" name="orgpid" id="orgpid" value="{$meminfo[4]['orgpid']}" />
+                            </div>
+                        </div>
+                        <div class="am-form-group  am-form-file">
+                            <label class="tab1-label" for="banklicpid">
+                                <span class="asterisk-span">*</span>
+                                银行开户行许可证照片
+                            </label>
+                            <div class="upload-permit">
+                                <input type="text" readonly="true" name="banklicpidname" id="banklicpidname" value="{$meminfo[4]['banklicpidorgname']}" class="doc-vld-tel-2 upload-permit-span" placeholder="请上传银行开户行许可证照片" />
+                                <button type="button" class="am-btn">
+                                    <i class="am-icon-cloud-upload"></i> 上传<input type="file" name="file-banklicpid" id="file-banklicpid" onchange="handleFileSelect(this,'SUPPLIER')"></button>
+                                <input type="hidden" name="banklicpid" id="banklicpid" value="{$meminfo[4]['banklicpid']}" />
+                            </div>
+                        </div>
+                    </fieldset>
+            </div>
+            <div class="tab1-register-right">
+                    <fieldset>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="backno">
+                                <span class="asterisk-span">*</span>
+                                银行账号
+                            </label>
+                            <input type="text" id="backno" name="backno" class="doc-vld-tel-2" minlength="3" value="{$meminfo[4]['backno']}" placeholder="请输入银行账号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="corporatename">
+                                <span class="asterisk-span">*</span>
+                                法人代表姓名
+                            </label>
+                            <input type="text" id="corporatename" name="corporatename" class="doc-vld-tel-2"
+                                   placeholder="请输入法人代表姓名" required value="{$meminfo[4]['corporatename']}"/>
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="corporateidno">
+                                <span class="asterisk-span">*</span>
+                                法人身份证号
+                            </label>
+                            <input type="text" id="corporateidno" name="corporateidno" class="doc-vld-tel-2" minlength="18"
+                                   value="{$meminfo[4]['corporateidno']}" placeholder="请输入法人身份证号" />
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="linkname">
+                                <span class="asterisk-span">*</span>
+                                联系人
+                            </label>
+                            <input type="text" id="linkname" name="linkname" class="doc-vld-tel-2" value="{$meminfo[4]['linkname']}"  placeholder="请输入联系人姓名" required />
+                        </div>
+                        <div class="am-form-group">
+                            <label class="tab1-label" for="linkphone">
+                                <span class="asterisk-span">*</span>
+                                联系人手机号
+                            </label>
+                            <input type="text" id="linkphone" name="linkphone" class="doc-vld-tel-2" minlength="11"
+                                   placeholder="请输入联系人手机号" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="{$meminfo[4]['linkphone']}"/>
+                        </div>
+                    </fieldset>
+            </div>
+            <div class="ckjg-service-agreement">
+                <input type="checkbox" id="chagree1"/>
+                <span class="read-span">我已阅读并同意<a href="{:U('Article/detail',array('id'=>$regagrid))}" target="_blank">《网络服务协议》</a></span>
+            </div>
+            <div class="ckjg-service-agreement">
+                <button class="set-shop" type="submit">入驻</button>
+            </div>
+        </div>
+    </form>
+</div>
+    <script type="text/javascript">
+        $('.ckjg-service-agreement button:submit').on('click',function () {
+            if(!$('input#chagree1').is(':checked')){
+                alert('请认真阅读注册协议，同意才能完成注册！');
+                return false;
+            }
+        });
+    </script>
+</div>
+</notempty>
+<div class="am-tab-panel am-fade" id="tab2">
+    <div id="tab2-content">
+        <div class="progressreview-head">
+            <notempty name="memberstatus[4]">
+            <span class="progress-span1">尊敬的{$memberstatus[4]['company']}您好：<span class="progress-span2">您的供应商（入驻）申请，审核进度如下</span></span>
+            </notempty>
+        </div>
+        <notempty name="memberstatus[4]">
+            <if condition="$memberstatus[4]['status'] eq 0">
+            <div class="audit-process-head1"></div>
+            <elseif condition="$memberstatus[4]['status'] eq 100"/>
+            <div class="audit-process-head2"></div>
+            <elseif condition="$memberstatus[4]['status'] eq 101"/>
+            <div class="audit-process-head3"></div>
+            <elseif condition="$memberstatus[4]['status'] eq 1"/>
+            <div class="audit-process-head4"></div>
+            </if>
+        </notempty>
+        <div class="process-body">
+            <div class="get-entry">
+                <notempty name="memberstatus[4]">
+                <span class="get-entry-span">{$memberstatus[4]['info']}</span>
+                </notempty>
+            </div>
+            <div class="contact-us">
+                <h2 class="contact-us-h2">
+                    联系我们:
+                    <span>13888918732</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="pic-uploading">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">正在上传中...</div>
+        <div class="am-modal-bd">
+          <span class="am-icon-spinner am-icon-spin"></span>
+        </div>
+      </div>
+    </div>
+</block>

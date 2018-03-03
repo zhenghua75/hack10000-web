@@ -1,0 +1,123 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makerstore.css" rel="stylesheet">
+    <link href="__CSS__/makerstorepic.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <include file="User:header"/>
+            <div id="user-content">
+                <div id="user-nav">
+                    <span>创客时空</span>
+                </div>
+                <div class="mgrcenter">
+                    <include file="User:makerleft"/>
+                    <div id="settings-content">
+                        <div class="am-tabs" data-am-tabs>
+                            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                                <li><a href="#tab1">店铺装修</a></li>
+                                <li class="am-active"><a href="#tab2">图片管理</a></li>
+                            </ul>
+
+                            <div class="am-tabs-bd">
+
+                                <!--<div class="am-tab-panel am-fade am-in am-active" id="tab1">-->
+                                <!--<div id="tab1-content">-->
+
+                                <!--</div>-->
+                                <!--</div>-->
+
+                                <div class="am-tab-panel am-fade am-in am-active" id="tab2">
+                                    <div id="tab2-content">
+                                        <div class="picture-management">
+                                            <div class="picture-file-return">
+                                                <a href="{:U('User/makerstore')}">>>返回</a>
+                                            </div>
+                                            <div class="picture-new-folder">
+                                                <a href="#" class="picture-new-folder-a">上传图片</a>
+                                            </div>
+                                            <div class="picture-content">
+                                                <div class="picture-file">
+                                                    <div class="am-dropdown" data-am-dropdown>
+                                                        <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span></button>
+                                                        <ul id="picture-dropdown" class="am-dropdown-content">
+                                                            <li><a href="#">编辑</a></li>
+                                                            <li><a href="#">删除</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="picture-file-img1">
+                                                        <a href="#">
+                                                            <img src="__IMG__/makerstorepic-img1.png" alt=""/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="picture-file">
+                                                    <div class="am-dropdown" data-am-dropdown>
+                                                        <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span></button>
+                                                        <ul id="picture-dropdown" class="am-dropdown-content">
+                                                            <li><a href="#">编辑</a></li>
+                                                            <li><a href="#">删除</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="picture-file-img1">
+                                                        <a href="#">
+                                                            <img src="__IMG__/makerstorepic-img2.png" alt=""/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="picture-content">
+                                                <div class="picture-file">
+                                                    <div class="am-dropdown" data-am-dropdown>
+                                                        <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span></button>
+                                                        <ul id="picture-dropdown" class="am-dropdown-content">
+                                                            <li><a href="#">编辑</a></li>
+                                                            <li><a href="#">删除</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="picture-file-img1">
+                                                        <a href="#">
+                                                            <img src="__IMG__/makerstorepic-img1.png" alt=""/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="picture-file">
+                                                    <div class="am-dropdown" data-am-dropdown>
+                                                        <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-caret-down"></span></button>
+                                                        <ul id="picture-dropdown" class="am-dropdown-content">
+                                                            <li><a href="#">编辑</a></li>
+                                                            <li><a href="#">删除</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="picture-file-img1">
+                                                        <a href="#">
+                                                            <img src="__IMG__/makerstorepic-img2.png" alt=""/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</block>

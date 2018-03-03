@@ -1,0 +1,97 @@
+<header id="header-layout">
+    <div class="control">
+    <defined name="UID">
+        <div id="group1">
+            <ul id="group-list1">
+                <li><a href="{:U('User/makerindex')}">创客</a></li>
+                <li><a href="{:U('User/supplierindex')}">机构</a></li>
+                <li><a href="{:U('User/index')}">会员</a></li>
+                <li><div id="litest"></div></li>
+            </ul>
+        </div>
+        <div id="group">
+            <ul id="group-list">
+                <li><a href="{:U('User/myshopcart')}" id="shopping-cart"></a></li>
+                <li>
+                    <ul class="dropdown">
+                        <li id="drop1" class="drop"><a class="drop-down-a" href="{:U('User/index')}">{$Think.session.user_auth.nickname|mb_substr=0,2,'utf-8'}...</a>
+                            <ul id="sub_menu" class="sub_menu">
+                                <li><a href="{:U('User/mymessages')}">消息</a></li>
+                                <li><a href="{:U('User/myorders')}">订单</a></li>
+                                <li><a href="{:U('User/makermessages')}">创客</a></li>
+                                <li><a href="{:U('User/suppliermessages')}">机构</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="{:U('User/logout')}">退出</a></li>
+            </ul>
+        </div>
+    <else />
+        <div id="group1">
+            <ul id="group-list1">
+                <li><a href="#" id="doc-prompt-toggle">创客</a></li>
+                <li><a href="#" id="doc-prompt-toggle2">机构</a></li>
+                <li><a href="#" id="doc-prompt-toggle3">会员</a></li>
+            </ul>
+        </div>
+        <div id="group">
+            <ul id="group-list">
+                <li><a href="#" class="nav-search" id="doc-prompt-toggle7"></a></li>
+                <li><a href="#" id="shopping-cart"></a></li>
+                <li class="header-reg"><a href="{:U('User/register')}">注册</a></li>
+                <li><a href="#" id="doc-prompt-toggle4">登录</a></li>
+            </ul>
+        </div>
+    </defined>
+    </div>
+</header>
+<div class="control">
+    <div id="logo">
+        <a href="http://www.hack10000.com"><img src="__IMG__/logo.png" alt="慧爱创客"/></a>
+    </div>
+</div>
+<block name="header">
+    <div class="nav-tou">
+        <a class="arrow-left" href="#"></a>
+        <a class="arrow-right" href="#"></a>
+        <nav class="swiper-container" id="nav-layout">
+                <div class="swiper-wrapper" id="ctrl">
+                    <div class="swiper-slide" id="swiper-slide1">
+                        <ul id="nav-list" class="content-slide">
+                            <li id="nav-list1"><a href="http://www.hack10000.com/">主页</a></li>
+                            <li id="nav-list2"><a href="{:U('Index/practice')}">社会实践</a></li>
+                            <li id="nav-list3"><a href="{:U('Index/volunteer')}">志愿服务</a></li>
+                            <li id="nav-list4"><a href="{:U('Index/workstudy')}">勤工助学</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul id="nav-list" class="content-slide">
+                            <li id="nav-list5"><a href="{:U('Index/innovate')}">创新实验</a></li>
+                            <li id="nav-list6"><a href="{:U('Index/selfemployed')}">自主创业</a></li>
+                            <li id="nav-list6"><a href="{:U('Index/patents')}">论文专利</a></li>
+                            <li id="nav-list666"><a href="{:U('Index/archives')}">创新创业档案</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pagination"></div>
+        </nav>
+    </div>
+
+
+    <script type="text/javascript">
+        function show()
+        {
+            var w = document.body.clientWidth;
+            if(w<=750){
+                o=document.createElement("script");
+                var strscript="var mySwiper = new Swiper('.swiper-container',{pagination:'.pagination',loop:true,grabCursor: true,paginationClickable: true}); \n$('.arrow-left').on('click', function(e){e.preventDefault();mySwiper.swipePrev();}); \n$('.arrow-right').on('click', function(e){e.preventDefault();mySwiper.swipeNext();});";
+                o.text=strscript;
+                document.documentElement.childNodes[0].appendChild(o);
+            }
+        }
+        window.onload = show;
+
+    </script>
+</block>

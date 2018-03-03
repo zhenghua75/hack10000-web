@@ -1,0 +1,113 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/markerorders.css" rel="stylesheet">
+    <link href="__CSS__/suppliermessages.css" rel="stylesheet">
+    <link href="__CSS__/supplierproducts.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+    <div id="left-layout"></div>
+    <div id="centre-layout">
+        <include file="User:header"/>
+        <div id="user-content">
+            <div id="user-nav">
+                <span>机构</span>
+            </div>
+            <div class="mgrcenter">
+                <include file="User:supplierleft"/>
+                <div id="settings-content">
+                    <div class="am-tabs" data-am-tabs>
+                        <ul class="am-tabs-nav am-nav am-nav-tabs">
+                            <li class="am-active"><a href="#tab1">宝贝</a></li>
+                            <!-- <li><a href="#tab2">库存</a></li> -->
+                        </ul>
+                        <div class="am-tabs-bd">
+                            <div class="am-tab-panel am-fade am-in am-active <empty name='list'>emptybg</empty>" id="tab1">
+                                <div id="tab1-content">
+                                    <notempty name="list">
+                                    <form class="am-form searchprod" action="__SELF__" method="post">
+                                        <div id="search" class="am-form-group">
+                                            <input type="search" placeholder="按商品名称搜索" name="prodnname"/>
+                                            <button type="submit">搜索</button>
+                                        </div>
+                                    </form>
+                                    <div class="makerorders-head">
+                                        <ul class="makerorders-head-ul2" >
+                                            <li>商品信息</li>
+                                            <li>状态</li>
+                                            <li>供货价（元）</li>
+                                            <li>库存</li>
+                                            <li>操作</li>
+                                        </ul>
+                                    </div>
+                                    <volist name='list' id="prod">
+                                    <div class="makerorders-details">
+                                        <div class="details-images">
+                                            <a href="#">
+                                                <img src="{$prod['imagepath']}" alt=""/>
+                                            </a>
+                                        </div>
+                                        <div class="details-news">
+                                            <p>{$prod['name']}</p>
+                                            <p>{$prod['simcomment']}</p>
+                                        </div>
+                                        <div class="details-condition">
+                                            <span>{$prod['statusname']}</span>
+                                        </div>
+                                        <div class="details-unit-cost2">
+                                            <span class="unit-cost-now">￥{$prod['supprice']}</span>
+                                        </div>
+                                        <div class="details-magnitude">
+                                            <span>{$prod['inventory']}</span>
+                                        </div>
+                                        <div class="details-btnone">
+                                            <a href="/user/supplierproductedit?cid={$prod['catalog_id']}&pid={$prod['product_id']}">编辑</a>
+                                        </div>
+                                    </div>
+                                    </volist>
+                                    <else/>
+                                    <div>没有任何记录</div>
+                                    </notempty>
+                                </div>
+                                <div class="page">
+                                    {$_page}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-11">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="new-file-head">
+                    <h2>新建文件夹</h2>
+                    <p>请输入文件夹名称</p>
+                </div>
+                <div class="new-file-input">
+                    <input type="text" value="新建文件夹"/>
+                </div>
+                <div class="new-file-button">
+                    <button>确认</button>
+                    <button data-am-modal-close>取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

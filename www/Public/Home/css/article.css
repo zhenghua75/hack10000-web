@@ -1,0 +1,109 @@
+.page-article #left-layout{
+	display: none;
+}
+.page-article #centre-layout{
+	width: 100%;
+	margin-top: 20px;
+	text-align: left;
+}
+.page-article #content-layout{
+	margin-top:42px;
+}
+.page-article #contents{
+    width: 800px;
+    margin: 0 auto;
+}
+.page-article .formsign{
+    width: 800px;
+    margin: 0 auto;
+}
+
+#centre-layout form{
+	margin-bottom: 20px;
+}
+#centre-layout .tab1-signup-left,
+#centre-layout .tab1-signup-right{
+	width: 48%;
+	float: left;
+}
+#centre-layout .signupprompt{
+	width: 100%;
+	font-size: 16px;
+	color:red;
+	text-align: left;
+	float: left;
+}
+#centre-layout .signupsubmit{
+	float: left;
+	width: 100%;
+	margin:20px auto;
+}
+#centre-layout .signupsubmit input{
+	background-color: #292A2D;
+	color: #f0b003;
+	font-family: "微软雅黑";
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+	padding: 6px 10px;
+	margin-left: 10px;
+	line-height: 1.6em;
+	vertical-align: top;
+	display: inline-block;
+}
+#centre-layout .signupsubmit a{
+	background-color: #292A2D;
+	color: #f0b003;
+	font-family: "微软雅黑";
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+	padding: 6px 10px;
+	margin-left: 10px;
+	display: inline-block;
+}
+#centre-layout .inputpromt{
+	width: 100%;
+	float: left;
+	font-weight: bold;
+	text-align: left;
+}
+#centre-layout form .selarea{
+	width: 30%;
+	float: left;
+}
+#centre-layout form .birthday-year{
+	float: left;
+}
+#centre-layout form .tab1-label{
+	width: 100%;
+	float:left;
+	text-align: left;
+}
+#centre-layout form .chinaarea{
+	margin-bottom: 18px;
+	float: left;
+	width: 100%;
+}
+#centre-layout form .conditionlist{
+	width: 100%;
+	float: left;
+	border: 1px solid #cccccc;
+}
+#centre-layout form .conditionlist label{
+	float: left;
+	width: 100%;
+	font-weight: normal;
+	text-align: left;
+	margin-left: 10px;
+}
+#centre-layout form .am-form-success .conditionlist label{
+	color:#333333;
+}
+#centre-layout form .agreement{
+	margin-top: 20px;
+	float: left;
+}
+#centre-layout form .agreement a{
+	color: #0e90d2;
+}

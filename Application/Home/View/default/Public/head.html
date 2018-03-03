@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>{:C('WEB_SITE_TITLE')}<notempty name="meta_title">|{$meta_title}</notempty></title>
+<link href="__STATIC__/amazeui/css/amazeui.css" rel="stylesheet">
+<link href="__CSS__/global.css" rel="stylesheet">
+<link href="__CSS__/idangerous.swiper.css" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="__STATIC__/bootstrap/js/html5shiv.js"></script>
+<![endif]-->
+<block name="style"></block>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__STATIC__/jquery-1.10.2.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" src="__STATIC__/amazeui/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/amazeui/js/amazeui.min.js"></script>
+<script type="text/javascript" src="__JS__/global.js"></script>
+<script type="text/javascript" src="__JS__/idangerous.swiper-2.1.min.js"></script>
+<script type="text/javascript" src="__JS__/dropdown.js"></script>
+
+
+
+
+<block name="javascript"></block>
+<!--<![endif]-->
+<!-- 页面header钩子，一般用于加载插件CSS文件和代码 -->
+{:hook('pageHeader')}

@@ -1,0 +1,311 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/store.css" rel="stylesheet">
+    <link href="__CSS__/zzsc.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/the-bd.js"></script>
+</block>
+<block name="body">
+
+<div id="banner">
+    <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+        <ul class="am-slides">
+            <li><img src="__IMG__/store_banner1.jpg" /></li>
+            <li><img src="__IMG__/store_banner2.jpg" /></li>
+            <li><img src="__IMG__/store_banner3.jpg" /></li>
+        </ul>
+    </div>
+</div>
+<div id="content-layout">
+<div id="left-layout">
+    <div id="fasten">
+        <div id="leftbar" data-am-sticky="{top:42}">
+            <ul id="store-list">
+                <li class="left-nav-list">
+                    <div onmouseover="display()" onmouseleave="disappear()">
+                        <a href="{:U('Store/index')}" class="list-left">商品预告</a>
+                    </div>
+                    <div onmouseover="display()" onmouseout="disappear()" id="xiangqing1" class="inner">
+                        <ul class="inner-list">
+                            <li><a href="#">服装</a></li>
+                            <li><a href="#">美妆</a></li>
+                            <li><a href="#">数码</a></li>
+                            <li><a href="#">箱包</a></li>
+                            <li><a href="#">家电</a></li>
+                            <li><a href="#">建材</a></li>
+                            <li><a href="#">食品</a></li>
+                            <li><a href="#">特产</a></li>
+                            <li><a href="#">酒类</a></li>
+                            <li><a href="#">珠宝</a></li>
+                            <li><a href="#">饰品</a></li>
+                            <li><a href="#">书籍</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="left-nav-list">
+                    <div onmouseover="display2()" onmouseleave="disappear2()">
+                        <a href="{:U('Store/rush')}">秒杀</a>
+                    </div>
+                    <div onmouseover="display2()" onmouseout="disappear2()" id="xiangqing2" class="inner">
+                        <ul class="inner-list">
+                            <li><a href="#">服装</a></li>
+                            <li><a href="#">美妆</a></li>
+                            <li><a href="#">数码</a></li>
+                            <li><a href="#">箱包</a></li>
+                            <li><a href="#">家电</a></li>
+                            <li><a href="#">建材</a></li>
+                            <li><a href="#">食品</a></li>
+                            <li><a href="#">特产</a></li>
+                            <li><a href="#">酒类</a></li>
+                            <li><a href="#">珠宝</a></li>
+                            <li><a href="#">饰品</a></li>
+                            <li><a href="#">书籍</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="left-nav-list">
+                    <div onmouseover="display3()" onmouseleave="disappear3()">
+                        <a href="{:U('Store/presell')}">预售</a>
+                    </div>
+                    <div onmouseover="display3()" onmouseout="disappear3()" id="xiangqing3" class="inner">
+                        <ul class="inner-list">
+                            <li><a href="#">服装</a></li>
+                            <li><a href="#">美妆</a></li>
+                            <li><a href="#">数码</a></li>
+                            <li><a href="#">箱包</a></li>
+                            <li><a href="#">家电</a></li>
+                            <li><a href="#">建材</a></li>
+                            <li><a href="#">食品</a></li>
+                            <li><a href="#">特产</a></li>
+                            <li><a href="#">酒类</a></li>
+                            <li><a href="#">珠宝</a></li>
+                            <li><a href="#">饰品</a></li>
+                            <li><a href="#">书籍</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="left-nav-list">
+                    <div onmouseover="display4()" onmouseleave="disappear4()">
+                        <a href="{:U('Store/crowdfundi')}">商品众筹</a>
+                    </div>
+                    <div onmouseover="display4()" onmouseout="disappear4()" id="xiangqing4" class="inner">
+                        <ul class="inner-list">
+                            <li><a href="#">服装</a></li>
+                            <li><a href="#">美妆</a></li>
+                            <li><a href="#">数码</a></li>
+                            <li><a href="#">箱包</a></li>
+                            <li><a href="#">家电</a></li>
+                            <li><a href="#">建材</a></li>
+                            <li><a href="#">食品</a></li>
+                            <li><a href="#">特产</a></li>
+                            <li><a href="#">酒类</a></li>
+                            <li><a href="#">珠宝</a></li>
+                            <li><a href="#">饰品</a></li>
+                            <li><a href="#">书籍</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="left-nav-list">
+                    <div onmouseover="display5()" onmouseleave="disappear5()">
+                        <a href="{:U('Store/special')}">特供商品</a>
+                    </div>
+                    <div onmouseover="display5()" onmouseout="disappear5()" id="xiangqing5" class="inner">
+                        <ul class="inner-list">
+                            <li><a href="#">服装</a></li>
+                            <li><a href="#">美妆</a></li>
+                            <li><a href="#">数码</a></li>
+                            <li><a href="#">箱包</a></li>
+                            <li><a href="#">家电</a></li>
+                            <li><a href="#">建材</a></li>
+                            <li><a href="#">食品</a></li>
+                            <li><a href="#">特产</a></li>
+                            <li><a href="#">酒类</a></li>
+                            <li><a href="#">珠宝</a></li>
+                            <li><a href="#">饰品</a></li>
+                            <li><a href="#">书籍</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div id="search">
+                <div id="search-frame">
+                    <input type="search" placeholder="搜索"/>
+                </div>
+                <div id="click-go">
+                    <button type="submit">GO</button>
+                </div>
+            </div>
+            <div id="code">
+                <img src="__IMG__/erweima.png" alt=""/>
+            </div>
+            <div id="explain">
+                <p>扫一扫二维码</p>
+                <a href="http://www.hack10000.com" target="_blank"><h5>www.hack10000.com</h5></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="centre-layout">
+    <div id="countdown">
+        <div id="miaoshaing">
+            <p><a href="{:U('Store/rush')}">正在秒杀</a></p>
+        </div>
+        <div class="icon-large icon-clock">
+            <div class="clock">
+                <div id="hour"></div>
+                <div id="min"></div>
+                <div id="sec"></div>
+            </div>
+        </div>
+        <div id="tomiaosha">
+            <p><a style="text-decoration: none;color: #f10100;border-bottom: 2px solid #4D4D4D;" href="{:U('Store/straight_rush')}">即将开始</a></p>
+        </div>
+    </div>
+    <div id="wares">
+        <div class="three-block1">
+            <a onmouseover="display6()" onmouseleave="disappear6()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping1.png"
+                         alt=""/>
+
+                    <div onmouseover="display6()" onmouseout="disappear6()" id="tag6" class="price">
+                        <p>奢华玫瑰香型爽肤水</p>
+
+                        <p>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display6()" onmouseleave="disappear6()" id="caveat6" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display7()" onmouseleave="disappear7()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping2.png"
+                         alt=""/>
+
+                    <div onmouseover="display7()" onmouseout="disappear7()" id="tag7" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display7()" onmouseleave="disappear7()" id="caveat7" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display8()" onmouseleave="disappear8()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping3.png"
+                         alt=""/>
+
+                    <div onmouseover="display8()" onmouseout="disappear8()" id="tag8" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display8()" onmouseleave="disappear8()" id="caveat8" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display9()" onmouseleave="disappear9()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping1.png"
+                         alt=""/>
+
+                    <div onmouseover="display9()" onmouseout="disappear9()" id="tag9" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display9()" onmouseleave="disappear9()" id="caveat9" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display10()" onmouseleave="disappear10()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping2.png"
+                         alt=""/>
+
+                    <div onmouseover="display10()" onmouseout="disappear10()" id="tag10" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display10()" onmouseleave="disappear10()" id="caveat10" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display11()" onmouseleave="disappear11()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping3.png"
+                         alt=""/>
+
+                    <div onmouseover="display11()" onmouseout="disappear11()" id="tag11" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display11()" onmouseleave="disappear11()" id="caveat11" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display12()" onmouseleave="disappear12()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping1.png"
+                         alt=""/>
+
+                    <div onmouseover="display12()" onmouseout="disappear12()" id="tag12" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display12()" onmouseleave="disappear12()" id="caveat12" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display13()" onmouseleave="disappear13()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping2.png"
+                         alt=""/>
+
+                    <div onmouseover="display13()" onmouseout="disappear13()" id="tag13" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display13()" onmouseleave="disappear13()" id="caveat13" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="three-block1">
+            <a onmouseover="display14()" onmouseleave="disappear14()" href="{:U('Store/trailer_goods')}">
+                <div class="wares-flow">
+                    <img src="__IMG__/shangping3.png" alt=""/>
+
+                    <div onmouseover="display14()" onmouseout="disappear14()" id="tag14" class="price">
+                        <p>奢华玫瑰香型爽肤水 <br/>价格：<span class="fuhao">￥</span> <span class="shuzi">319</span></p>
+                    </div>
+                    <div onmouseover="display14()" onmouseleave="disappear14()" id="caveat14" class="rushbig">
+                        <p>18:02:14</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="__JS__/zzsc.js"></script>
+</block>

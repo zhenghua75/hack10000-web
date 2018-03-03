@@ -1,0 +1,328 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerregister.css" rel="stylesheet">
+    <link href="__CSS__/registersuccess.css" rel="stylesheet">
+</block>
+<block name="javascript"></block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>注册>>大学生创客>></span>
+</div>
+<div id="settings-content">
+<div class="am-tabs" data-am-tabs id="regtabs">
+<ul class="am-tabs-nav am-nav am-nav-tabs">
+    <li class="am-active"><a href="#tab1">大学生个人创客</a></li>
+    <li><a href="#tab2">大学生机构创客</a></li>
+    <li><a href="#tab3">查看审核进度</a></li>
+</ul>
+
+<div class="am-tabs-bd">
+
+<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+    <div id="tab1-content">
+        <div class="tab1-register">
+            <div class="register-success">
+                <img src="__IMG__/register-succeedicon.png" alt=""/>
+            </div>
+            <div class="submit-success">
+                <span class="submit-success-span">{$makerreg['info']}</span>
+            </div>
+            <div class="view-progress">
+                <a class="view-progress-btn" href="javascript:$('#regtabs').tabs('open',2);">立即查看审核进度</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade" id="tab2">
+<div id="tab2-content">
+<div class="am-slider am-slider-default" data-am-flexslider="{slideshow: false,controlNav: false,directionNav: false}" id="demo-slider-0">
+<ul class="am-slides">
+<li>
+    <div class="process-head1"></div>
+    <div class="process-body">
+        <div class="am-form-group">
+            <label class="process-label" for="doc-vld-tel-2">
+                <span class="asterisk-span">*</span>
+                手机号/邮箱
+            </label>
+            <input type="text" id="doc-vld-tel-2" class="process-tel" minlength="3"
+                   placeholder="请输入手机号码或邮箱" required/>
+        </div>
+        <div class="am-form-group">
+            <label class="process-label" for="doc-vld-pwd-1">
+                <span class="asterisk-span">*</span>
+                请设置密码
+            </label>
+            <input type="password" id="doc-vld-pwd-1" class="process-password"
+                   placeholder="6-12位，可由数字、字母组成" pattern="^\d{6}$" required/>
+        </div>
+        <div class="am-form-group">
+            <label class="process-label" for="doc-vld-pwd-1">
+                <span class="asterisk-span">*</span>
+                请输入密码
+            </label>
+            <input type="password" id="doc-vld-pwd-1" class="process-password"
+                   placeholder="请再次输入您的密码" pattern="^\d{6}$" required/>
+        </div>
+        <div class="am-form-group">
+            <label class="process-label" for="doc-vld-tel-2">
+                <span class="asterisk-span">*</span>
+                手机号
+            </label>
+            <input type="text" id="doc-vld-tel-2" class="process-tel-none" minlength="3"
+                   placeholder="请输入您的手机号码" required/>
+        </div>
+        <div class="am-input-group">
+            <label class="process-label" for="doc-vld-tel-2">
+                <span class="asterisk-span">*</span>
+                短信验证码
+            </label>
+            <input type="text" id="doc-vld-tel-2" class="process-code-none" minlength="3"
+                   placeholder="请输入您的手机号码" required/>
+                                <span class="input-span-btn">
+                                    <button class="yan-zheng-btn" type="button">获取验证码</button>
+                                </span>
+        </div>
+        <div class="process-service-agreement">
+            <input type="checkbox"/>
+            <span class="read-span">我已阅读并同意<a href="#">《网络服务协议》</a></span>
+        </div>
+        <div class="process-next">
+            <a href="javascript:$('#demo-slider-0').flexslider('next');" class="process-next-step">下一步</a>
+        </div>
+    </div>
+</li>
+
+<li>
+    <div class="process-head2"></div>
+    <div class="tab1-register">
+        <div class="tab1-register-left">
+            <form action="" class="am-form" data-am-validator>
+                <fieldset class="ck-register-fieldset">
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            公司名称
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入公司名称" required  onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"/>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            公司所在区域
+                        </label>
+                        <select data-am-selected="{maxHeight: 148}">
+                            <option value="a">云南</option>
+                            <option value="b">广州</option>
+                            <option value="o">四川</option>
+                            <option value="m">上海</option>
+                            <option value="phone">北京</option>
+                            <option value="im">贵州</option>
+                            <option value="mbp">西藏</option>
+                            <option value="mbp">山西</option>
+                        </select>
+                        <span class="birthday-year">省</span>
+                        <select data-am-selected="{maxHeight: 148}">
+                            <option value="a">云南</option>
+                            <option value="b">广州</option>
+                            <option value="o">四川</option>
+                            <option value="m">上海</option>
+                            <option value="phone">北京</option>
+                            <option value="im">贵州</option>
+                            <option value="mbp">西藏</option>
+                            <option value="mbp">山西</option>
+                        </select>
+                        <span class="birthday-year">市</span>
+                        <select data-am-selected="{maxHeight: 148}">
+                            <option value="a">云南</option>
+                            <option value="b">广州</option>
+                            <option value="o">四川</option>
+                            <option value="m">上海</option>
+                            <option value="phone">北京</option>
+                            <option value="im">贵州</option>
+                            <option value="mbp">西藏</option>
+                            <option value="mbp">山西</option>
+                        </select>
+                        <span class="birthday-year">区/县</span>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            营业执照注册号
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入营业执照注册号" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                    </div>
+                    <div class="am-form-group  am-form-file">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            营业执照副本照片
+                        </label>
+                        <div class="upload-permit">
+                            <span class="upload-permit-span">请上传营业执照副本照片</span>
+                            <button type="button" class="am-btn">
+                                <i class="am-icon-cloud-upload"></i> 上传</button>
+                        </div>
+                        <input type="file" id="doc-ipt-file-2">
+                    </div>
+                    <div class="am-form-group  am-form-file">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            组织机构代码证副本照片
+                        </label>
+                        <div class="upload-permit">
+                            <span class="upload-permit-span">请上传组织机构代码证副本照片</span>
+                            <button type="button" class="am-btn">
+                                <i class="am-icon-cloud-upload"></i> 上传</button>
+                        </div>
+                        <input type="file" id="doc-ipt-file-2">
+                    </div>
+                    <div class="am-form-group  am-form-file">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            银行开户行许可证照片
+                        </label>
+                        <div class="upload-permit">
+                            <span class="upload-permit-span">请上传银行开户行许可证照片</span>
+                            <button type="button" class="am-btn">
+                                <i class="am-icon-cloud-upload"></i> 上传</button>
+                        </div>
+                        <input type="file" id="doc-ipt-file-2">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="tab1-register-right">
+            <form action="" class="am-form" data-am-validator>
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            银行账号
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入银行账号" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            法人代表姓名
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入法人代表姓名" required  onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            法人身份证号
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入法人身份证号" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            开店类别
+                        </label>
+                        <select data-am-selected="{btnWidth: '45%'}">
+                            <option value="a">商品类</option>
+                            <option value="b">服务类</option>
+                            <option value="o">资源类</option>
+                            <option value="m">项目类</option>
+                        </select>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            联系人
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入联系人姓名" required  onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="doc-vld-tel-2">
+                            <span class="asterisk-span">*</span>
+                            联系人手机号
+                        </label>
+                        <input type="text" id="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入联系人手机号" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="ckjg-service-agreement">
+            <input type="checkbox"/>
+            <span class="read-span">我已阅读并同意<a href="#">《网络服务协议》</a></span>
+        </div>
+        <div class="ckjg-service-agreement">
+            <a href="javascript:$('#demo-slider-0').flexslider('next');" class="set-shop">开店</a>
+        </div>
+    </div>
+</li>
+<li>
+    <div class="process-head3"></div>
+    <div class="tab1-register">
+        <div class="register-success-ico">
+            <img src="__IMG__/register-succeedicon.png" alt=""/>
+        </div>
+        <div class="submit-success">
+            <span class="submit-success-span">您的开店申请已提交成功，我们会尽快进行审核</span>
+        </div>
+        <div class="view-progress">
+            <a class="view-progress-btn" href="{:U('User/progressmaker')}">立即查看审核进度</a>
+        </div>
+    </div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="am-tab-panel am-fade" id="tab3">
+    <div id="tab3-content">
+        <div class="progressreview-head">
+            <span class="progress-span1">尊敬的{$makerreg['truename']}您好：<span class="progress-span2">您的开店（入驻）申请，审核进度如下</span></span>
+        </div>
+        <div class="process-head1"></div>
+        <div class="process-body">
+            <div class="get-entry">
+                <span class="get-entry-span">{$makerreg['info']}</span>
+            </div>
+            <div class="contact-us">
+                <h2 class="contact-us-h2">
+                    联系我们:
+                    <span>13888918732</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</block>

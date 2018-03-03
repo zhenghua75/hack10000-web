@@ -1,0 +1,42 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/loading.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+
+    <style>
+        #loading-bg{
+            background-image: url("__IMG__/workstudy.jpg");
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0;
+            top: 93px;
+        }
+        @media only screen and (max-width: 750px){
+            #loading-bg{
+                background-image: url("__IMG__/mobile-workstudy.jpg");
+                top: 99px;
+            }
+        }
+    </style>
+
+
+    <!--<div id="loading">-->
+    <!--<div id="loading-content">-->
+    <!--<p>您访问的页面正在建设中...</p>-->
+    <!--<button type="button"><a href="http://www.hack10000.com/">返回首页</a></button>-->
+    <!--</div>-->
+    <div id="loading-bg">
+
+    </div>
+
+    <!--</div>-->
+
+</block>

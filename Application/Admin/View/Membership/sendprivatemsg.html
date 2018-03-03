@@ -1,0 +1,126 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2><eq name="sendtype" value="0">给选中会员发消息</eq><eq name="sendtype" value="1">给选中个人创客发消息</eq><eq name="sendtype" value="2">给选中机构创客发消息</eq><eq name="sendtype" value="4">给选中供应商发消息</eq></h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="wrapleft">
+			<form action="__SELF__" method="post" class="form-horizontal form-sendmessage">
+				<input type="hidden" name="ids" value="{$ids}">
+				<input type="hidden" id="curuid" value="{$uid}">
+				<input type="hidden" name="sendtype" value="{$sendtype}">
+				<div class="form-item">
+					<label class="item-label">
+						消息类型<span class="check-tips"></span>
+					</label>
+					<div class="controls">
+						<select name="type" id="type">
+							<in name="sendtype" value="1,2">
+							<option value="2" selected>活动通知</option>
+							</in>
+							<option value="1">服务通知</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						接收人角色<span class="check-tips"></span>
+					</label>
+					<div class="controls">
+						<select name="roleid" id="roleid">
+							<volist name="role" id="vorole">
+							<option value="{$key}" selected>{$vorole}</option>
+							</volist>
+						</select>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						标题<span class="check-tips">(最多100个字符，50个汉字)</span>
+					</label>
+					<div class="controls">
+						<input type="text" class="text input-large" name="title">
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						消息内容<span class="check-tips">(消息内容不宜过多，图片尺寸为600x450)</span>
+					</label>
+					<div class="controls">
+                        <label class="textarea">
+                        <textarea name="comment"></textarea>
+                        {:hook('adminArticleEdit', array('name'=>$field['name'],'value'=>$field['value']))}
+                        </label>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						接收消息会员列表
+					</label>
+					<div class="data-table">
+						<table class="">
+					    <thead>
+					        <tr>
+							<th class="">昵称</th>
+							<th class="">手机号</th>
+							</tr>
+					    </thead>
+					    <tbody>
+							<volist name="seluidlist" id="vo">
+							<tr>
+								<td>{$vo.nickname}</td>
+								<td>{$vo.mobile}</td>
+							</tr>
+							</volist>
+						</tbody>
+					    </table>
+					</div>
+				</div>
+				<div class="form-item">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		(function($){
+			/* 实时更新分类信息 */
+			$(".category")
+				.on("submit", "form", function(){
+					var self = $(this);
+					$.post(
+						self.attr("action"),
+						self.serialize(),
+						function(data){
+							/* 提示信息 */
+							var name = data.status ? "success" : "error", msg;
+							msg = self.find(".msg").addClass(name).text(data.info)
+									  .css("display", "inline-block");
+							setTimeout(function(){
+								msg.fadeOut(function(){
+									msg.text("").removeClass(name);
+								});
+							}, 1000);
+						},
+						"json"
+					);
+					return false;
+				})
+                .on("focus","input",function(){
+                    $(this).data('param',$(this).closest("form").serialize());
+
+                })
+                .on("blur", "input", function(){
+                    if($(this).data('param')!=$(this).closest("form").serialize()){
+                        $(this).closest("form").submit();
+                    }
+                });
+		})(jQuery);
+	</script>
+</block>
+

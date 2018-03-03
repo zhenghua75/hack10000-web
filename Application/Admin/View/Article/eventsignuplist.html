@@ -1,0 +1,138 @@
+<extend name="Public/base"/>
+
+<!-- 子导航 -->
+<block name="sidebar">
+    <include file="sidemenu" />
+</block>
+
+<block name="body">
+    <script type="text/javascript">
+        var pid="<?php echo $param['province']?>";
+        var cid="<?php echo $param['city']?>";
+        var did="<?php echo $param['district']?>";
+    </script>
+    <script type="text/javascript" src="__JS__/chinacity.js"></script>
+	<div class="main-title">
+		<h2>{$data['title']}-报名情况</h2>
+	</div>
+
+	<div class="cf">
+		<div class="fl">
+            <button class="btn" id="sendprivate">给选中创客发消息</button>
+        </div>
+		<!-- 高级搜索 -->
+		<div class="search-form fl cf">
+			<form action="{:U('Article/eventsignuplist',array('id'=>$data['id']))}" method="post">
+			<input type="hidden" name='id' value="{$data['id']}">
+			<div class="sleft">
+				<input type="text" name="begintime" class="text time" value="{$begintime}" placeholder="请选择开始时间" />
+				<input type="text" name="endtime" class="text time" value="{$endtime}" placeholder="请选择结束时间" />
+			</div>
+			
+			<div class="sleft">
+				<button class="sch-btn" id="search" style="color:#2d7200;border:none;background:none;"><i class="btn-search"></i>查询</button>
+				<a class="sch-btn" id="export" href="{:U('Article/expEventsignup')}">导出</a>
+			</div>
+			<input type="hidden" id="eventid" value="{$data['id']}">
+			</form>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+					<th>创客姓名</th>
+					<volist name="signfield" id="vof">
+					<th>{$vof}</th>
+					</volist>
+					<th>状态</th>
+					<th>报名时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<notempty name="signlist">
+				<volist name="signlist" id="vo">
+					<tr>
+						<td><input class="ids" type="checkbox" name="id[]" value="{$vo.uid}" /></td>
+						<td>{$vo.makername}</td>
+						<volist name="vo.extra" id="voform">
+						<if condition="is_array($voform)">
+						<td>
+							<volist name="voform" id="vocon">
+							<span style="display:block">{$vocon}</span>
+							</volist>
+						</td>
+						<else/>
+						<td>{$voform}</td>
+						</if>
+						</volist>
+						<td>{$vo.statusname}</td>
+						<td>{$vo.created|date='Y-m-d H:i:s',###}</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="14" class="text-center"> aOh! 暂时还没有内容! </td>
+				</notempty>
+			</tbody>
+		</table>
+		<!-- 分页 -->
+	    <div class="page">
+	        {$_page}
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+<link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+<php>if(C('COLOR_STYLE')=='blue_color') echo '<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">';</php>
+<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script type="text/javascript">
+$(function(){
+	//点击排序
+	$('.list_sort').click(function(){
+		var url = $(this).attr('url');
+		var ids = $('.ids:checked');
+		var param = '';
+		if(ids.length > 0){
+			var str = new Array();
+			ids.each(function(){
+				str.push($(this).val());
+			});
+			param = str.join(',');
+		}
+
+		if(url != undefined && url != ''){
+			window.location.href = url + '/ids/' + param;
+		}
+	});
+
+    $('.date').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+    $('.time').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        language:"zh-CN",
+        minView:2,
+        autoclose:true
+    });
+    showTab();
+});
+
+$("#sendprivate").click(function(){
+	var selid='';
+	$('input.ids:checked').each(function(){
+		selid=selid+','+$(this).val();
+	});
+	selid=selid.substr(1);
+	var eid=$('#eventid').val();
+	window.location.href="admin.php?s=/Article/sendprivatemsg/eid/"+eid+"/ids/"+selid;
+});
+</script>
+</block>

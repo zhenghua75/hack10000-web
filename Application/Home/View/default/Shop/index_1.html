@@ -1,0 +1,88 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/store.css" rel="stylesheet">
+    <link href="__CSS__/storecons.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/the-bd.js"></script>
+    <script type="text/javascript" src="__JS__/collect.js"></script>
+</block>
+<block name="body">
+<style>
+.fixed-head .bgcolor{
+    background: url('__IMG__/shoptpl/tpl1bg.png') repeat;
+}
+</style>
+<div class="fixed-head">
+    <div class="bgcolor">
+        <div class="control">
+            <div class="top">
+                <div class="shop-logo">
+                    <img src="{$shop['logopath']}" alt=""/>
+                </div>
+                <div class="shopnamecollect">
+                    <div class="shop-name">
+                        <span>店铺名：</span>
+                        <span>{$shop['name']}</span>
+                    </div>
+                    <div class="collectbutton">
+                        <button id="colbtn" onclick="collect({$shop['id']},3,0)">收藏店铺</button>
+                    </div>
+                </div>
+                <div class="shop-referral">
+                    <span>{$shop['comment']}</span>
+                </div>
+                <div class="shop-qrcode">
+                    <img src="{$shop['qrcodepath']}" alt=""/>
+                </div>
+            </div>
+            <div class="shop-code">
+                <img src="{$shop['backgroudpath']}" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content-layout">
+<div id="left-layout">
+    <div id="fasten">
+        <div id="leftbar" data-am-sticky="{top:42}">
+            <ul id="store-list">
+                <li class="left-nav-list">
+                    <a href="index?gi={$shop['guid']}" <empty name="cateid">class="actived"</empty>>所有宝贝</a>
+                </li>
+                <volist name="catelist" id="vocate">
+                <li class="left-nav-list">
+                    <a href="index?cate={$key}&gi={$shop['guid']}" <eq name="cateid" value="$key">class="actived"</eq>>{$vocate}</a>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="centre-layout">
+    <div id="wares">
+        <volist name="prodlist" id="voprod">
+        <div class="three-block1">
+            <a id="{$voprod['id']}" onmouseover="pricedisplay({$voprod['id']})" onmouseleave="pricedisappear({$voprod['id']})" href="{:U('Shop/product',array('id'=>$voprod['id'],'gi'=>$shop['guid']))}">
+                <div class="wares-flow">
+                    <img src="{$voprod['image']}" alt=""/>
+
+                    <div id="tag6" class="price">
+                        <p>{$voprod.name}</p>
+                        <p>{$voprod.desc|mb_substr=0,10,'utf-8'}...</p>
+                    </div>
+                    <div id="caveat6" class="caveat">
+                        <p>价格：<span class="fuhao">￥</span> <span class="shuzi">{$voprod.defaultdisplayprice}</span></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        </volist>
+    </div>
+</div>
+</div>
+
+</block>

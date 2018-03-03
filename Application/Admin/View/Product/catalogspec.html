@@ -1,0 +1,92 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>商品分类对应规格管理</h2>
+	</div>
+
+	<div class="cf">
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="name" class="search-input" value="{:I('name')}" placeholder="请输入三级分类名称">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('product/catalogspec')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>三级分类ID</th>
+					<th>三级分类名称</th>
+					<th>对应规格</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="catespec" id="vorel">
+					<tr>
+						<td>{$vorel.id}</td>
+						<td>{$vorel.name}</td>
+						<td>
+							<volist name="vorel.specname" id="vospec"><div style="border:1px solid #686868;min-width:22px;margin:0 2px 0 2px;padding:0 2px 0 2px;display:inline-block;text-align:center;">{$vospec}</div></volist>
+						</td>
+						<td>
+							<a title="编辑" href="{:U('product/catalogspecedit?cid='.$vorel['id'])}">编辑</a>
+						</td>
+					</tr>
+				</volist>
+			</tbody>
+		</table>
+		<!-- 分页 -->
+	    <div class="page">
+	        {$_page}
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+$(function(){
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+	//点击排序
+	$('.list_sort').click(function(){
+		var url = $(this).attr('url');
+		var ids = $('.ids:checked');
+		var param = '';
+		if(ids.length > 0){
+			var str = new Array();
+			ids.each(function(){
+				str.push($(this).val());
+			});
+			param = str.join(',');
+		}
+
+		if(url != undefined && url != ''){
+			window.location.href = url + '/ids/' + param;
+		}
+	});
+});
+</script>
+</block>

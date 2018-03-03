@@ -1,0 +1,145 @@
+#user-nav{
+    background-image: url("../images/maker-directbg.png");
+    background-position: 0;
+}
+#be-ck{
+    background-image: url("../images/be-ckicohover.png");
+}
+#settings-content{
+    height: auto;
+}
+#content-layout{
+    top: 42px;
+}
+.acknowledgement-settings{
+    width: 100%;
+    height: 106px;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    list-style-type: none;
+}
+.acknowledgement-settings-hover{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.acknowledgement-settings h3{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #000;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 14px;
+    text-indent: -8px;
+}
+.acknowledgement-settings span{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    margin: 0;
+    display: block;
+}
+.acknowledgement-settings h3:hover{
+    color: #f0b003;
+}
+.acknowledgement-settings span:hover{
+    color: #f0b003;
+}
+.acknowledgement-settings-hover:hover{
+    background-color: #292A2D;
+    color: #f0b003;
+}
+.makerauth-head{
+    width: auto;
+    margin-left: 30%;
+    float: left;
+    margin-top: 50px;
+    text-align: left;
+}
+.makerauth-head i{
+    width: 95px;
+    height: 95px;
+    float: left;
+    background-image: url("../images/auth-success.png");
+    background-repeat: no-repeat;
+}
+.makerauth-head span{
+    font-family: "微软雅黑";
+    font-size: 24px;
+    padding-left: 20px;
+    line-height: 95px;
+}
+.makerauth-content{
+    width: 50%;
+    float: left;
+    margin-left: 35%;
+    margin-top: 50px;
+    text-align: left;
+}
+.makerauth-content span{
+    display: block;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    line-height: 2;
+}
+.guidecontent{
+    float: left;
+    padding: 20px 10%;
+    width: 100%;
+    text-align: left;
+}
+.guidecontent img{
+    width: 100%;
+}
+#tab1-content .guidecontent p{
+    font-size: 16px;
+}
+
+
+
+
+
+@media all and (max-width: 750px){
+    .acknowledgement-settings span{
+        display: none;
+    }.acknowledgement-settings-hover{
+         width: 100%;
+     }
+
+
+    .makerauth-head{
+        width: auto;
+        margin-top: 0;
+    }
+    .makerauth-head span{
+        width: 100%;
+        float: left;
+        line-height: normal;
+        padding: 0;
+    }
+    .makerauth-content{
+        width: auto;
+        margin-left: 30%;
+        margin-top: 25px;
+    }
+    .guidecontent{
+        padding: 20px 20px;
+    }
+    #tab1-content .guidecontent p{
+        font-size: 16px;
+        text-indent: 1em;
+    }
+}
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .acknowledgement-settings-hover{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>{:isset($info['id'])?'编辑':'新增'}商品分类</h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="tab-content">
+			<form action="{:U()}" method="post" class="form-horizontal">
+				<!-- 基础 -->
+				<div id="tab1" class="tab-pane in tab1">
+					<div class="form-item">
+						<label class="item-label">上级分类<span class="check-tips"></span></label>
+						<div class="controls">
+							<input type="text" class="text input-large" disabled="disabled" value="{$category['name']|default='无'}"/>
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							分类名称<span class="check-tips">（名称不能为空）</span>
+						</label>
+						<div class="controls">
+							<input type="text" name="name" class="text input-large" value="{$info.name|default=''}">
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							排序<span class="check-tips">（仅对当前层级分类有效）</span>
+						</label>
+						<div class="controls">
+							<input type="text" name="sort" class="text input-small" value="{$info.sort|default=0}">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-item">
+					<input type="hidden" name="id" value="{$info.id|default=''}">
+					<input type="hidden" name="parent_id" value="{:isset($category['id'])?$category['id']:$info['parent_id']}">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</block>
+

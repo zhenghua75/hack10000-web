@@ -1,0 +1,140 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>{:isset($info['id'])?'编辑':'新增'}页面配置</h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="tab-content">
+			<form action="{:U()}" method="post" class="form-horizontal">
+				<!-- 基础 -->
+				<div id="tab1" class="tab-pane in tab1">
+					<div class="form-item">
+						<label class="item-label">页面名称<span class="check-tips"></span></label>
+						<div class="controls">
+							<input type="text" name="name" class="text input-large" value="{$pageinfo['name']}"/>
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							页面地址
+						</label>
+						<div class="controls">
+							<input type="text" name="url" class="text input-large" value="{$pageinfo['url']}">
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							项目类型
+						</label>
+						<div class="controls">
+							<select name="itemtype">
+								<volist name="pageitemtype" id="voitem">
+								<option value="{$key}"<eq name="pageinfo.itemtype" value='key'>selected</eq>>{$voitem}</option>
+								</volist>
+							</select>
+						</div>
+					</div>
+					<div class="error"></div>
+					<div class="form-item">
+						<label class="item-label">
+							图片(1440x500)
+						</label>
+                        <div class="upload-permit">
+                            <img src="{$pageinfo['itemidpath']}" style="width:300px;">
+                            <button type="button" class="am-btn">
+                                上传<input type="file" name="file-busilicpid" id="file-busilicpid" onchange="handleFileSelect(this,'slideshow')"></button>
+                            <input type="hidden" name="itemid" id="itemid" value="{$pageinfo['itemid']}" required />
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							链接地址
+						</label>
+						<div class="controls">
+							<input type="text" name="linkurl" class="text input-large" value="{$pageinfo['linkurl']}">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-item">
+					<input type="hidden" name="id" value="{$info.id|default=''}">
+					<input type="hidden" name="parent_id" value="{:isset($category['id'])?$category['id']:$info['parent_id']}">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		function handleFileSelect (evt,imgtp) {
+		    var oFile = evt.files[0];
+
+		    // hide all errors
+		    $('.error').hide();
+
+		    // check for image type (jpg and png are allowed)
+		    var rFilter = /^(image\/jpeg|image\/png|image\/jpg)$/i;
+		    if (! rFilter.test(oFile.type)) {
+		        $('.error').html('请选择JPG、PNG、JPEG格式图片').show();
+		        return;
+		    }
+
+		    // check for file size
+		    if (oFile.size > 1 * 1024 *1024) {
+		        $('.error').html('图片文件不能超过1M').show();
+		        return;
+		    }
+
+		    // preview element
+		    //var oImage = document.getElementById('preview');
+		    var oImage=new Image();  
+
+		    // prepare HTML5 FileReader
+		    var oReader = new FileReader();
+		    oReader.onload = function(e) {
+		    	oImage.src = e.target.result;
+		        $('#pic-uploading').modal('open');
+		    	oImage.onload = function () {
+					var quality =  50;
+					var mime_type = oFile.type;
+					var cvs = document.createElement('canvas');
+					//naturalWidth真实图片的宽度
+					cvs.width = oImage.naturalWidth;
+					cvs.height = oImage.naturalHeight;
+					var ctx = cvs.getContext("2d").drawImage(oImage, 0, 0);
+					var base64 = cvs.toDataURL(mime_type, quality/100).substr(22);
+		            var fieldname=evt.id.substr(5);
+					$('#'+fieldname+'name').val(oFile.name);
+		            var file={
+		                name:oFile.name,
+		                type:mime_type,
+		                imgbase64:base64
+		            }
+		            var inputfile={
+		                productimg:file
+		            }
+		            var data1={
+		                uid:0,
+		                imgtype:imgtp,
+		                files:inputfile
+		            }
+		            $.post("",{data:data1},
+		            function(data){
+		                $('#pic-uploading').modal('close');
+		                if(data.status){
+		                    $('#'+fieldname).val(data.id);
+		                }else{
+		                    alert('上传失败:'+data.info);
+		                }
+		            },'json');
+		        };
+		    }
+
+		    // Read in the image file as a data URL.
+		    oReader.readAsDataURL(oFile);
+		}
+	</script>
+</block>

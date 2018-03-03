@@ -1,0 +1,136 @@
+#be-provider{
+    background-image: url("../images/be-providerhover.png");
+}
+#be-ck{
+    background-image: url("../images/be-ckico.png");
+}
+#user-nav{
+    background-image: url("../images/supplier-directbg.png");
+}
+.progressreview-head{
+    width: 65%;
+    margin: 50px auto;
+}
+.progress-span1{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: bold;
+    color: #292A2D;
+}
+.progress-span2{
+    font-weight: normal;
+}
+.process-head1{
+    width: 716px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process1.png");
+    background-repeat: no-repeat;
+}
+.process-head2{
+    width: 716px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process2.png");
+    background-repeat: no-repeat;
+}
+.process-head3{
+    width: 716px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process3.png");
+    background-repeat: no-repeat;
+}
+.process-head4{
+    width: 716px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url("../images/audit-process4.png");
+    background-repeat: no-repeat;
+}
+.get-entry{
+    width: 100%;
+    margin: 100px auto;
+}
+.get-entry-span{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #FF0000;
+}
+.contact-us{
+    width: 100%;
+    margin: 0 auto;
+}
+.contact-us-h2{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    font-weight: normal;
+}
+.contact-us-h2 span{
+    color: #FF0000;
+}
+.login-immediately{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+.login-immediately button{
+    width: 190px;
+    height: 50px;
+    background-color: #f0b003;
+    color: #292A2D;
+    font-family: "微软雅黑";
+    font-size: 25px;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

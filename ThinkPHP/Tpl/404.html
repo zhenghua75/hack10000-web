@@ -1,0 +1,52 @@
+<?php
+    if(C('LAYOUT_ON')) {
+        echo '{__NOLAYOUT__}';
+    }
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>404</title>
+<style type="text/css">
+.control {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+#logo {
+	position: absolute;
+	top: 0;
+	z-index: 400;
+	height: 90px;
+	background-color: #292A2D;
+}
+*{ padding: 0; margin: 0; }
+body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16px; text-align: center;}
+.system-message{width: 500px;height: 464px;position: absolute; top:50%; left: 50%; margin:-270px 0 0 -250px }
+.system-message h1{ font-size: 100px; font-weight: normal; line-height: 120px; margin-bottom: 12px; }
+.system-message .jump{ padding-top: 10px}
+.system-message .jump a{ color: #f0b003;font-weight: bold;font-size: 18px;}
+.system-message .success,.system-message .error{ line-height: 1.8em; font-size: 36px }
+.system-message .detail{ font-size: 12px; line-height: 20px; margin-top: 12px;}
+@media all and (max-width: 500px) {
+    .system-message{width:320px;height:320px;margin:-200px 0 0 -160px}
+    .system-message .error img{width:320px;}
+}
+</style>
+</head>
+<body>
+<div class="control">
+    <div id="logo">
+        <a href="http://www.hack10000.com"><img src="/Public/Home/images/logo.png" alt="慧爱创客"/></a>
+    </div>
+</div>
+<div class="system-message">
+<p class="error"><img src="/Public/Home/images/404.png"></p>
+<p class="detail">非常抱歉，该页面已不存在！</p>
+<p class="jump">
+返回&nbsp;<a id="href" href="http://www.hack10000.com">慧爱创客首页</a>
+</p>
+</div>
+</body>
+</html>

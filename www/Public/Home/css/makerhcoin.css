@@ -1,0 +1,326 @@
+.makerhcoin-left{
+    width: 194px;
+    height: 775px;
+    border: 1px solid #292A2D;
+    border-radius: 5px;
+    float: left;
+}
+.makerhcoin-head{
+    width: 80%;
+    float: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+.makerhcoin-list{
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+.makerhcoin-list li{
+    list-style-type: disc;
+    font-size: 20px;
+    text-indent: -20px;
+}
+.makerhcoin-right{
+    width: 73%;
+    float: left;
+    margin-left: 10px;
+ }
+.makerhcoin-right-1{
+    width: 100%;
+    float: left;
+    border-bottom: 1px dashed #292A2D;
+    margin-top: 60px;
+    padding-bottom: 50px;
+    text-align: left;
+    padding-left: 20px;
+ }
+.makerhcoin-right-2{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    text-align: left;
+    padding-left: 20px;
+ }
+.makerhcoin-span1{
+    font-size: 20px;
+    color: #e85e03;
+    display: block;
+}
+.makerhcoin-span2{
+    font-size: 18px;
+    display: block;
+}
+
+
+.coin-header{
+    width: 20%;
+    float: left;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.coin-number{
+    width: 46%;
+    float: left;
+    margin-top: 56px;
+    margin-left: 16px;
+    text-align: left;
+}
+.coin-number img{
+    vertical-align: super;
+}
+.coin-number h5{
+    font-size: 18px;
+    font-family: "微软雅黑";
+    margin: 0;
+    font-weight: normal;
+}
+.coin-number span{
+    font-family: "微软雅黑";
+    font-size: 24px;
+    color: #f0b003;
+}
+
+.coin-particulars{
+    width: 100%;
+    float: left;
+}
+#tab3{
+    padding: 0;
+}
+.coin-particulars-header{
+    width: 100%;
+    float: left;
+    background-color: #f4f4f4;
+    height: 50px;
+    text-align: left;
+    margin-top: 20px;
+}
+.coin-particulars-header span{
+    font-family: "微软雅黑";
+    font-size: 26px;
+    color: #f0b003;
+    line-height: 50px;
+    margin-left: 110px;
+}
+.coin-particulars-layout{
+    width: 100%;
+    float: left;
+    padding: 0 20px;
+}
+.coin-particulars-block{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    border-bottom: 1px solid #292A2D;
+    padding-bottom: 5px;
+}
+.coin-particulars-week{
+    width: 9%;
+    float: left;
+    margin-left: 28px;
+    text-align: left;
+    line-height: 2;
+}
+.coin-particulars-week span{
+    font-size: 20px;
+    font-family: "微软雅黑";
+    display: block;
+}
+.coin-particulars-img{
+    width: 10%;
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+.coin-particulars-img a{
+    cursor: pointer;
+}
+.coin-particulars-details{
+    width: 70%;
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+    font-family: "微软雅黑";
+    font-size: 20px;
+}
+.coin-particulars-details span:nth-child(2){
+    float: right;
+    text-align: right;
+    color: #f0b003;
+    float: right;
+    text-align: right;
+    margin-right: 92px;
+}
+.coin-particulars-details span:nth-child(3){
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 500px;
+}
+
+
+.am-modal-bd{
+    padding: 15px 0;
+}
+.window-particulars-header{
+    width: 100%;
+    float: left;
+    background-color: #f4f4f4;
+    height: 50px;
+    text-align: left;
+    margin-top: 20px;
+}
+.window-particulars-header span{
+    font-family: "微软雅黑";
+    font-size: 26px;
+    color: #f0b003;
+    line-height: 50px;
+    margin-left: 70px;
+}
+.window-particulars-body{
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+    font-family: "微软雅黑";
+    text-align: left;
+}
+.window-particulars-body p{
+    font-size: 24px;
+    color: #f0b003;
+    margin-left: 46px;
+}
+.window-particulars-body p:nth-child(1){
+    font-size: 26px;
+}
+.window-particulars-body p:nth-child(2){
+    font-size: 30px;
+}
+.window-particulars-body span{
+    font-size: 22px;
+    color: #292A2D;
+    margin-left: 68px;
+}
+
+
+
+.coin-conversion{
+    width: 100%;
+    float: left;
+    padding: 18px 20px;
+    border: 1px solid #292A2D;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: left;
+    font-family: "微软雅黑";
+}
+.coin-conversion h2{
+    font-size: 24px;
+}
+.coin-conversion h3{
+    font-size: 22px;
+    margin: 0;
+}
+.coin-conversion p{
+    font-size: 18px!important;
+    text-indent: 2em!important;
+}
+.coin-conversion span{
+    font-size: 18px!important;
+    color: #FF0000;
+}
+
+.page-makerhcoin .am-table{
+    padding: 10px 0;
+}
+.page-makerhcoin .am-tabs-bd .am-tab-panel *{
+    text-align: left;
+    font-size: 18px;
+}
+.page-makerhcoin .coin-thead{
+    font-size: 20px;
+    color: #f0b003;
+    background-color: #f4f4f4;
+}
+
+
+
+
+
+
+@media all and (max-width: 750px){
+    .coin-header{
+        width: auto;
+        float: none;
+        margin: 0;
+    }
+    .coin-number{
+        width: auto;
+        float: none;
+        margin: 0;
+        text-align: center;
+    }
+    .coin-particulars-week{
+        width: auto;
+        margin-left: 0;
+    }
+    .coin-particulars-img{
+        width: auto;
+    }
+    .coin-particulars-details{
+        width: auto;
+        margin-top: 15px;
+    }
+    .coin-particulars-details span:nth-child(2){
+        margin-right: 50px;
+    }
+    .coin-particulars-details span:nth-child(3){
+        width: auto;
+        white-space: normal;
+        overflow: inherit;
+        float: left;
+    }
+    .page-makerhcoin .am-tabs-bd .am-tab-panel *{
+        font-size: 16px;
+    }
+    .page-makerhcoin .am-tabs-bd .am-tab-panel *{
+        font-size: 14px;
+    }
+}
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .coin-header{
+        width: auto;
+    }
+    .coin-particulars-week{
+        width: auto;
+    }
+    .coin-particulars-details{
+        float: right;
+        width: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

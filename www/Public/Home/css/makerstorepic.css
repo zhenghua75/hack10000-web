@@ -1,0 +1,59 @@
+.picture-file-img1{
+    float: left;
+}
+.picture-file-img1 img{
+    margin-top: -29px;
+    float: left;
+    margin-left: -1px;
+}
+.picture-file-return{
+    width: 100%;
+    float: left;
+    text-align: left;
+}
+.picture-file-return a{
+    font-size: 20px;
+    color: #292A2D;
+}
+.picture-file-return a:hover{
+    color: #FF0000;
+}
+
+[class*="am-icon-"]{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

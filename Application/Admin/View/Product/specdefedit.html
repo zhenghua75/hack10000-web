@@ -1,0 +1,129 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>{:isset($info['id'])?'编辑':'新增'}商品规格</h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="wrapleft" style="float:left">
+			<form action="{:U()}" method="post" class="form-horizontal">
+				<!-- 基础 -->
+				<div id="tab1" class="tab-pane in tab1">
+					<div class="form-item">
+						<label class="item-label">
+							规格名称<span class="check-tips">（名称不能为空）</span>
+						</label>
+						<div class="controls">
+							<input type="text" name="name" class="text input-large" value="{$info.name|default=''}">
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							规格备注<span class="check-tips">（用于区分相同规格名称的不同规格）</span>
+						</label>
+						<div class="controls">
+							<input type="text" name="comment" class="text input-large" value="{$info.comment|default=''}">
+						</div>
+					</div>
+					<div class="form-item">
+						<label class="item-label">
+							排序<span class="check-tips">（规格显示顺序）</span>
+						</label>
+						<div class="controls">
+							<input type="text" name="sort" class="text input-small" value="{$info.sort|default=0}">
+						</div>
+					</div>
+				</div>
+				<div class="form-item">
+					<input type="hidden" name="sid" value="{$info.sid|default=''}">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+		</div>
+		<div class="wrapright" style="float:left;margin-left:30px; width:500px;">
+			<form action="{:U(specvaladd)}" method="post" class="formval">
+				<!-- 基础 -->
+				<div id="tab1" class="tab-pane in tab1">
+					<div class="form-item" style="float:left;">
+						<div style="width:100px;">规格值名称</div>
+						<input type="text" name="valname" class="text input-middle" value="">
+					</div>
+					<div class="form-item" style="float:left;margin-left:30px;">
+						<div style="width:100px;">排序</div>
+						<input type="text" name="valsort" class="text input-small" value="">
+					</div>
+				</div>
+				<div class="form-item">
+					<input type="hidden" name="defsid" value="{$info.sid|default=''}">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="formval">添加规格值</button>
+				</div>
+			</form>
+			<div class="data-table table-striped">
+				<div class="category">
+					<div class="hd cf">
+						<div class="name" style="width:230px;">规格值名称</div>
+						<div class="order">顺序</div>
+						<div class="order">操作</div>
+						<div class="order"></div>
+					</div>
+					<volist name='list' id="vo">
+					<dl class="cate-item">
+						<dt class="cf">
+							<form action="{:U('specvaledit')}" method="post">
+								<input type="hidden" name="refvid" value="{$vo.vid|default=''}">
+								<input type="hidden" name="refsid" value="{$vo.sid|default=''}">
+								<div class="name">
+									<input type="text" name="refname" class="text" value="{$vo.name}">
+								</div>
+								<div class="order"><input type="text" name="refsort" class="text input-mini" value="{$vo.sort}"></div>
+								<div class="order"><a class="confirm ajax-get" title="删除" href="{:U('specvaldel?vid='.$vo['vid'].'&sid='.$vo['sid'])}">删除</a></div>
+								<div class="order"><span class="help-inline msg"></span></div>
+							</form>
+						</dt>
+					</dl>
+					</volist>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		(function($){
+			/* 实时更新分类信息 */
+			$(".category")
+				.on("submit", "form", function(){
+					var self = $(this);
+					$.post(
+						self.attr("action"),
+						self.serialize(),
+						function(data){
+							/* 提示信息 */
+							var name = data.status ? "success" : "error", msg;
+							msg = self.find(".msg").addClass(name).text(data.info)
+									  .css("display", "inline-block");
+							setTimeout(function(){
+								msg.fadeOut(function(){
+									msg.text("").removeClass(name);
+								});
+							}, 1000);
+						},
+						"json"
+					);
+					return false;
+				})
+                .on("focus","input",function(){
+                    $(this).data('param',$(this).closest("form").serialize());
+
+                })
+                .on("blur", "input", function(){
+                    if($(this).data('param')!=$(this).closest("form").serialize()){
+                        $(this).closest("form").submit();
+                    }
+                });
+		})(jQuery);
+	</script>
+</block>
+

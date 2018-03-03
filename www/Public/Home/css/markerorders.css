@@ -1,0 +1,660 @@
+#settings-content .am-nav-tabs > li{
+    margin-left: 12px!important;
+}
+
+.makerorders-head{
+    width: 100%;
+    margin:0 auto;
+}
+.makerorders-head-ul{
+    padding: 0;
+    margin-top: -3px;
+}
+.makerorders-head-ul li{
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+.makerorders-head-ul li:nth-child(1){
+    margin-right: 100px;
+}
+.makerorders-head-ul li:nth-child(2){
+    margin-right: 120px;
+}
+.makerorders-head-ul li:nth-child(3){
+    margin-right: 60px;
+}
+.makerorders-head-ul li:nth-child(4){
+    margin-right: 70px;
+}
+.makerorders-head-ul li:nth-child(5){
+    margin-right: 70px;
+}
+.makerorders-head-ul li:nth-child(1) input{
+    vertical-align: sub;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.makerorders-checkbox{
+    vertical-align: sub;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+.makerorders-details{
+    width: 100%;
+    float: left;
+    border: 1px solid #292A2D;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.details-checkbox{
+    float: left;
+    width: 4%;
+    line-height: 140px;
+}
+.details-purchaser{
+    text-align: left;
+}
+.details-purchaser span{
+    margin-right: 20px;
+}
+.details-images{
+    float: left;
+    width: 13%;
+    line-height: 105px;
+}
+.details-news{
+    float: left;
+    width: 18%;
+    margin-top: 8px;
+    line-height: 2;
+    text-align: left;
+}
+.details-news p{
+    font-size: 12px!important;
+    font-family: "微软雅黑"!important;
+    text-indent: 0!important;
+}
+.details-unit-cost{
+    float: left;
+    width: 24%;
+    margin-top: 22px;
+}
+.unit-cost-before{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    display: block;
+}
+.unit-cost-now{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    display: block;
+    color: #FF6C00;
+}
+.details-quantity{
+    float: left;
+    width: 6%;
+    margin-top: 34px;
+}
+.quantity-span{
+    font-family: "微软雅黑";
+    font-size: 18px;
+}
+.details-money{
+    float: left;
+    width: 18%;
+    margin-top: 34px;
+    margin-left: 22px;
+}
+.money-span{
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: #FF6C00;
+}
+.details-btntwo{
+    width: 10%;
+    float: right;
+    margin-top: 8px;
+    margin-right: 18px;
+}
+.details-btntwo button{
+    display: block;
+    width: 78px;
+    height: 40px;
+    border: none;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.details-btnone{
+    width: 9%;
+    float: right;
+    margin-top: 30px;
+    margin-right: 22px;
+}
+.details-btnone button{
+    display: block;
+    width: 70px;
+    height: 40px;
+    border: none;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.details-footer{
+    width: 100%;
+    float: left;
+    margin-top: 36px;
+}
+.details-footer button{
+    width: 100%;
+    height: 50px;
+    font-family: "微软雅黑";
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #292A2D;
+    color: #f0b003;
+}
+
+
+.am-modal-no-btn .am-modal-dialog{
+    background-color: #fff;
+    border-radius: 5px;
+}
+.logistics-details{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+.logistics-details span{
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+.logistics-process{
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+.logistics-content{
+    width: 90%;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.logistics-content h2{
+    font-size: 18px;
+    float: left;
+    margin: 0;
+}
+.logistics-content p{
+    margin: 0;
+    float: left;
+    margin-top: 14px;
+}
+.logistics-red-span{
+    color: #FF0000;
+    margin-right: 46px;
+    float: left;
+}
+.logistics-margin-span{
+    margin-right: 46px;
+    float: left;
+}
+.logistics-margin-span2{
+    float: left;
+    width: 42%;
+    margin-right: 46px;
+}
+.delivery-details{
+    width: 90%;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.delivery-details p{
+    margin: 0;
+    margin-bottom: 20px;
+    float: left;
+}
+
+
+
+.finish-header{
+    width: 100%;
+    float: left;
+    text-align: left;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    margin-top: 30px;
+}
+.finish-header span:nth-child(1){
+    margin-left: 204px;
+    margin-right: 222px;
+}
+.finish-header span:nth-child(2){
+    margin-right: 84px;
+}
+
+.finish-header span:nth-child(3){
+    margin-right: 84px;
+}
+.finish-details{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.finish-img{
+    width: 10%;
+    float: left;
+    text-align: left;
+    margin-left: 58px;
+}
+.finish-info{
+    width: 26%;
+    float: left;
+    text-align: left;
+    line-height: 2;
+    margin-left: 10px;
+}
+.finish-info span{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    display: block;
+}
+.finish-unit-price{
+    width: 10%;
+    float: left;
+    margin-left: 88px;
+}
+.finish-unit-price s{
+    font-size: 18px;
+    color: #a3a3a3;
+    padding-left: 5px;
+}
+.finish-unit-price span{
+    font-size: 24px;
+    color: #FF0000;
+    display: block;
+}
+.finish-quantity{
+    width: 5%;
+    float: left;
+    margin-left: 92px;
+    line-height: 3.8;
+}
+.finish-quantity span{
+    font-size: 24px;
+}
+.finish-subtotal{
+    width: 10%;
+    float: left;
+    margin-left: 76px;
+    line-height: 3.8;
+}
+.finish-subtotal span{
+    font-size: 24px;
+    color: #FF0000;
+}
+.finish-bottom{
+    width: 88%;
+    float: left;
+    text-align: left;
+    margin-left: 58px;
+    line-height: 1.8;
+    margin-top: 8px;
+}
+.finish-bottom p{
+    margin: 0;
+    font-family: "微软雅黑";
+    font-size: 18px;
+}
+.finish-bottom-price{
+    font-size: 28px;
+    color: #FF0000;
+    margin-right: 46px;
+    vertical-align: sub;
+}
+.tab4-goods-evaluate{
+    width: auto;
+    margin-top: 34px;
+    margin-right: 1%;
+    float: right;
+}
+.tab4-goods-evaluate button{
+    width: 90px;
+    height: 30px;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+.tab1-goods-img1 {
+    width: 15.5%;
+    float: left;
+    margin-left: 40px;
+}
+.tab1-goods-declare1 {
+    width: 20%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+.tab1-goods-gettime {
+    width: 31%;
+    float: right;
+    text-align: center;
+}
+.tab-declare-span-sm {
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+.gettime-span-sm {
+    font-size: 14px;
+}
+.give-a-mark {
+    width: 80%;
+    float: left;
+    margin-left: 40px;
+    text-align: left;
+    margin-top: 20px;
+}
+.give-a-mark-span {
+    font-size: 14px;
+    font-family: "微软雅黑";
+    float: left;
+    line-height: 30px;
+    margin-right: 8px;
+}
+.red-starico {
+    color: #FF0000;
+    font-size: 14px;
+    font-style: normal;
+    vertical-align: sub;
+    margin-right: 5px;
+}
+.give-a-remark {
+    width: 80%;
+    float: left;
+    margin-left: 40px;
+    text-align: left;
+}
+.give-a-remark textarea {
+    width: 600px;
+    height: 140px;
+    max-width: 600px;
+    max-height: 140px;
+    border-radius: 5px;
+}
+.anonymous-comments {
+    width: 20%;
+    float: left;
+    margin-left: 40px;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+.anonymous-comments input {
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+}
+.add-a-comment {
+    width: 12%;
+    margin: 0 auto;
+    margin-top: 10px;
+    float: right;
+    margin-right: 300px;
+}
+.add-a-comment button {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #292A2D;
+    color: #f0b003;
+    border-radius: 5px;
+    border: none;
+}
+#default-demo {
+    width: 170px!important;
+}
+.tab1-goods .am-table > tbody > tr > td{
+    width: 18%;
+}
+.tab1-goods .am-table > tbody > tr > td.name{
+    width: 18%;
+}
+.tab1-goods .am-table > tbody > tr > td.spec{
+    width: 18%;
+}
+.tab1-goods .am-table > tbody > tr > td.price{
+    width: 18%;
+}
+.tab1-goods .am-table > tbody > tr > td.count{
+    width: 18%;
+}
+
+
+
+@media all and (max-width: 750px){
+    .makerorders-details{
+        height: auto;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+    .details-purchaser{
+        font-size: 14px;
+    }
+    .details-purchaser span{
+        margin-right: 10px;
+    }
+    .details-images{
+        width: auto;
+        line-height: normal;
+    }
+    .details-news{
+        width: 65%;
+        line-height: normal;
+        margin-top: 0;
+    }
+    .makerorders-head-ul li:nth-child(2){
+        display: none;
+    }
+    .makerorders-head-ul li:nth-child(3){
+        display: none;
+    }
+    .makerorders-head-ul li:nth-child(4){
+        display: none;
+    }
+    .makerorders-head-ul li:nth-child(5){
+        display: none;
+    }
+    .makerorders-head-ul li:nth-child(6){
+        display: none;
+    }
+    .details-checkbox{
+        width: auto;
+        margin-right: 5px;
+        line-height: normal;
+    }
+    .details-unit-cost{
+        width: auto;
+    }
+    .details-quantity{
+        width: auto;
+        margin-left: 15px;
+    }
+    .details-money{
+        width: auto;
+        margin-left: 15px;
+    }
+    .details-btnone{
+        width: auto;
+    }
+    .details-btntwo{
+        width: auto;
+    }
+    .details-btntwo button{
+        display: inline;
+    }
+
+    /*弹出窗*/
+    .am-modal.am-modal-active{
+        width: 100%!important;
+        margin-left: 0!important;
+        margin-top: 0!important;
+        left: 0;
+        min-width: 320px;
+        top: 0;
+    }
+    .logistics-process{
+        margin-top: 0;
+    }
+    .logistics-process img{
+        width: 100%;
+    }
+    .logistics-content{
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+        font-size: 14px;
+    }
+    .logistics-content h2{
+        font-size: 16px;
+    }
+    .logistics-red-span{
+        margin-right: 25px;
+    }
+    .logistics-margin-span{
+        margin-right: 15px;
+    }
+    .delivery-details{
+        width: 100%;
+        margin-left: 0;
+        font-size: 14px;
+        margin-top: 0;
+    }
+    .logistics-margin-span2{
+        width: auto;
+        margin-right: 0;
+    }
+    .delivery-details p{
+        margin-bottom: 5px;
+    }
+    .am-modal-no-btn .am-modal-dialog{
+        float: left;
+        height: auto!important;
+    }
+    .logistics-details{
+        margin-top: 0;
+    }
+    .logistics-details span{
+        font-size: 16px;
+    }
+    .logistics-content p{
+        margin-top: 5px;
+    }
+
+
+    .finish-header{
+        display: none;
+    }
+    .finish-img{
+        width: auto;
+        margin-left: 0;
+    }
+    .finish-info{
+        width: 41%;
+        line-height: normal;
+    }
+    .finish-unit-price{
+        width: auto;
+        margin-left: 0;
+    }
+    .finish-quantity{
+        display: none;
+    }
+    .finish-subtotal{
+        display: none;
+    }
+    .finish-bottom{
+        width: 100%;
+        margin-left: 0;
+        line-height: normal;
+        margin-bottom: 5px;
+    }
+    .finish-bottom p{
+        font-size: 15px;
+    }
+    .finish-unit-price span{
+        font-size: 19px;
+    }
+    .finish-unit-price s{
+        font-size: 14px;
+    }
+    #settings-content .am-nav-tabs > li{
+        width: 20%;
+    }
+}
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .makerorders-head{
+        display: none;
+    }
+    .details-images{
+        width: auto;
+    }
+    .details-news{
+        width: 24%;
+    }
+    .details-unit-cost{
+        width: auto;
+    }
+    .details-quantity{
+        width: auto;
+        margin-left: 5%;
+    }
+    .details-money{
+        width: auto;
+        margin-left: 5%;
+    }
+    .details-btnone{
+        width: auto;
+        margin-right: 10px;
+    }
+    .details-btntwo{
+        width: auto;
+        margin-right: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

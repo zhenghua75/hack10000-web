@@ -1,0 +1,95 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>商品规格管理</h2>
+	</div>
+
+	<div class="cf">
+		<a class="btn" href="{:U('specdefadd')}">新 增</a>
+
+		<!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="name" class="search-input" value="{:I('name')}" placeholder="请输入配置名称">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('product/specdef')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>规格名称</th>
+					<th>规格值</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="specdef" id="vodef">
+					<tr>
+						<td>{$vodef.sid}</td>
+						<td><a href="{:U('specdefedit?sid='.$vodef['sid'])}">{$vodef.name}<if condition="$vodef.comment neq ''">[{$vodef.comment}]</if></a></td>
+						<td>
+							<volist name="vodef.val" id="voval"><div style="border:1px solid #686868;min-width:22px;margin:0 2px 0 2px;padding:0 2px 0 2px;display:inline-block;text-align:center;">{$voval}</div></volist>
+						</td>
+						<td>
+							<a title="编辑" href="{:U('specdefedit?sid='.$vodef['sid'])}">编辑</a>
+							<a class="confirm ajax-get" title="删除" href="{:U('specdefdel?sid='.$vodef['sid'])}">删除</a>
+						</td>
+					</tr>
+				</volist>
+			</tbody>
+		</table>
+		<!-- 分页 -->
+	    <div class="page">
+	        {$_page}
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+$(function(){
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+	//点击排序
+	$('.list_sort').click(function(){
+		var url = $(this).attr('url');
+		var ids = $('.ids:checked');
+		var param = '';
+		if(ids.length > 0){
+			var str = new Array();
+			ids.each(function(){
+				str.push($(this).val());
+			});
+			param = str.join(',');
+		}
+
+		if(url != undefined && url != ''){
+			window.location.href = url + '/ids/' + param;
+		}
+	});
+});
+</script>
+</block>

@@ -1,0 +1,65 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/eventindex.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/the-bd.js"></script>
+</block>
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout">
+    <div id="fasten">
+        <div id="leftbar" data-am-sticky="{top:42}">
+            <ul id="store-list">
+                <volist name='category' id="vocate">
+                <li class="left-nav-list">
+                    <div onmouseover="display()" onmouseleave="disappear()">
+                        <a href="{:U('Article/eventindex',array('ca'=>$vocate['name']))}" class="list-left">{$vocate.title}</a>
+                    </div>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="centre-layout">
+    <div class="eventbar">&nbsp;&nbsp;{$categoryname}活动</div>
+    <div class="event-panel <empty name='list'>emptybg</empty>">
+        <notempty name="list">
+        <volist name="list" id="vodoc">
+        <div class="event-layout">
+            <div class="event-list">
+                <div class="event-logo">
+                    <if condition="$vodoc['signup'] eq '0'"><img src="__IMG__/event-not-attend.png" alt="未参加"/><elseif condition="$vodoc['signup'] eq '1'"/><img src="__IMG__/event-end-attend.png" alt="进行中"/><else /><img src="__IMG__/event-finish.png" alt="已完成"/></if>
+                </div>
+                <div class="event-right">
+                    <div class="event-name">
+                        <span>活动名称：</span>
+                        <span>{$vodoc.title}</span>
+                        <a href="{:U('Article/detail',array('id'=>$vodoc['id']))}" target="_blank"><if condition="$vodoc['signup'] eq '0'">未参加<elseif condition="$vodoc['signup'] eq '1'"/>进行中<else />已完成</if></a>
+                    </div>
+                    <div class="event-content">
+                        <span>活动内容：</span>
+                        <span>{$vodoc.description}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </volist>
+        <else/>
+        <div class="tab1-goods">
+            <if condition="$cate eq 'practice' or $cate eq 'innovate' or $cate eq 'selfemployed' or $cate eq 'hcoinget'">
+                暂时还没有任何活动！
+            <else/>
+                本栏目活动正在策划中，暂不开放，敬请关注。
+            </if>
+        </div>
+        </notempty>
+    </div>
+</div>
+</div>
+
+</block>

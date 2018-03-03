@@ -1,0 +1,95 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/loading.css" rel="stylesheet">
+    <link href="__CSS__/store.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <style>
+        #loading-bg{
+            background-image: url("__IMG__/innovate.jpg");
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 100%;
+            background-size: 100% 100%;
+            position: absolute;
+            left: 0;
+            top: 93px;
+        }
+        @media only screen and (max-width: 750px){
+            #loading-bg{
+                background-image: url("__IMG__/mobile-innovate.jpg");
+                top: 99px;
+            }
+        }
+    </style>
+
+    <notempty name="memberstatus[1]">
+        <if condition="$memberstatus[1]['status'] eq 1">
+            <div id="banner">
+                <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+                    <ul class="am-slides">
+                        <volist name="slideshow" id="voslide">
+                        <li><a href="{$voslide['linkurl']}" target="_blank"><img src="{$voslide['imagepath']}"/></a></li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <img src="{$content}" alt=""/>
+            </div>
+        <else/>
+        <div id="loading-bg"></div>
+        </if>
+    <else/>
+        <notempty name="memberstatus[2]">
+            <if condition="$memberstatus[2]['status'] eq 1">
+                <div id="banner">
+                    <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+                        <ul class="am-slides">
+                            <volist name="slideshow" id="voslide">
+                            <li><a href="{$voslide['linkurl']}" target="_blank"><img src="{$voslide['imagepath']}"/></a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center">
+                    <img src="{$content}" alt=""/>
+                </div>
+            <else/>
+            <div id="loading-bg"></div>
+            </if>
+        <else/>
+        <div id="loading-bg"></div>
+        </notempty>
+    </notempty>
+
+
+
+    <script>
+        $('#demo-slider-0').flexslider({
+            playAfterPaused: 8000,
+            pauseOnHover: true,
+            before: function(slider) {
+                if (slider._pausedTimer) {
+                    window.clearTimeout(slider._pausedTimer);
+                    slider._pausedTimer = null;
+                }
+            },
+            after: function(slider) {
+                var pauseTime = slider.vars.playAfterPaused;
+                if (pauseTime && !isNaN(pauseTime) && !slider.playing) {
+                    if (!slider.manualPause && !slider.manualPlay && !slider.stopped) {
+                        slider._pausedTimer = window.setTimeout(function() {
+                            slider.play();
+                        }, pauseTime);
+                    }
+                }
+            }
+            // 设置其他参数
+        })
+    </script>
+</block>

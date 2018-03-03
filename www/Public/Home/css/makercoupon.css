@@ -1,0 +1,492 @@
+.discount-coupon{
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+}
+.page-mycoupon .discount-coupon{
+    margin-top: 0px;
+}
+.discount-coupon-head{
+    width: 100%;
+    float: left;
+    padding-left: 7%;
+}
+.discount-coupon-head i{
+    background-image: url("../images/coupon-ico.png");
+    width: 14px;
+    height: 14px;
+    float: left;
+    background-repeat: no-repeat;
+}
+.discount-coupon-head span{
+    font-size: 18px;
+    float: left;
+    padding-left: 10px;
+    line-height: 0.8;
+}
+.discount-coupon-head-btn{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+.discount-coupon-head-btn a{
+    background-color: #f0b003;
+    color: #fff;
+    padding: 8px 15px;
+    float: left;
+    margin-right: 2%;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.discount-coupon-body{
+    width: 100%;
+    float: left;
+    padding-left: 7%;
+    margin-top: 30px;
+}
+.page-mycoupon .discount-coupon-body{
+    margin-top: 10px;
+}
+.discount-coupon-body i{
+    background-image: url("../images/coupon-ico.png");
+    width: 14px;
+    height: 14px;
+    float: left;
+    background-repeat: no-repeat;
+}
+.discount-coupon-body span{
+    font-size: 18px;
+    float: left;
+    padding-left: 10px;
+    line-height: 0.8;
+}
+.discount-coupon-body-ticket .ticket-bottom a{
+    float: right;
+    font-size: 16px;
+    padding:2px 8px;
+    background-color: #f0b003;
+    color: #000;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+
+.discount-coupon-body-ticket{
+    width: 88%;
+    float: left;
+    margin-top: 20px;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+.ticket-yellowleft{
+    background: url("../images/coupon-yellow-l.png") no-repeat #f6a708;
+    width: 100%;
+    float: left;
+    color: #fff;
+}
+.ticket-yellowright{
+    background-image: url("../images/coupon-yellow-r.png");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    float: left;
+    width: 100%;
+}
+.ticket-logo{
+    width: 24.28%;
+    float: left;
+    margin-left: 8%;
+}
+.ticket-logo img{
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: 150px;
+}
+.ticket-left{
+    width: 29%;
+    float: left;
+}
+.ticket-name{
+    width: 100%;
+    float: left;
+    margin-left: 5px;
+}
+.ticket-name span{
+    font-size: 30px;
+    line-height: normal;
+}
+.ticket-date{
+    width: 100%;
+    float: left;
+    margin-left: 5px;
+    margin-top: 10%;
+}
+.ticket-date span{
+    font-size: 16px;
+    line-height: normal;
+}
+.ticket-money{
+    width: auto;
+    float: right;
+    padding-right: 8px;
+}
+.ticket-money span:first-child{
+    font-size: 70px;
+    line-height: 150px;
+}
+.ticket-money span:last-child{
+    font-size: 36px;
+    line-height: 150px;
+}
+.ticket-bottom{
+    width: 100%;
+    float: left;
+    padding: 5px 0;
+}
+.ticket-bottom span{
+    font-size: 16px;
+    margin-left: 2%;
+    line-height: normal;
+}
+
+.ticket-redleft{
+    background: url("../images/coupon-red-l.png") no-repeat #f6087d;
+    width: 100%;
+    float: left;
+    color: #fff;
+}
+.ticket-redright{
+    background-image: url("../images/coupon-red-r.png");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    float: left;
+    width: 100%;
+}
+
+.ticket-blueleft{
+    background: url("../images/coupon-blue-l.png") no-repeat #00b9e1;
+    width: 100%;
+    float: left;
+    color: #fff;
+}
+.ticket-blueright{
+    background-image: url("../images/coupon-blue-r.png");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    float: left;
+    width: 100%;
+}
+
+.am-modal-bd{
+    width: 100%;
+    float: left;
+}
+.group-coupon{
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+.group-coupon input{
+    height: 38px;
+}
+.group-coupon-date{
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+.group-coupon-date input{
+    width: 110px;
+    display: inline-block;
+}
+.group-coupon-xuan{
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+    padding: 0 112px;
+}
+.group-coupon-xuan input{
+    width: 18px;
+    float: left;
+    height: 32px;
+}
+.group-coupon-xuan span{
+    float: left;
+}
+.group-coupon-red{
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-color: #f6087d;
+}
+.group-coupon-yellow{
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-color: #f0b003;
+}
+.group-coupon-blue{
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-color: #00b9e1;
+}
+.am-modal-footer button.am-modal-btn{
+    background-color: transparent;
+    border: 0px;
+    border-left: none;
+    width: 49%;
+}
+.am-modal-footer button.ok{
+    border-left: 1px solid #dedede;
+}
+
+
+
+.couponsend-head{
+    width: 100%;
+    float: left;
+    text-align: left;
+    font-size: 18px;
+}
+.couponsend-search{
+    width: 80%;
+    float: left;
+    padding: 0 60px;
+    padding-left: 0;
+}
+.couponsend-search input{
+    height: 38px;
+    width: 70%;
+    float: left;
+    border: 1px solid #c9c9c9;
+    border-right: none;
+}
+.couponsend-search button{
+    height: 38px;
+    width: 30%;
+    float: left;
+    background-color: #f0b003;
+    color: #fff;
+    border: none;
+}
+
+.attention-mine{
+    width: 100%;
+    float: left;
+    margin-top: 40px;
+}
+.attention-mine-guoup{
+    width: 80%;
+    float: left;
+    padding: 10px;
+    border: 1px solid #292A2D;
+}
+.sendcoupon-btn{
+    width: 80%;
+    float: left;
+    padding: 10px;
+}
+.sendcoupon-btn input[type='submit']{
+    background-color: #f0b003;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+}
+.attention-mine-guoup-all{
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    text-align: left;
+}
+.attention-mine-guoup-all input{
+    width: 18px;
+    height: 18px;
+    float: left;
+}
+.attention-mine-guoup-all span{
+    line-height: normal;
+}
+.attention-mine-guoup-check{
+    width: auto;
+    float: left;
+    font-size: 18px;
+    margin-right: 9%;
+}
+.attention-mine-guoup-check input{
+    width: 18px;
+    height: 18px;
+    float: left;
+}
+.attention-mine-guoup-check span{
+    line-height: normal;
+}
+.attention-mine-guoup-check-none{
+    width: auto;
+    float: left;
+    font-size: 18px;
+}
+.attention-mine-guoup-check-none input{
+    width: 18px;
+    height: 18px;
+    float: left;
+}
+.attention-mine-guoup-check-none span{
+    line-height: normal;
+}
+
+
+@media all and (max-width: 750px){
+    .am-modal{
+        width:300px;
+    }
+    .discount-coupon-head-btn a{
+        font-size: 18px;
+    }
+    .ticket-5rmb{
+        background-size: contain;
+    }
+    .ticket-tou{
+        background-size: contain;
+    }
+    .ticket-10rmb{
+        background-size: contain;
+    }
+    .ticket-10tou{
+        background-size: contain;
+    }
+    .ticket-20rmb{
+        background-size: contain;
+    }
+    .ticket-20tou{
+        background-size: contain;
+    }
+    .ticket-logo{
+        margin-left: 10%;
+    }
+    .ticket-left{
+        width: 55%;
+    }
+    .ticket-name span{
+        font-size: 15px;
+    }
+    .ticket-date span{
+        font-size: 12px;
+    }
+    .ticket-money span:first-child{
+        font-size: 23px;
+        line-height: 30px;
+        padding-left: 0;
+    }
+    .ticket-money span:last-child{
+        font-size: 18px;
+        line-height: 30px;
+        padding-left: 0;
+    }
+    .ticket-10money span:first-child{
+        font-size: 23px;
+        line-height: 30px;
+        padding-left: 0;
+    }
+    .ticket-10money span:last-child{
+        font-size: 18px;
+        line-height: 30px;
+        padding-left: 0;
+    }
+    .ticket-20money span:first-child{
+        font-size: 23px;
+        line-height: 30px;
+        padding-left: 0;
+    }
+    .ticket-20money span:last-child{
+        font-size: 18px;
+        line-height: 30px;
+        padding-left: 0;
+    }
+    .ticket-bottom{
+        padding: 0;
+    }
+    .ticket-bottom span{
+        font-size: 12px;
+        margin-left: 0;
+    }
+    .group-coupon-xuan{
+        padding: 0;
+        padding-left: 21%;
+    }
+    .couponsend-search input{
+        height: 38px;
+    }
+    .couponsend-search button{
+        height: 38px;
+    }
+}
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .ticket-5rmb{
+        background-size: contain;
+    }
+    .ticket-tou{
+        background-size: contain;
+    }
+    .ticket-10rmb{
+        background-size: contain;
+    }
+    .ticket-10tou{
+        background-size: contain;
+    }
+    .ticket-20rmb{
+        background-size: contain;
+    }
+    .ticket-20tou{
+        background-size: contain;
+    }
+    .ticket-left{
+        width: 31%;
+    }
+    .ticket-name span{
+        font-size: 24px;
+    }
+    .ticket-date span{
+        font-size: 13px;
+    }
+    .ticket-money span:first-child{
+        font-size: 28px;
+        line-height: normal;
+        padding: 31% 0;
+    }
+    .ticket-money span:last-child{
+        font-size: 23px;
+        padding: 35% 0;
+        line-height: normal;
+    }
+    .ticket-10money span:first-child{
+        font-size: 28px;
+        line-height: normal;
+        padding: 29% 0;
+    }
+    .ticket-10money span:last-child{
+        font-size: 23px;
+        padding: 32% 0;
+        line-height: normal;
+    }
+    .ticket-20money span:first-child{
+        font-size: 28px;
+        line-height: normal;
+        padding: 29% 0;
+    }
+    .ticket-20money span:last-child{
+        font-size: 23px;
+        padding: 32% 0;
+        line-height: normal;
+    }
+}
+
+
+
+
+
+
+

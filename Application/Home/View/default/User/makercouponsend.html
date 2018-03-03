@@ -1,0 +1,115 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makercoupon.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+    <script type="text/javascript" src="__JS__/coupon.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <include file="User:header"/>
+            <div id="user-content">
+                <div id="user-nav">
+                    <span>创客时空</span>
+                </div>
+                <div class="mgrcenter">
+                    <include file="User:makerleft"/>
+                    <div id="settings-content">
+                        <div class="am-tabs" data-am-tabs>
+                            <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
+                            <!--<li class="am-active"><a href="#tab1">慧币数量</a></li>-->
+                            <!--<li><a href="#tab2">兑换规则</a></li>-->
+                            <!--<li><a href="#tab3">收支明细</a></li>-->
+                            <!--</ul>-->
+
+                            <div class="am-tabs-bd">
+
+                                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                                    <div id="tab1-content">
+                                        <div class="discount-coupon">
+                                            <div class="couponsend-head">
+                                                <span> <a href="{:U('User/makercoupon')}"><<返回上层</a> </span>
+                                            </div>
+                                            <div class="discount-coupon-body">
+                                            <div class="discount-coupon-body-ticket">
+                                                <div class="<if condition="$couponinfo['tplid'] eq 1">ticket-redleft<elseif condition="$couponinfo['tplid'] eq 2"/>ticket-yellowleft<else/>ticket-blueleft</if>">
+                                                    <div class="<if condition="$couponinfo['tplid'] eq 1">ticket-redright<elseif condition="$couponinfo['tplid'] eq 2"/>ticket-yellowright<else/>ticket-blueright</if>">
+                                                        <div class="ticket-logo">
+                                                            <img src="{$couponinfo['logopath']}" alt=""/>
+                                                        </div>
+                                                        <div class="ticket-left">
+                                                            <div class="ticket-name">
+                                                                <span>{$couponinfo['shopname']}</span>
+                                                            </div>
+                                                            <div class="ticket-date">
+                                                                <span>使用期限</span>
+                                                                <span>{$couponinfo['begindate']}至{$couponinfo['enddate']}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ticket-money">
+                                                            <span>{$couponinfo['couponvalue']}</span>
+                                                            <span>元优惠券</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="ticket-bottom">
+                                                    <span>总数：{$couponinfo['total']}张</span>
+                                                    <span>已领：{$couponinfo['geted']}张</span>
+                                                    <span>未领：{$couponinfo['unget']}张</span>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="discount-coupon-body">
+                                                <i></i>
+                                                <span>搜索</span>
+                                                <br/>
+                                                <div class="couponsend-search">
+                                                    <input type="text" id="searchname" value=""/>
+                                                    <button onclick="searchfans()">搜索</button>
+                                                </div>
+                                                <div class="attention-mine">
+                                                    <i></i>
+                                                    <span>我的粉丝</span>
+                                                    <br/>
+                                                    <form action="__SELF__" method="post">
+                                                    <div class="attention-mine-guoup">
+                                                        <div class="attention-mine-guoup-all">
+                                                            <input type="checkbox" id="allcheck" /><span>全选</span>
+                                                        </div>
+                                                        <volist name="fans" id="vofans">
+                                                        <div class="attention-mine-guoup-check">
+                                                            <input type="checkbox" name="selfans[]" value="{$key}"/><span>{$vofans}</span>
+                                                        </div>
+                                                        </volist>
+                                                    </div>
+                                                    <div class="sendcoupon-btn">
+                                                        <input type="hidden" value="{$couponinfo['id']}" name="cupid">
+                                                        <input type="submit" value="发送优惠卷">
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</block>

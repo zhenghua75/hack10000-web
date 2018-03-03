@@ -1,0 +1,110 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/mymessages.css" rel="stylesheet">
+    <link href="__CSS__/myshopcart.css" rel="stylesheet">
+    <link href="__CSS__/myproducts.css" rel="stylesheet">
+    <link href="__CSS__/mybookmarks.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>会员</span>
+</div>
+<div class="mgrcenter">
+<include file="User:myleft"/>
+<div id="settings-content">
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active"><a href="#tab1">店铺</a></li>
+            <li><a href="#tab2">宝贝</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+
+            <div class="am-tab-panel am-fade am-in am-active <empty name='shoplist'>emptybg</empty>" id="tab1">
+                <div id="tab1-content">
+                    <notempty name="shoplist">
+                    <volist name="shoplist" id="shop">
+                    <div class="tab1-goods">
+                        <div class="tab1-goods-img1">
+                            <a href="#">
+                                <img src="{$shop['logopath']}" alt=""/>
+                            </a>
+                            <img style="width: 100%;max-width: 25px;float: right;" src="__IMG__/sm-member-lv1.png" alt=""/>
+                        </div>
+                        <div class="tab1-goods-declare1">
+                            <div class="declare-wrap">
+                            <span class="tab-shop-name">{$shop['name']}</span>
+                            </div>
+                        </div>
+                        <div class="tab1-goods-declare2">
+                            <div class="declare-wrap">
+                            <span class="tab-declare-span">{$shop['comment']}</span>
+                            </div>
+                        </div>
+                        <div class="go-and-see">
+                            <a class="tab-see-btn" href="/shop/index?gi={$shop['guid']}" target="_blank">去看看</a>
+                        </div>
+                    </div>
+                    </volist>
+                    <else/>
+                    <div>没有任何记录</div>
+                    </notempty>
+                </div>
+            </div>
+
+            <div class="am-tab-panel am-fade <empty name='productlist'>emptybg</empty>" id="tab2">
+                <div id="tab2-content">
+                    <notempty name="productlist">
+                    <volist name="productlist" id="prod">
+                    <div class="tab1-goods">
+                        <div class="tab1-goods-product">
+                            <a href="#">
+                                <img src="{$prod['image']}" alt=""/>
+                            </a>
+                        </div>
+                        <div class="tab1-goods-synopsis1">
+                            <span class="tab-synopsis-span">{$prod['name']}</span>
+                        </div>
+                        <div class="tab1-goods-synopsis2">
+                            <span class="tab-synopsis-span">价格：￥{$prod['defaultdisplayprice']}</span>
+                        </div>
+                        <div class="tab1-goods-synopsis3">
+                            <span class="tab-synopsis-span">库存：<span class="tab-you-huo">有货</span></span>
+                        </div>
+                        <div class="tab1-goods-synopsis4">
+                            <span class="tab-synopsis-span">来源于：&nbsp;&nbsp;<eq name="prod.type" value="1"><span class="tab-dian-pu">社会实践</span><else/><span class="tab-dian-pu">{$prod['store']['name']}</span>&nbsp;&nbsp;的店铺</span></eq>
+                        </div>
+                        <div class="go-and-shop">
+                            <a class="tab-see-btn" <eq name="prod.type" value="1">href="/Store/product?id={$prod['id']}"<else/>href="/shop/product?id={$prod['id']}&gi={$prod['store']['guid']}"</eq>>去购买</a>
+                        </div>
+                    </div>
+                    </volist>
+                    <else/>
+                    <div>没有任何记录</div>
+                    </notempty>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</block>

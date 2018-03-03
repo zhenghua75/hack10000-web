@@ -1,0 +1,133 @@
+#be-provider{
+    background-image: url("../images/be-providerhover.png");
+}
+#be-ck{
+    background-image: url("../images/be-ckico.png");
+}
+#user-nav{
+    background-image: url("../images/supplier-directbg.png")!important;
+    background-position: 100%;
+}
+.tab1-supplier-register{
+    width: 88%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.tab1-supplier1{
+    width: 370px;
+    float: left;
+    margin-right: 60px;
+    margin-left: 38px;
+    margin-bottom: -15px;
+}
+.tab1-supplier1-1{
+    width: 370px;
+    float: left;
+    margin-bottom: -15px;
+}
+.tab1-supplier1-2{
+    width: 370px;
+    float: left;
+    margin-left: 38px;
+    margin-bottom: -15px;
+}
+.tab1-supplier2{
+    width: 40%;
+    float: left;
+    margin-left: 37px;
+    margin-bottom: -30px;
+}
+.tab1-supplier3{
+    width: 274px;
+    float: left;
+    margin-left: -110px;
+    margin-bottom: -30px;
+}
+.tab1-supplier4{
+    width: 250px;
+    float: left;
+    margin-left: 37px;
+    margin-bottom: -30px;
+}
+.tab1-supplier5{
+    width: 420px;
+    float: left;
+    margin-left: 15px;
+ }
+.tab1-supplier6{
+    float: left;
+    width: 370px;
+    margin-top: -15px;
+    margin-left: 37px;
+ }
+.goods-images{
+    float: left;
+    width: 90px;
+    height: 90px;
+    background-color: #292A2D;
+    margin-right: 15px;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    color: #fff;
+    line-height: 90px;
+}
+.gys-service-agreement{
+    margin-top: 0;
+    width: 54%;
+    float: right;
+    margin-bottom: 8px;
+}
+.page-supplierregister .am-form-file input[type="file"]{
+    left: 240px;
+    top:20px;
+    width: 87px;
+    height: 37px;
+}
+.am-form-group.chinaarea select{
+    width:83px;
+    float: left;
+}
+.am-form-group.chinaarea span{
+    float: left;
+}
+
+
+
+
+@media all and (max-width: 750px){
+    #settings-content{
+        width: 100%;
+    }
+    .am-nav-tabs > li{
+        width: 45%;
+    }
+    #user-nav{
+        background-image: url("../images/member-directbg.png")!important;
+    }
+}
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

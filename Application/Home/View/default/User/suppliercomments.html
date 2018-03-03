@@ -1,0 +1,121 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makercomments.css" rel="stylesheet">
+    <link href="__CSS__/suppliermessages.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>机构</span>
+</div>
+<div class="mgrcenter">
+    <include file="User:supplierleft"/>
+    <div id="settings-content">
+        <div class="am-tabs" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                <li class="am-active"><a href="#tab1">评价管理</a></li>
+            </ul>
+
+            <div class="am-tabs-bd">
+                <div class="am-tab-panel am-fade am-in am-active <empty name='list'>emptybg</empty>" id="tab1">
+                    <div id="tab1-content">
+                        <notempty name="list">
+                        <div class="am-tabs" data-am-tabs>
+                            <ul class="am-tabs-nav am-nav am-nav-tabs" id="makercomments-ul">
+                                <li class="am-active"><a href="#tab1">来自他人的评价</a></li>
+                            </ul>
+
+                            <div class="am-tabs-bd">
+                                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                                    <div id="tab1-comments">
+                                        <volist name="list" id="vocom">
+                                        <div class="makercomments-mine">
+                                            <div class="makercomments-head">
+                                                <img src="{$vocom.imgpath}" alt=""/>
+                                            </div>
+                                            <div class="makercomments-content">
+                                                <span class="makercomments-content-spansm">{$vocom.comment}</span>
+                                            </div>
+                                            <div class="tab4-goods-evaluate">
+                                                <button class="tab1-goods-btn-pay" data-am-modal="{target: '#doc-modal-pay', closeViaDimmer: 0, width: 690, height: 360}">回复评价</button>
+                                            </div>
+                                            <div class="makercomments-time">
+                                                <span class="makercomments-time-span">{$vocom.nickname}&nbsp;{$vocom.created|date='Y-m-d H:i',###}</span>
+                                            </div>
+                                        </div>
+                                        </volist>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <else/>
+                        <div>没有任何记录</div>
+                        </notempty>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">删除</div>
+        <div class="am-modal-bd">
+            你，确定要删除本条评价吗？
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-pay">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="tab1-goods-img1">
+                    <a href="#">
+                        <img src="__IMG__/shopcar-product-imgsm.png" alt=""/>
+                    </a>
+                </div>
+                <div class="tab1-goods-declare1">
+                    <span class="tab-declare-span-sm">花格子服装（送一件内衣加连体衣）</span>
+                </div>
+                <div class="tab1-goods-gettime">
+                    <span class="gettime-span-sm">购买时间：2015-09-20</span>
+                </div>
+                <div class="give-a-remark">
+                    <span class="give-a-mark-span"><i class="red-starico">*</i>评语：</span>
+                    <textarea placeholder="请填写你对本产品的想法...   (1-520字)" name="" id="" cols="30" rows="6"></textarea>
+                </div>
+                <div class="anonymous-comments">
+                    <input type="checkbox"/> 匿名评论
+                </div>
+                <div class="add-a-comment">
+                    <button>发表评论</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</block>

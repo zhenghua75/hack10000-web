@@ -1,0 +1,248 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/markerorders.css" rel="stylesheet">
+    <link href="__CSS__/choose-products.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.raty.min.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>创客时空</span>
+</div>
+<div class="mgrcenter">
+    <include file="User:makerleft"/>
+<div id="settings-content">
+<div class="am-tabs">
+<ul class="am-tabs-nav am-nav am-nav-tabs">
+    <li <eq name="item" value="3">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>3))}">交易完成</a></li>
+    <li <eq name="item" value="0">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>0))}">待付款</a></li>
+    <li <eq name="item" value="1">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>1))}">待发货</a></li>
+    <li <eq name="item" value="2">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>2))}">待收货</a></li>
+    <li <eq name="item" value="99">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>99))}">待评价</a></li>
+    <li <eq name="item" value="4">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>4))}">交易撤消</a></li>
+    <li <eq name="item" value="98">class="am-active"</eq>><a href="{:U('User/makerorders',array('status'=>98))}">退款/售后</a></li>
+</ul>
+
+<div class="am-tabs-bd">
+
+<div class="am-tab-panel am-fade am-in am-active <empty name='list'>emptybg</empty>" id="tab1">
+    <div id="tab1-content">
+        <notempty name="list">
+        <volist name="list" id="voorder">
+        <div class="makerorders-details">
+            <div class="details-purchaser">
+                <span>买方：{$voorder.nickname}</span>
+                <span>订单号：{$voorder.id}</span>
+                <span>{$voorder.created}</span>
+                <if condition="$item eq 98">
+                    <div style="float:right"><span class="tab-declare-span">{$voorder['aftername']}</span></div>
+                </if>
+            </div>
+            <div class="tab1-goods">
+            <table class="am-table" id="table{$voorder['id']}">
+            <volist name="voorder.products" id="voprod">
+            <tr>
+                <td>
+                    <a href="#"><img id="img{$voprod.id}" src="{$voprod.image}" alt=""/></a>
+                </td>
+                <td class="name">
+                    <span class="tab-declare-span" id="name{$voprod.id}">{$voprod.name}</span>
+                </td>
+                <td class="spec">
+                    <span class="tab-declare-span" id="spec{$voprod.id}">{$voprod.groupname}</span>
+                </td>
+                <td class="price">
+                    <span class="tab-declare-span">金额：￥{$voprod.amount}</span>
+                </td>
+                <td class="count">
+                    <span class="tab-declare-span">数量：{$voprod.quantity}</span>
+                </td>
+            </tr>
+            </volist>
+            </table>
+            </div>
+        </div>
+        </volist>
+        <else/>
+        <div>没有任何记录</div>
+        </notempty>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-send">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="logistics-details">
+                <span>物流详情</span>
+            </div>
+            <div class="logistics-process">
+                <img src="__IMG__/logistics-process.png" alt=""/>
+            </div>
+            <div class="logistics-content">
+                <h2>您的包裹正在运输途中，请耐心等待......</h2>
+                <p>
+                    <span class="logistics-red-span">11月12日</span>
+                    <span class="logistics-margin-span">周四</span>
+                    <span class="logistics-margin-span">14:22:48</span>
+                    <span class="logistics-none-span">供应商已把包裹移交给顺丰快递公司</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+                <p>
+                    <span class="logistics-red-span">11月13日</span>
+                    <span class="logistics-margin-span">周五</span>
+                    <span class="logistics-margin-span">09:26:18</span>
+                    <span class="logistics-none-span">包裹已被【贵州市】顺丰运转公司收揽</span>
+                </p>
+            </div>
+            <div class="delivery-details">
+                <p>
+                    <span class="logistics-margin-span">运送单号：25599426</span>
+                    <span class="logistics-margin-span">物流公司：顺丰快递公司</span>
+                    <span class="logistics-none-span">客服电话：95338</span>
+                </p>
+                <p>
+                    <span class="logistics-margin-span">发货人：郭老板</span>
+                    <span class="logistics-margin-span2">发货地址：北京市石景山区289号沃尔玛对面</span>
+                    <span class="logistics-none-span">联系电话：15338135401</span>
+                </p>
+                <p>
+                    <span class="logistics-margin-span">收货人：某某某</span>
+                    <span class="logistics-margin-span2">收货地址：云南省昆明市五华区小菜园249号二栋二单元602室</span>
+                    <span class="logistics-none-span">联系电话：15643133301</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-finish">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="finish-header">
+                <span>商品信息</span>
+                <span>单价（元）</span>
+                <span>数量</span>
+                <span>小计（元）</span>
+            </div>
+            <div class="finish-details">
+                <div class="finish-img">
+                    <img src="__IMG__/finish-img.png" alt=""/>
+                </div>
+                <div class="finish-info">
+                    <span>宿本2015夏装新款纯色绣花连衣裙收腰裙短袖连衣裙8521020504</span>
+                    <span>颜色分类：浅色</span>
+                </div>
+                <div class="finish-unit-price">
+                    <s>￥299.00</s>
+                    <span>￥199.00</span>
+                </div>
+                <div class="finish-quantity">
+                    <span>1</span>
+                </div>
+                <div class="finish-subtotal">
+                    <span>￥199.00</span>
+                </div>
+            </div>
+            <div class="finish-bottom">
+                <p>实付款：<span class="finish-bottom-price">￥199.00</span><span>订单号：1275260537917788</span></p>
+                <p>收货地址：云南省昆明市五华区科医路29号云大科技5楼</p>
+                <p>收货人：离人&nbsp;&nbsp;13101000555</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-pay">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="tab1-goods-img1">
+                <a href="#">
+                    <img src="__IMG__/shopcar-product-imgsm.png" alt=""/>
+                </a>
+            </div>
+            <div class="tab1-goods-declare1">
+                <span class="tab-declare-span-sm">花格子服装（送一件内衣加连体衣）</span>
+            </div>
+            <div class="tab1-goods-gettime">
+                <span class="gettime-span-sm">购买时间：2015-09-20</span>
+            </div>
+            <div class="give-a-mark">
+                <span class="give-a-mark-span"><i class="red-starico">*</i>评分：</span>
+                <div class="demo">
+                    <div id="default-demo"></div>
+                </div>
+            </div>
+            <div class="give-a-remark">
+                <span class="give-a-mark-span"><i class="red-starico">*</i>评语：</span>
+                <textarea placeholder="请填写你对本产品的想法...   (1-520字)" name="" id="" cols="30" rows="6"></textarea>
+            </div>
+            <div class="anonymous-comments">
+                <input type="checkbox"/> 匿名评论
+            </div>
+            <div class="add-a-comment">
+                <button>发表评论</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $.fn.raty.defaults.path = '__IMG__';
+
+        $('#default-demo').raty();
+    });
+</script>
+
+</block>

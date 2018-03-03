@@ -1,0 +1,152 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makerhcoin.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <include file="User:header"/>
+            <div id="user-content">
+                <div id="user-nav">
+                    <span>创客时空</span>
+                </div>
+                <div class="mgrcenter">
+                <include file="User:makerleft"/>
+                <div id="settings-content">
+                    <div class="am-tabs" data-am-tabs>
+                        <ul class="am-tabs-nav am-nav am-nav-tabs">
+                            <li class="am-active"><a href="#tab1">慧币数量</a></li>
+                            <li><a href="#tab2">兑换规则</a></li>
+                            <li><a href="#tab3">收支明细</a></li>
+                        </ul>
+
+                        <div class="am-tabs-bd">
+
+                            <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                                <div id="tab1-content">
+                                    <div class="coin-header">
+                                        <img src="{$Think.session.user_auth.portrait_path}" alt=""/>
+                                    </div>
+                                    <div class="coin-number">
+                                        <span>{$userinfo['nickname']}</span>
+                                        <img src="__IMG__/member-lv{$userinfo['level']}.png" alt=""/>
+                                        <h5>剩余慧爱币数量：<span>{$userinfo['hcoin']}个</span></h5>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="am-tab-panel am-fade" id="tab2">
+                                <div id="tab2-content">
+                                    <div class="coin-conversion">
+                                        <h2>创客慧爱币兑换规则</h2>
+                                        <h3>一、时间</h3>
+                                        <p>2015年12月5日起大学生注册，申请注册会员即赠送慧爱币（积分代名词）
+                                            <br/>慧爱币是虚拟币，不能提现、不能转赠，只用于商品金额抵扣。
+                                        </p>
+                                        <br/>
+                                        <br/>
+                                        <h3>二、兑换规则</h3>
+                                        <div>
+                                            <h3 style="text-indent: 1.6em">1.赠送</h3>
+                                            <p>
+                                                （1）赠送慧爱币日期：2015年12月5日至2016年2月7日（年三十）
+                                            </p>
+                                            <p>（2）赠送详情</p>
+                                            <p style="text-indent: 4.5em!important;">12月5日赠送65000元；</p>
+                                            <p style="text-indent: 4.5em!important;">每推后一日注册递减1000元；</p>
+                                            <p style="text-indent: 4.5em!important;">2月7日注册赠送1000元；</p>
+                                        </div>
+                                        <div>
+                                            <h3 style="text-indent: 1.6em">2.兑换</h3>
+                                            <p>
+                                                （1）慧爱币用于抵扣商品金额：
+                                            </p>
+                                            <p style="text-indent: 4.5em!important;">抵扣率<span>1:1</span>（此抵扣率没有特殊情况基本不能改动），每件商品抵扣率</p>
+                                            <p style="text-indent: 4.5em!important;">等于100%减去供应商给予的底价折扣与慧爱所提扣点，店铺交易成功后，</p>
+                                            <p style="text-indent: 4.5em!important;">获得慧爱币，兑换率消费1元现金获得1慧爱币。</p>
+                                            <br/>
+                                            <p>（2）商场商品全部标示全价，原制定的折扣转化为慧爱币折扣，慧爱币抵扣商品金额抵扣率基本不能改变维持<span>1:1</span>，
+                                                现金消费兑换慧爱币可制定，通过定期举办慧爱币酬宾日活动实现，酬宾兑换率制定为<span> 1:10 </span><span> 1:50 </span>
+                                                <span> 1:100 </span>三个等次。
+                                                <br/>将<span>每年2月8日</span>定为慧爱日，慧爱日当天兑换率为<span>1:100</span>。2016年2月8日为首个慧爱日，当日现金消费
+                                                获取慧爱币兑换率为<span>1:100</span>。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="am-tab-panel am-fade" id="tab3">
+                                <div id="tab3-content">
+                                    <table class="am-table">
+                                        <thead>
+                                        <tr class="coin-thead">
+                                            <th>时间</th>
+                                            <th>详情</th>
+                                            <th>支出</th>
+                                            <th>收入</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <volist name="hcoinrecord" id="vorec">
+                                        <tr>
+                                            <td><span>{$vorec.created|date='Y-m-d',###}</span></td>
+                                            <td>{$vorec.comments}</td>
+                                            <td>{$vorec.pay}</td>
+                                            <td>{$vorec.charge}</td>
+                                        </tr>
+                                        </volist>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-coin-particulars">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">
+                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="coin-particulars">
+                    <div class="window-particulars-header">
+                        <span>账单详情</span>
+                    </div>
+                    <div class="window-particulars-body">
+                        <p>已确认收货</p>
+                        <p>-37.25</p>
+                        <p>商品信息<span>加绒加厚长袖打底裙 秋冬保暖暴瘦百搭大码显瘦连衣裙</span></p>
+                        <p>收货地址<span>云南省昆明市高新区科医路59号云大科技</span></p>
+                        <p>物流信息<span>已发货</span></p>
+                        <p>创建时间<span>2015-11-20&nbsp;&nbsp;&nbsp;&nbsp;15:35:24</span></p>
+                        <p>物流单号<span>45789654123125465</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</block>

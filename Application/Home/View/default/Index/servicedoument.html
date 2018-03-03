@@ -1,0 +1,69 @@
+<extend name="Base/common"/>
+<block name="style">
+
+</block>
+<block name="javascript">
+
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+
+    <style>
+        h2{
+            font-family: "微软雅黑";
+            display: block;
+        }
+        p{
+            font-size: 18px;
+            font-family: "微软雅黑";
+            text-align: left;
+        }
+        h3{
+            font-size: 1.25em;
+            text-align: left;
+        }
+        h4{
+            font-family: "微软雅黑";
+            font-size: 20px;
+            text-align: left;
+        }
+        .control-word{
+            width: 650px;
+            margin: 60px auto;
+            height: 690px;
+        }
+        @media only screen and (min-width: 751px) and (max-width: 1199px){
+            .control-word{
+                margin: 50px auto;
+                padding: 0 12px;
+                width: auto;
+            }
+        }
+    </style>
+    <script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script>
+
+    <div class="control-word">
+        <h2>客服中心</h2>
+        <div>
+            <img src="__IMG__/window-code-lg.png" alt=""/>
+        </div>
+        <div style="margin-left: 100px">
+            <p id="BizQQWPA" style="cursor: pointer">咨询QQ：800092391</p>
+            <p>联系电话：0871-68240300</p>
+            <p>电子邮件：800092391@qq.com</p>
+            <p>公司名称：云南楠儿投资咨询有限公司</p>
+            <p>运营单位：云南慧爱大学生创业就业服务中心</p>
+            <p>地址：云南省昆明市盘龙区金实小区南门雄达茶城特色街区26号</p>
+        </div>
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 800092391, selector: 'BizQQWPA'});
+    </script>
+</block>

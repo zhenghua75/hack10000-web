@@ -1,0 +1,341 @@
+.maker-logistics{
+    width: 100%;
+    float: left;
+}
+.logistics-head{
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-top: 6px;
+}
+.logistics-head-span{
+    font-family: "微软雅黑";
+    font-size: 18px;
+    text-align: left;
+    border-left: 4px solid #292A2D;
+    padding-left: 8px;
+}
+.maker-logistics-details{
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-top: 12px;
+    padding-left: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #292A2D;
+}
+.logistics-details-img{
+    width: 16%;
+    float: left;
+}
+.logistics-details-word{
+    width: 36%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+.logistics-details-word-span{
+    font-family: "微软雅黑";
+    font-size: 18px;
+    display: block;
+}
+.logistics-details-word-a{
+    font-family: "微软雅黑";
+    font-size: 18px;
+    display: block;
+    color: #292A2D;
+}
+.logistics-details-word-a:hover{
+    color: red;
+}
+.logistics-details-from{
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-top: 14px;
+}
+
+.maker-activity{
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+.maker-activity-details{
+    width: 100%;
+    float: left;
+    text-align: left;
+    padding-left: 12px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #292A2D;
+}
+.activity-details-word{
+    width: 42%;
+    float: left;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 26px;
+}
+.activity-details-word-span{
+    font-size: 20px;
+    font-family: "微软雅黑";
+    display: block;
+}
+.activity-details-word-spansm{
+    font-size: 18px;
+    font-family: "微软雅黑";
+    display: block;
+    text-indent: 5px;
+}
+.activity-details-gosee{
+    width: 25%;
+    float: right;
+    margin-right: 24px;
+    line-height: 7;
+    text-align: right;
+}
+.activity-details-gosee button{
+    width: 105px;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 20px;
+}
+.tab2-activity{
+    width: 100%;
+    float: left;
+    padding-top: 10px;
+}
+.tab3-logistics{
+    width: 100%;
+    float: left;
+}
+
+
+
+.am-modal-no-btn .am-modal-dialog{
+    background-color: #fff;
+    border-radius: 5px;
+}
+.logistics-details{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+.logistics-details span{
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+.logistics-process{
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+.logistics-content{
+    width: 90%;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.logistics-content h2{
+    font-size: 18px;
+    float: left;
+    margin: 0;
+}
+.logistics-content p{
+    margin: 0;
+    float: left;
+    margin-top: 14px;
+}
+.logistics-red-span{
+    color: #FF0000;
+    margin-right: 46px;
+    float: left;
+}
+.logistics-margin-span{
+    margin-right: 46px;
+    float: left;
+}
+.logistics-margin-span2{
+    float: left;
+    width: 42%;
+    margin-right: 46px;
+}
+.delivery-details{
+    width: 90%;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.delivery-details p{
+    margin: 0;
+    margin-bottom: 20px;
+    float: left;
+}
+
+
+
+@media all and (max-width: 750px){
+    .logistics-head{
+        margin-top: 0;
+    }
+    .logistics-head-span{
+        padding-left: 0;
+    }
+    .logistics-details-img{
+        width: auto;
+    }
+    .logistics-details-word{
+        width: 50%;
+    }
+    .logistics-details-word-span{
+        font-size: 16px;
+    }
+    .logistics-details-word-a{
+        font-size: 16px;
+    }
+
+    .activity-details-word{
+        width: 50%;
+        margin-left: 10px;
+        margin-top: 0;
+    }
+    .activity-details-word-span{
+        font-size: 16px;
+    }
+    .activity-details-word-spansm{
+        font-size: 14px;
+        text-indent: 0;
+    }
+    .activity-details-gosee{
+        width: 100%;
+        line-height: 0;
+        float: left;
+        text-align: left;
+        margin-top: 5px;
+    }
+    .activity-details-gosee button{
+        width: 100px;
+        height: 45px;
+    }
+
+    .makerorders-details{
+        height: auto;
+    }
+
+/*弹出窗*/
+    .am-modal.am-modal-active{
+        width: 100%!important;
+        margin-left: 0!important;
+        margin-top: 0!important;
+        left: 0;
+        top: 0;
+        min-width: 320px;
+    }
+    .logistics-process{
+        margin-top: 0;
+    }
+    .logistics-process img{
+        width: 100%;
+    }
+    .logistics-content{
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+        font-size: 14px;
+    }
+    .logistics-content h2{
+        font-size: 16px;
+    }
+    .logistics-red-span{
+        margin-right: 25px;
+    }
+    .logistics-margin-span{
+        margin-right: 15px;
+    }
+    .delivery-details{
+        width: 100%;
+        margin-left: 0;
+        font-size: 14px;
+        margin-top: 0;
+    }
+    .logistics-margin-span2{
+        width: auto;
+        margin-right: 0;
+    }
+    .delivery-details p{
+        margin-bottom: 5px;
+    }
+    .am-modal-no-btn .am-modal-dialog{
+        float: left;
+        height: auto!important;
+    }
+    .logistics-details{
+        margin-top: 0;
+    }
+    .logistics-details span{
+        font-size: 16px;
+    }
+    .logistics-content p{
+        margin-top: 5px;
+    }
+}
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .logistics-details-img{
+        width: auto;
+    }
+    .logistics-details-word{
+        width: auto;
+    }
+    .activity-details-word{
+        width: auto;
+        margin-left: 10px;
+    }
+    .activity-details-gosee{
+        width: auto;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

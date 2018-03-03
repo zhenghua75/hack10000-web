@@ -1,0 +1,71 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/mymessages.css" rel="stylesheet">
+    <link href="__CSS__/myshopcart.css" rel="stylesheet">
+    <link href="__CSS__/myproducts.css" rel="stylesheet">
+    <link href="__CSS__/mybookmarks.css" rel="stylesheet">
+    <link href="__CSS__/myshopstores.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>会员</span>
+</div>
+<div class="mgrcenter">
+<include file="User:myleft"/>
+    <div id="settings-content">
+        <div class="am-tabs" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                <li class="am-active"><a href="#tab1">购买过的店铺</a></li>
+            </ul>
+            <div class="am-tabs-bd">
+                <div class="am-tab-panel am-fade am-in am-active <empty name='list'>emptybg</empty>" id="tab1">
+                    <div id="tab1-content">
+                        <notempty name="list">
+                        <volist name="list" id="shop">
+                        <div class="tab1-goods">
+                            <div class="tab1-goods-shopdate">
+                                <span class="tab-shop-name">9月20日</span>
+                            </div>
+                            <div class="tab1-goods-img1">
+                                <a href="#">
+                                    <img src="__IMG__/store-head.png" alt=""/>
+                                </a>
+                            </div>
+                            <div class="tab1-goods-declare1">
+                                <span class="tab-shop-name">Clover</span>
+                            </div>
+                            <div class="tab1-goods-declare2">
+                                <span class="tab-declare-span">您购买过她店铺里的商品</span>
+                            </div>
+                            <div class="go-and-see">
+                                <button class="tab-see-btn">再逛逛</button>
+                            </div>
+                        </div>
+                        </volist>
+                        <else/>
+                        <div>没有任何记录</div>
+                        </notempty>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</block>

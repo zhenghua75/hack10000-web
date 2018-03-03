@@ -1,0 +1,77 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/ordersettle.css" rel="stylesheet">
+</block>
+<block name="javascript">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <div id="user-content">
+                <div class="mgrcenter">
+                    <div class="confirm-payment">
+                        <span>确认支付</span>
+                    </div>
+                    <div class="storeinfo">
+                        <div class="title">确认您的店铺信息</div>
+                        <div class="confirminfo-img">
+                            <img src="{$shop['logopath']}"/>
+                        </div>
+                        <div class="confirminfo">
+                            <span>店铺名称:{$shop['name']}</span>
+                        </div>
+                    </div>
+                    <div id="settings-content">
+                        <!--<div class="title">确认订单信息</div>-->
+                        <form action="{:U('Store/orderpay')}" method="post" id="formorder">
+                            <div class="tab1-goods" id="wrapprod{$key}">
+                                <table class="am-table am-table-bordered am-table-radius">
+                                    <tr class="confirminfo-tr">
+                                        <th>确认商品信息</th>
+                                        <th colspan="1">商品信息</th>
+                                        <th>单价（元）</th>
+                                        <th>数量</th>
+                                        <th>小计（元）</th>
+                                    </tr>
+                                    <volist name="list" id="voprod">
+                                        <tr>
+                                            <td><a href="{:U('Store/product',array('id'=>$voprod['id']))}"><img src="{$voprod['selimage']}" alt=""/></a></td>
+                                            <td class="name"><span class="tab-declare-span">{$voprod.name}&nbsp&nbsp</span><span class="tab-declare-span">{$voprod.selspecname}</span></td>
+                                            <td class="price"><span class="tab-declare-span">{$voprod.selhackprice}</span></td>
+                                            <td class="count"><span class="tab-declare-span">{$voprod.selquantity}</span></td>
+                                            <td class="amount"><span class="tab-declare-span">￥{$voprod.selamount}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" class="comments"><span>留言：</span><input type="text" name="comment[]"><input type="hidden" name="selcartid[]" value="{$key}"></td>
+                                        </tr>
+                                    </volist>
+                                </table>
+                            </div>
+                            <div class="tab1-goods-all">
+                                <div class="tab1-goods-sumamount">
+                                    <span>合计：￥{$sumamount}</span>
+                                </div>
+                                <div class="tab1-goods-realamount">
+                                    <span class="realamount">实付款：￥{$realamount}</span>
+                                    <input type="hidden" name="realamount" value="{$realamount}">
+                                </div>
+                                <div class="tab1-goods-realamount">
+                                    <span class="paymode">支付方式：慧爱币</span>
+                                </div>
+                                <div class="tab1-goods-clearing">
+                                    <a class="tab1-goods-btn-pay" href="{:U('User/makercart')}">返回购物车</a>
+                                    <button class="tab1-goods-btn-pay" type="submit">确认支付</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

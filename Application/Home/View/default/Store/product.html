@@ -1,0 +1,192 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/trailer.css" rel="stylesheet">
+    <link href="__CSS__/bigtu.css" rel="stylesheet">
+    <link href="__CSS__/good-size.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/the-bd.js"></script>
+    <script type="text/javascript" src="__JS__/collect.js"></script>
+</block>
+<block name="body">
+    <div id="content-layout">
+        <div id="goods-top">
+            <h3></h3>
+        </div>
+        <div id="MagnifierWrap2">
+            <div class="MagnifierMain">
+                <img class="MagTargetImg" src="{:str_replace('96x72','560x420',$info['images'][0])}">
+            </div>
+            <span class="spe_leftBtn">&lt;</span>
+            <span class="spe_rightBtn">&gt;</span>
+
+            <div class="spec-items">
+                <ul>
+                    <volist name="info.images" id="voimg">
+                    <li <if condition="$key eq 0">class="on"</if>><img src="{$voimg}"></li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <div id="good-description">
+            <div id="good-title">
+                <h3>{$info.name}</h3>
+                <eq name="info.status" value="-1"><span style="color:red;font-size:14px;">该商品已下架</span></eq>
+            </div>
+            <div id="good-trait">
+                <ul>
+                    <volist name=":explode('|',$info['desc'])" id="vodes">
+                        <li>{$vodes}</li>
+                    </volist>
+                </ul>
+            </div>
+            <div id="start-sale">
+                <p><span></span></p>
+            </div>
+            <div id="size-color">
+                <div class="sys_item_spec">
+                    <volist name="specs" id='vospec'>
+                    <dl class="clearfix iteminfo_parameter sys_item_specpara" data-sid="{$key}">
+                        <dt>选择{$vospec.name}</dt>
+                        <dd>
+                            <ul class="sys_spec_text">
+                                <volist name="vospec['value']" id="voval">
+                                <li data-aid="{$voval.id}"><a href="javascript:;">{$voval.name}</a><i></i></li>
+                                </volist>
+                            </ul>
+                        </dd>
+                    </dl>
+                    </volist>
+                </div>
+            </div>
+            <div class="alarmprompt">
+                
+            </div>
+            <div id="good-price-warn">
+                <div id="price-warn-content">
+                    <form action="{:U('Store/gotocart')}" method="post" id="form-cart">
+                    <input type="hidden" name="product_id" id="product_id" value="{$info['id']}">
+                    <input type="hidden" name="prodstatus" id="prodstatus" value="{$info['status']}">
+                    <empty name="specs">
+                    <input type="hidden" name="selgroupid" id="selgroupid" value="0">
+                    <input type="hidden" name="selhackprice" id="selhackprice" value="{$dataprice.hackprice}">
+                    <s class="sys_item_mktprice">￥{$dataprice.marketprice}</s>
+                    <span class="sys_item_price">￥{$dataprice.hackprice}</span>
+                    <input type="submit" id="tocart" value='加入购物车' <eq name="info.status" value="-1">disabled</eq>>
+                    <else/>
+                    <input type="hidden" name="selgroupid" id="selgroupid" value="">
+                    <input type="hidden" name="selhackprice" id="selhackprice" value="">
+                    <s class="sys_item_mktprice">￥</s>
+                    <span class="sys_item_price">￥</span>
+                    <input type="submit" disabled="disabled" id="tocart" value='加入购物车'>
+                    </empty>
+                    </form>
+                </div>
+                <script type="text/javascript">
+                    $("form#form-cart").submit(function(){
+                        var self = $(this);
+                        $.post(self.attr("action"), self.serialize(), success, "json");
+                        return false;
+
+                        function success(data){
+                            if(data.status){
+                                var prompt='<div>'+data.info+'</div><div><a href="{:U(\'user/makercart\')}?uid={$Think.session.user_auth.uid}" class="cartdiaglink">立即结算</a><a href="javascript:closediag()" class="cartdiaglink">继续购物</a></div>';
+                                $('#cartdiag .am-modal-bd').html(prompt);
+                            } else {
+                                var prompt=data.info;
+                                $('#cartdiag .am-modal-bd').html(prompt);
+                            }
+                            $('#cartdiag').modal('open');
+                        }
+                    });
+                    function closediag(){
+                        $('#cartdiag').modal('close');
+                    }
+                </script>
+            </div>
+            <div id="collect-enjoy">
+                <div id="collect-btn">
+                    <button id="colbtn" onclick="collect({$info['id']},1,0)" <eq name="info.bookmarked" value="true">class="active"</eq>>收藏{$info['bookmarkQuantity']}</button>
+                </div>
+                <div id="enjoy-btn">
+                    <button id="enjbtn" onclick="enjoy({$info['id']},1)" <eq name="info.liked" value="true">class="active"</eq>>喜欢{$info['likeQunatity']}</button>
+                </div>
+            </div>
+        </div>
+        <div id="good-comment-details" class="am-tabs" data-am-tabs>
+            <ul id="good-nav" class="am-tabs-nav am-nav am-nav-tabs">
+                <li><a href="#tab1">评论</a></li>
+                <li><a href="#tab2">商品详情</a></li>
+            </ul>
+            <div class="am-tabs-bd">
+                <div class="am-tab-panel am-fade <empty name='commentlist'>emptybg</empty>" id="tab1">
+                    <notempty name="commentlist">
+                    <div id="good-comment">
+                        <volist name="commentlist" id="vocom" mod="2">
+                        <neq name="mod" value="1">
+                        <div class="two-block1">
+                            <div class="info-flow">
+                                <a href=""><img src="{$vocom['user']['headImage']}" alt="" class="comimghead"/></a>
+                                <div class="publish-box2">
+                                    <notempty name="vocom.specs">
+                                    <p class="comspecs">{$vocom['specs']}</p>
+                                    <p class="combody">{$vocom['body']}</p>
+                                    <else/>
+                                    <p class="combodylarge">{$vocom['body']}</p>
+                                    </notempty>
+                                    <p class="comdate">发布时间：{$vocom['date']}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <else/>
+                        <div class="two-block1">
+                            <div class="info-flow2">
+                                <a href=""><img src="{$vocom['user']['headImage']}" alt="" class="comimghead"/></a>
+                                <div class="publish-box2">
+                                    <notempty name="vocom.specs">
+                                    <p class="comspecs">{$vocom['specs']}</p>
+                                    <p class="combody">{$vocom['body']}</p>
+                                    <else/>
+                                    <p class="combodylarge">{$vocom['body']}</p>
+                                    </notempty>
+                                    <p class="comdate">发布时间：{$vocom['date']}</p>
+                                </div>
+                            </div>
+                        </div>
+                        </neq>
+                        </volist>
+                    </div>
+                    <else/>
+                    <div class="good-comment">
+                        还没有任何评论
+                    </div>
+                    </notempty>
+                </div>
+                <div class="am-tab-panel am-fade" id="tab2">
+                    <div id="good-details">
+                        <img src="{$info.detail}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-modal am-modal-no-btn" tabindex="-1" id="cartdiag">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">购物车
+          <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="__JS__/fangda.js"></script>
+    <script type="text/javascript">
+        var specgroup='<?php echo json_encode($specgroup) ?>';
+        var sys_item=eval('(' + specgroup + ')');
+    </script>
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>

@@ -1,0 +1,348 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/store.css" rel="stylesheet">
+    <link href="__CSS__/busiopp.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/the-bd.js"></script>
+</block>
+<block name="body">
+
+<div id="banner">
+    <div class="am-slider am-slider-default" data-am-flexslider id="demo-slider-0">
+        <ul class="am-slides">
+            <li><img src="__IMG__/store_banner1.jpg" /></li>
+            <li><img src="__IMG__/store_banner2.jpg" /></li>
+            <li><img src="__IMG__/store_banner3.jpg" /></li>
+        </ul>
+    </div>
+</div>
+<div id="content-layout">
+    <div id="left-layout">
+        <div id="fasten">
+            <div id="leftbar" data-am-sticky="{top:42}">
+                <ul id="store-list">
+                    <li class="left-nav-list">
+                        <div onmouseover="display()" onmouseleave="disappear()">
+                            <a href="{:U('Busiopp/index')}" class="list-left">商品</a>
+                        </div>
+                        <div onmouseover="display()" onmouseout="disappear()" id="xiangqing1" class="inner">
+                            <ul class="inner-list">
+                                <li><a href="#">服装</a></li>
+                                <li><a href="#">美妆</a></li>
+                                <li><a href="#">数码</a></li>
+                                <li><a href="#">箱包</a></li>
+                                <li><a href="#">家电</a></li>
+                                <li><a href="#">建材</a></li>
+                                <li><a href="#">食品</a></li>
+                                <li><a href="#">特产</a></li>
+                                <li><a href="#">酒类</a></li>
+                                <li><a href="#">珠宝</a></li>
+                                <li><a href="#">饰品</a></li>
+                                <li><a href="#">书籍</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="left-nav-list">
+                        <div onmouseover="display2()" onmouseleave="disappear2()">
+                            <a href="{:U('Busiopp/serve')}">服务</a>
+                        </div>
+                        <div onmouseover="display2()" onmouseout="disappear2()" id="xiangqing2" class="inner">
+                            <ul class="inner-list">
+                                <li><a href="#">招聘</a></li>
+                                <li><a href="#">求职</a></li>
+                                <li><a href="#">家政</a></li>
+                                <li><a href="#">保洁</a></li>
+                                <li><a href="#">出租</a></li>
+                                <li><a href="#">装修</a></li>
+                                <li><a href="#">买房</a></li>
+                                <li><a href="#">卖房</a></li>
+                                <li><a href="#">美容</a></li>
+                                <li><a href="#">养生</a></li>
+                                <li><a href="#">饰品</a></li>
+                                <li><a href="#">书籍</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="left-nav-list">
+                        <div onmouseover="display3()" onmouseleave="disappear3()">
+                            <a href="{:U('Busiopp/resource')}">资源</a>
+                        </div>
+                        <div onmouseover="display3()" onmouseout="disappear3()" id="xiangqing3" class="inner">
+                            <ul class="inner-list">
+                                <li><a href="#">人力</a></li>
+                                <li><a href="#">家族</a></li>
+                                <li><a href="#">社会</a></li>
+                                <li><a href="#">保洁</a></li>
+                                <li><a href="#">出租</a></li>
+                                <li><a href="#">装修</a></li>
+                                <li><a href="#">买房</a></li>
+                                <li><a href="#">卖房</a></li>
+                                <li><a href="#">美容</a></li>
+                                <li><a href="#">养生</a></li>
+                                <li><a href="#">饰品</a></li>
+                                <li><a href="#">书籍</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="left-nav-list">
+                        <div onmouseover="display4()" onmouseleave="disappear4()">
+                            <a href="{:U('Busiopp/article')}">项目</a>
+                        </div>
+                        <div onmouseover="display4()" onmouseout="disappear4()" id="xiangqing4" class="inner">
+                            <ul class="inner-list">
+                                <li><a href="#">招聘</a></li>
+                                <li><a href="#">求职</a></li>
+                                <li><a href="#">家政</a></li>
+                                <li><a href="#">保洁</a></li>
+                                <li><a href="#">出租</a></li>
+                                <li><a href="#">装修</a></li>
+                                <li><a href="#">买房</a></li>
+                                <li><a href="#">卖房</a></li>
+                                <li><a href="#">美容</a></li>
+                                <li><a href="#">养生</a></li>
+                                <li><a href="#">饰品</a></li>
+                                <li><a href="#">书籍</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div id="search">
+                    <div id="search-frame">
+                        <input type="search" placeholder="搜索"/>
+                    </div>
+                    <div id="click-go">
+                        <button type="submit">GO</button>
+                    </div>
+                </div>
+                <div id="code">
+                    <img src="__IMG__/erweima.png" alt=""/>
+                </div>
+                <div id="explain">
+                    <p>扫一扫二维码</p>
+                    <a href="http://www.hack10000.com" target="_blank"><h5>www.hack10000.com</h5></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="centre-layout">
+        <div id="caption">
+            <div id="buyer">
+                <p><a href="#">买家>></a></p>
+            </div>
+            <div id="news-info">
+                <button type="button" id="doc-prompt-toggle10">发布信息</button>
+            </div>
+            <div id="seller">
+                <p><a href="#">卖家>></a></p>
+            </div>
+        </div>
+        <div id="information">
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/buyer-head.png" alt=""/></a>
+
+                    <div class="publish-box">
+                        <p>本人姓胡，想求购一批南方大米，</p>
+
+                        <p> 具体要求联系之后详谈......</p>
+
+                        <p> 联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/seller-head.png" alt=""/></a>
+
+                    <div class="publish-box2">
+                        <p>本人姓胡，因为急需用钱出售</p>
+
+                        <p> 一批南方大米，质量绝对有保障，具</p>
+
+                        <p> 体要求联系之后详谈......</p>
+
+                        <p>联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="information">
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/buyer-head.png" alt=""/></a>
+
+                    <div class="publish-box">
+                        <p>本人姓胡，想求购一批南方大米，</p>
+
+                        <p> 具体要求联系之后详谈......</p>
+
+                        <p> 联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/seller-head.png" alt=""/></a>
+
+                    <div class="publish-box2">
+                        <p>本人姓胡，因为急需用钱出售</p>
+
+                        <p> 一批南方大米，质量绝对有保障，具</p>
+
+                        <p> 体要求联系之后详谈......</p>
+
+                        <p>联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="information">
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/buyer-head.png" alt=""/></a>
+
+                    <div class="publish-box">
+                        <p>本人姓胡，想求购一批南方大米，</p>
+
+                        <p> 具体要求联系之后详谈......</p>
+
+                        <p> 联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/seller-head.png" alt=""/></a>
+
+                    <div class="publish-box2">
+                        <p>本人姓胡，因为急需用钱出售</p>
+
+                        <p> 一批南方大米，质量绝对有保障，具</p>
+
+                        <p> 体要求联系之后详谈......</p>
+
+                        <p>联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="information">
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href="#"><img src="__IMG__/buyer-head.png" alt=""/></a>
+
+                    <div class="publish-box">
+                        <p>本人姓胡，想求购一批南方大米，</p>
+
+                        <p> 具体要求联系之后详谈......</p>
+
+                        <p> 联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="two-block1">
+                <div class="info-flow">
+                    <a href=""><img src="__IMG__/seller-head.png" alt=""/></a>
+
+                    <div class="publish-box2">
+                        <p>本人姓胡，因为急需用钱出售</p>
+
+                        <p> 一批南方大米，质量绝对有保障，具</p>
+
+                        <p> 体要求联系之后详谈......</p>
+
+                        <p>联系电话：123456789</p>
+
+                        <p> QQ：1234567</p>
+
+                        <p>非诚勿扰</p>
+
+                        <p>发布时间：2015年8月6日9:21</p>
+                        <a class="collect-ico" href="#"><span>收藏</span></a>
+                        <a class="transmit-ico" href="#"><span>转发</span></a>
+                        <a class="comment-ico" href="#"><span>评论</span></a>
+                        <a class="agree-ico" href="#"><span>赞(186)</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="more">
+    <button type="button">加载更多</button>
+</div>
+</block>

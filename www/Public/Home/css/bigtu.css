@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* #MagnifierWrap{position: relative;width: 350px;margin:100px auto;} */
+#MagnifierWrap2 {
+    position: relative;
+    width: 560px;
+    float: left;
+}
+
+.MagnifierMain {
+    position: relative;
+    width: 100%;
+    height: 420px;
+}
+
+.MagnifierMain img {
+    width: 100%;
+    height: 420px;
+}
+
+.MagnifierDrag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ccc;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    cursor: move;
+}
+
+.MagnifierPop {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    overflow: hidden;
+    background: #fff url(http://fan.yoka.com/fan5.0/img/loading.gif) no-repeat center center;
+}
+
+.MagnifierImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.spec-items {
+    position: relative;
+    width: 90%;
+    height: 104px;
+    overflow: hidden;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+.spec-items ul {
+    width: 500%;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    padding-left: 0;
+}
+
+.spec-items ul * {
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.spec-items li {
+    width: 100px;
+    height: 100px;
+    float: left;
+    overflow: hidden;
+    margin-right: 2px;
+    border: 2px solid #fff;
+    cursor: pointer;
+
+}
+
+.spec-items li.on {
+    /*border: 2px solid #000;*/
+}
+
+.spec-items li img {
+    width: 100%;
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.spec-items li.on img {
+    -webkit-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -o-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+span.spe_leftBtn, span.spe_rightBtn {
+    position: absolute;
+    bottom: 22px;
+    display: block;
+    width: 20px;
+    height: 69px;
+    line-height: 69px;
+    font-family: "黑体";
+    text-align: center;
+    font-size: 30px;
+    color: #8D8D8D;
+    cursor: default;
+}
+
+span.on {
+    color: #292A2D;
+    cursor: pointer;
+}
+
+span.spe_leftBtn {
+    left: 0;
+}
+
+span.spe_rightBtn {
+    right: 0;
+}
+
+
+
+
+
+
+@media all and (max-width: 750px){
+    #MagnifierWrap2{
+        margin-top: 50px;
+        width: 100%;
+    }
+    .MagnifierMain{
+        height: auto;
+        padding: 8px;
+    }
+    img.MagTargetImg{
+        height: auto;
+        max-width: 550px;
+    }
+    .MagnifierPop{
+        display: none;
+    }
+    .MagnifierDrag{
+        display: none;
+    }
+}
+
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    #MagnifierWrap2{
+        width: 42%;
+    }
+    .MagnifierMain{
+        height: auto;
+    }
+    img.MagTargetImg{
+        height: auto;
+    }
+    .MagnifierPop{
+        display: none;
+    }
+    .MagnifierDrag{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+

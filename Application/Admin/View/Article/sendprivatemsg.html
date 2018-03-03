@@ -1,0 +1,112 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>给选中创客发消息</h2>
+	</div>
+	<div class="tab-wrap">
+		<div class="wrapleft" style="float:left">
+			<form action="__SELF__" method="post" class="form-horizontal">
+				<input type="hidden" name="ids" value="{$ids}">
+				<input type="hidden" name="sendtype" value="{$sendtype}">
+				<div class="form-item">
+					<label class="item-label">
+						消息类型<span class="check-tips"></span>
+					</label>
+					<div class="controls">
+						<select name="type" id="type">
+							<option value="2" selected>活动通知</option>
+							<option value="1">服务通知</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						接收人角色<span class="check-tips"></span>
+					</label>
+					<div class="controls">
+						<select name="roleid" id="roleid">
+							<option value="1" selected>创客</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						消息内容<span class="check-tips">(最多255个字符，125个汉字)</span>
+					</label>
+					<div class="controls">
+						<label class="textarea input-large">
+						<textarea name="comment"></textarea>
+						</label>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="item-label">
+						接收消息会员列表
+					</label>
+					<div class="data-table">
+						<table class="">
+					    <thead>
+					        <tr>
+							<th class="">昵称</th>
+							<th class="">手机号</th>
+							</tr>
+					    </thead>
+					    <tbody>
+							<volist name="seluidlist" id="vo">
+							<tr>
+								<td>{$vo.nickname}</td>
+								<td>{$vo.mobile}</td>
+							</tr>
+							</volist>
+						</tbody>
+					    </table>
+					</div>
+				</div>
+				<div class="form-item">
+					<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">确 定</button>
+					<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+	<script type="text/javascript">
+		(function($){
+			/* 实时更新分类信息 */
+			$(".category")
+				.on("submit", "form", function(){
+					var self = $(this);
+					$.post(
+						self.attr("action"),
+						self.serialize(),
+						function(data){
+							/* 提示信息 */
+							var name = data.status ? "success" : "error", msg;
+							msg = self.find(".msg").addClass(name).text(data.info)
+									  .css("display", "inline-block");
+							setTimeout(function(){
+								msg.fadeOut(function(){
+									msg.text("").removeClass(name);
+								});
+							}, 1000);
+						},
+						"json"
+					);
+					return false;
+				})
+                .on("focus","input",function(){
+                    $(this).data('param',$(this).closest("form").serialize());
+
+                })
+                .on("blur", "input", function(){
+                    if($(this).data('param')!=$(this).closest("form").serialize()){
+                        $(this).closest("form").submit();
+                    }
+                });
+		})(jQuery);
+	</script>
+</block>
+

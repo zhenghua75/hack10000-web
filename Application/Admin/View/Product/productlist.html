@@ -1,0 +1,153 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>商品列表</h2>
+	</div>
+
+	<div class="cf">
+		<!-- 高级搜索 -->
+		<div class="search-form fl cf">
+			<select id="level1" class="sleft">
+				<option value="0">请选择一级分类</option>
+				<volist name="level1list" id="vocate">
+				<option value="{$vocate['id']}"<eq name="selid1" value="$vocate.id">selected</eq>>{$vocate['name']}</option>
+				</volist>
+			</select>
+			<select id="level2" class="sleft">
+				<option value="0">请选择二级分类</option>
+				<volist name="level2list" id="vocate2">
+				<option value="{$vocate2['id']}"<eq name="selid2" value="$vocate2.id">selected</eq>>{$vocate2['name']}</option>
+				</volist>
+			</select>
+			<select id="level3" class="sleft">
+				<option value="0">请选择三级分类</option>
+				<volist name="level3list" id="vocate3">
+				<option value="{$vocate3['id']}"<eq name="selid3" value="$vocate3.id">selected</eq>>{$vocate3['name']}</option>
+				</volist>
+			</select>
+			<div class="sleft">
+				<input type="text" name="name" class="search-input" value="{:I('name')}" placeholder="请输入商品名称">
+				<input type="text" name="company" class="search-input" value="{:I('company')}" placeholder="请输入供应商名称">
+				<a class="sch-btn" href="javascript:;" id="search" url="{:U('product/productlist')}"><i class="btn-search"></i></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>商品ID</th>
+					<th>商品名称</th>
+					<th>供应商</th>
+					<th>分类</th>
+					<th>简单介绍</th>
+					<th>栏目</th>
+					<th>重量</th>
+					<th>体积</th>
+					<th>浏览量</th>
+					<th>创建时间</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<notempty name="_list">
+				<volist name="_list" id="vo">
+					<tr>
+						<td>{$vo.product_id}</td>
+						<td>{$vo.name}</td>
+						<td>{$vo.company}</td>
+						<td>{$vo.cate}</td>
+						<td>{$vo.simcomment}</td>
+						<td>{$vo.prodpartname}</td>
+						<td>{$vo.weight}</td>
+						<td>{$vo.volume}</td>
+						<td>{$vo.view}</td>
+						<td>{$vo.created|date='Y-m-d H:i:s',###}</td>
+						<td>{$vo.statusname}</td>
+						<td>
+							<a title="编辑" href="{:U('productedit?product_id='.$vo['product_id'])}">编辑</a>
+						</td>
+					</tr>
+				</volist>
+				<else/>
+				<td colspan="14" class="text-center"> aOh! 暂时还没有内容! </td>
+				</notempty>
+			</tbody>
+		</table>
+		<!-- 分页 -->
+	    <div class="page">
+	        {$_page}
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+$(function(){
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        var lv1id=$('#level1').val();
+        var lv2id=$('#level2').val();
+        var lv3id=$('#level3').val();
+        if(lv1id!=0){
+        	if(query==''){
+        		query='lv1='+lv1id;
+        	}else{
+        		query=query+'&lv1='+lv1id;
+        	}
+        }
+        if(lv2id!=0){
+        	if(query==''){
+        		query='lv2='+lv2id;
+        	}else{
+        		query=query+'&lv2='+lv2id;
+        	}
+        }
+        if(lv3id!=0){
+        	if(query==''){
+        		query='lv3='+lv3id;
+        	}else{
+        		query=query+'&lv3='+lv3id;
+        	}
+        }
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+	//点击排序
+	$('.list_sort').click(function(){
+		var url = $(this).attr('url');
+		var ids = $('.ids:checked');
+		var param = '';
+		if(ids.length > 0){
+			var str = new Array();
+			ids.each(function(){
+				str.push($(this).val());
+			});
+			param = str.join(',');
+		}
+
+		if(url != undefined && url != ''){
+			window.location.href = url + '/ids/' + param;
+		}
+	});
+});
+</script>
+</block>

@@ -1,0 +1,270 @@
+.tab1-goods {
+    width: 100%;
+    float: left;
+}
+.tab1-goods-pick{
+    width: 5.5%;
+    float: left;
+    margin-left: 20px;
+    margin-top: 36px;
+}
+.tab1-goods-pick input{
+    width: 15px;
+    height: 15px;
+}
+.tab1-goods-declare1{
+    width: 20%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+.tab1-goods-img1{
+    width: 15.5%;
+    float: left;
+    margin-left: 10px;
+}
+.tab-declare-span{
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.tab1-goods-declare2{
+    width: 13%;
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+.tab1-goods-declare3{
+    width: 13%;
+    float: left;
+    text-align: left;
+    margin-left: 20px;
+}
+.tab1-goods-declare4{
+    width: 20%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+.tab-goods-numb{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    float: left;
+}
+.tab1-goods-input{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #292A2D;
+    float: left;
+}
+.tab1-goods-minus{
+    width: 27px;
+    height: 28px;
+    float: left;
+    background-image: url("../images/goods-minus.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-color: transparent;
+    border-color: transparent;
+}
+.tab1-goods-amount{
+    width: 44px;
+    height: 28px;
+    float: left;
+    border: none;
+    text-align: center;
+    border-left: 1px solid #292A2D;
+    border-right: 1px solid #292A2D;
+}
+.tab1-goods-add{
+    width: 27px;
+    height: 28px;
+    float: left;
+    border-left: 1px solid #292A2D;
+    background-image: url("../images/goods-add.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-color: transparent;
+    border-color: transparent;
+}
+.tab1-goods-sold{
+    width: 68%;
+    margin-top: 2px;
+    float: right;
+    text-align: center;
+    font-size: 14px;
+    color: red;
+}
+
+.tab1-goods-declare5{
+    width: 28%;
+    float: right;
+    text-align: left;
+    margin-top: 20px;
+}
+.tab1-goods-btn-del{
+    width: 60px;
+    height: 30px;
+    background-color: #292A2D;
+    color: #fff;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    border: none;
+    border-radius: 5px;
+}
+.tab1-goods-btn-pay{
+    width: 100px;
+    height: 30px;
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+.not-click{
+    background-color: #747780;
+}
+button[disabled], html input[disabled]{
+    cursor: not-allowed;
+    background-color: gray;
+}
+
+.tab1-goods-all{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.tab1-goods-declare6{
+    width: 52%;
+    float: left;
+    text-align: left;
+    margin-left: 30px;
+}
+.tab1-goods-pickall{
+    width: 10%;
+    float: left;
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 40px;
+}
+.tab1-goods-pickall input{
+    width: 15px;
+    height: 15px;
+}
+.tab1-goods-total-prices1{
+    font-size: 14px;
+}
+.tab1-goods-declare7{
+    width: 14%;
+    float: right;
+    text-align: left;
+}
+.tab1-goods-total-prices2{
+    font-size: 28px;
+    font-weight: 600;
+    color: red;
+}
+.tab1-goods-clearing{
+    width: 100%;
+    float: right;
+    text-align: center;
+    margin-top: 20px;
+}
+.tab1-goods .am-table > tbody > tr > td{
+    border-left: none;
+}
+.tab1-goods .am-table > tbody > tr > td.name{
+    width: 20%;
+}
+.tab1-goods .am-table > tbody > tr > td.spec{
+    width: 20%;
+}
+.tab1-goods .am-table > tbody > tr > td.price{
+    width: 20%;
+}
+.tab1-goods .am-table > tbody > tr > td.count{
+    width: 20%;
+}
+
+
+
+@media all and (max-width: 750px){
+    .tab1-goods-pick{
+        width: auto;
+        margin: 0;
+        margin-left: 5px;
+    }
+    .tab1-goods-pick .am-checkbox, .am-radio, .am-checkbox-inline, .am-radio-inline{
+        left: 0!important;
+    }
+    .tab1-goods-img1{
+        width: auto;
+    }
+    .tab1-goods-declare1{
+        width: 46%;
+    }
+    .tab1-goods-declare2{
+        width: 46%;
+        margin-left: 10px;
+    }
+    .tab1-goods-declare3{
+        width: auto;
+        margin-left: 10px;
+    }
+    .tab1-goods-declare4{
+        width: auto;
+        margin-left: 0;
+    }
+    .tab1-goods-sold{
+        width: auto;
+        margin-top: 0;
+        margin-left: 5px;
+    }
+    .tab-declare-span{
+        font-size: 14px;
+    }
+    .tab1-goods-declare5{
+        width: auto;
+        margin-right: 5px;
+    }
+    .tab1-goods-btn-del{
+        width: 70px;
+    }
+    .tab1-goods-pickall{
+        width: auto;
+        margin-left: 0;
+    }
+    .tab1-goods-declare6{
+        width: auto;
+    }
+    .tab1-goods-declare7{
+        width: auto;
+        float: left;
+    }
+    .tab1-goods-clearing{
+        margin-top: 0;
+    }
+}
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .tab1-goods-declare4{
+        width: auto;
+    }
+    .tab1-goods-sold{
+        width: auto;
+        margin-top: 0;
+    }
+    .tab1-goods-declare2{
+        width: auto;
+    }
+    .tab1-goods-declare3{
+        width: auto;
+    }
+    .tab1-goods-declare5{
+        width: auto;
+    }
+    .tab1-goods-declare6{
+        width: auto;
+    }
+}

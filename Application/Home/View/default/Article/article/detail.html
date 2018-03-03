@@ -1,0 +1,159 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/article.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+    <div class="span9 main-content">
+        <!-- Contents
+        ================================================== -->
+        <section id="contents">{$info.content}</section>
+        <hr/>
+    </div>
+    <eq name="signup" value="0">
+    <notempty name="formlist">
+    <div class="formsign">
+        <div class="inputpromt">请认真填写以下报名信息：</div>
+        <form action="{:U('eventsignupcom')}" class="am-form" data-am-validator method="post">
+            <div class="tab1-signup-left">
+                <fieldset>
+                    <input type="hidden" id="eventid" name="eventid" value="{$info.id}">
+                    <volist name="formlist" id='vof' offset="0" length='$formmid'>
+                    <switch name="vof.type">
+                    	<case value="text">
+		                    <div class="am-form-group">
+		                        <label class="tab1-label" for="{$vof['field']}">
+		                            <span class="asterisk-span">*</span>
+		                            {$vof['title']}
+		                        </label>
+		                        <input type="text" name="{$vof['field']}" class="doc-vld-tel-2" placeholder="请输入{$vof['title']}" required/>
+		                    </div>
+                    	</case>
+                    	<case value="radio">
+		                    <div class="am-form-group">
+		                        <label class="tab1-label" for="{$vof['field']}">
+		                            <span class="asterisk-span">*</span>
+		                            {$vof['title']}
+		                        </label>
+		                        <select name="{$vof['field']}" class="sexsel">
+		                        	<volist name="vof.option" id="voopt">
+		                            <option value="{$voopt}">{$voopt}</option>
+									</volist>
+		                        </select>
+		                    </div>
+                    	</case>
+                    	<case value="checkboxlist">
+				            <div class="am-form-group">
+				                <label class="tab1-label" for="{$vof['field']}">
+				                    <span class="asterisk-span">*</span>
+				                    {$vof['title']}：
+				                </label>
+				                <div class="conditionlist">
+		                        	<volist name="vof.option" id="voopt">
+		                            <label><input type="checkbox" name="{$vof['field']}[]" value="{$voopt}">{$voopt}</label>
+									</volist>
+				                </div>
+				            </div>
+                    	</case>
+                    	<case value="date">
+				            <div class="am-form-group">
+				                <label class="tab1-label" for="{$vof['field']}">
+				                    <span class="asterisk-span">*</span>
+				                    {$vof['title']}
+				                </label>
+				                <div class="datecontrl">
+		                        	<input type="text" name="{$vof['field']}" class="am-form-field" placeholder="请选择{$vof['title']}" data-am-datepicker readonly required />
+				                </div>
+				            </div>
+                    	</case>
+                    </switch>
+                    </volist>
+                </fieldset>
+            </div>
+            <div class="tab1-signup-right">
+                <fieldset>
+                    <volist name="formlist" id='vof' offset="$formmid">
+                    <switch name="vof.type">
+                    	<case value="text">
+		                    <div class="am-form-group">
+		                        <label class="tab1-label" for="{$vof['field']}">
+		                            <span class="asterisk-span">*</span>
+		                            {$vof['title']}
+		                        </label>
+		                        <input type="text" name="{$vof['field']}" class="doc-vld-tel-2" placeholder="请输入{$vof['title']}" required/>
+		                    </div>
+                    	</case>
+                    	<case value="radio">
+		                    <div class="am-form-group">
+		                        <label class="tab1-label" for="{$vof['field']}">
+		                            <span class="asterisk-span">*</span>
+		                            {$vof['title']}
+		                        </label>
+		                        <select name="{$vof['field']}" class="sexsel">
+		                        	<volist name="vof.option" id="voopt">
+		                            <option value="{$voopt}">{$voopt}</option>
+									</volist>
+		                        </select>
+		                    </div>
+                    	</case>
+                    	<case value="checkboxlist">
+				            <div class="am-form-group">
+				                <label class="tab1-label" for="{$vof['field']}">
+				                    <span class="asterisk-span">*</span>
+				                    {$vof['title']}：
+				                </label>
+				                <div class="conditionlist">
+		                        	<volist name="vof.option" id="voopt">
+		                            <label><input type="checkbox" name="{$vof['field']}[]" value="{$voopt}">{$voopt}</label>
+									</volist>
+				                </div>
+				            </div>
+                    	</case>
+                    	<case value="date">
+				            <div class="am-form-group">
+				                <label class="tab1-label" for="{$vof['field']}">
+				                    <span class="asterisk-span">*</span>
+				                    {$vof['title']}
+				                </label>
+				                <div class="datecontrl">
+		                        	<p><input type="text" name="{$vof['field']}" class="am-form-field" placeholder="请选择{$vof['title']}" data-am-datepicker readonly required /></p>
+				                </div>
+				            </div>
+                    	</case>
+                    	<case value="checkboxlink">
+				            <div class="am-form-group">
+				            	<div class="agreement">
+					                <input type="checkbox" name="{$vof['field']}" id="chagree"/>
+					                <span class="read-span">{$vof['title']}<a href="{:U('Article/detail',array('id'=>$vof['linkid']))}" target="_blank">{$vof['linktitle']}</a></span>
+				                </div>
+				            </div>
+                    	</case>
+                    </switch>
+                    </volist>
+                </fieldset>
+            </div>
+            <div class="signupprompt">注：<p>请正确填写你的手机号码，这是团队成员联系你的直接方式。</p><p>请正确填写你的QQ号码，这是你接收慧爱信息的唯一通道。</p><p>请正确填写你的微信号码，这是整个团队联络、工作的通讯方式。</p></div>
+            <div class="signupsubmit">
+            	<input type="submit" class="set-shop" value="我要报名"/>
+            	<a href="{:U('user/makermessages')}">活动信息</a>
+            	<a href="{:U('user/makerachievement')}">活动成果</a>
+            </div>
+        </form>
+    </div>
+    </notempty>
+    <else/>
+    <div style="color:blue;margin-bottom:20px;">您已参加该活动，非常感谢您的参与。</div>
+	<div class="signupsubmit">
+    	<a href="{:U('user/makermessages')}">活动信息</a>
+    	<a href="{:U('user/makerachievement')}">活动成果</a>
+    </div>
+    </eq>
+</div>
+</div>
+</block>

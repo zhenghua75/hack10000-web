@@ -1,0 +1,52 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/index-slider.css" rel="stylesheet">
+    <link href="__CSS__/idangerous.swiper.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/slider.js"></script>
+    <script type="text/javascript" src="__JS__/idangerous.swiper-2.1.min.js"></script>
+</block>
+<block name="side"></block>
+
+
+<block name="body">
+    <div id="banner_tabs" class="flexslider">
+        <ul class="slides">
+            <li>
+            </li>
+            <li>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </div>
+
+    <div id="anniu">
+        <div>
+            <a href="{:U('User/register')}"><button class="anniu1" type="button">注册</button></a>
+            <button class="anniu2" type="button" id="doc-prompt-toggle5">登录</button>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            var bannerSlider = new Slider($('#banner_tabs'), {
+                time: 5000,
+                delay: 400,
+                event: 'hover',
+                auto: true,
+                mode: 'fade',
+                controller: $('#bannerCtrl'),
+                activeControllerCls: 'active'
+            });
+//        $('#banner_tabs .flex-prev').click(function() {
+//            bannerSlider.prev()
+//        });
+//        $('#banner_tabs .flex-next').click(function() {
+//            bannerSlider.next()
+//        });
+        })
+    </script>
+</block>

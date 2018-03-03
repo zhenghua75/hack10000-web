@@ -1,0 +1,149 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/ordersettle.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/jquery.form.js"></script>
+    <script type="text/javascript" src="__JS__/ordersettle.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <div id="user-content">
+                <div class="mgrcenter">
+                    <div class="confirm-payment">
+                        <span>确认收货地址</span>
+                    </div>
+                    <div id="settings-content">
+                        <!--<div class="title">确认订单信息</div>-->
+                        <form name="formorder" id="formorder" method="post">
+                            <div class="tab1-goods tbshipaddr" id="shippingaddr">
+                                <table class="am-table am-table-bordered am-table-radius">
+                                    <volist name="addrlist" id="voaddr">
+                                        <tr <eq name="voaddr.selected" value="1">class="selecttr"</eq> id="{$voaddr['id']}">
+                                            <td <eq name="voaddr.selected" value="1">class="selicon"</eq>></td>
+                                            <td><eq name="voaddr.selected" value="1">寄送至</eq></td>
+                                            <td class="check"><label class="radio"><input type="radio" name="selshipaddr" <eq name="voaddr.selected" value="1">checked</eq> value="{$voaddr['id']}"></label></td>
+                                            <td class="addrinfo">{$voaddr['provincename']}{$voaddr['cityname']}{$voaddr['districtname']}&nbsp;{$voaddr['detailaddr']}&nbsp;({$voaddr['receivename']}&nbsp;收)&nbsp;{$voaddr['linkphone']}
+                                            </td>
+                                        </tr>
+                                    </volist>
+                                </table>
+                            </div>
+                            <div class="tab1-goods prodlist" id="wrapprod{$key}">
+                                <table class="am-table am-table-bordered am-table-radius product">
+                                    <tr class="confirminfo-tr">
+                                        <th>确认订单信息</th>
+                                        <th colspan="1">商品信息</th>
+                                        <th>单价（元）</th>
+                                        <th>数量</th>
+                                        <th>附加信息</th>
+                                        <th>小计（元）</th>
+                                    </tr>
+                                    <volist name="list" id="voshop">
+                                        <tr class="shopbar">
+                                            <td colspan="6" style="text-align:left">店铺：{$voshop['name']}</td>
+                                        </tr>
+                                        <volist name="voshop.products" id="voprod">
+                                        <tr class="productrow">
+                                            <input type="hidden" value="{$voprod['cartid']}" class="cartid" name="cartlist[]">
+                                            <td><a href="{:U('Store/product',array('id'=>$voprod['id']))}"><img src="{$voprod['image']}" alt=""/></a></td>
+                                            <td class="name"><span class="tab-declare-span">{$voprod.name}</span><span class="tab-declare-span">{$voprod.specname}</span></td>
+                                            <td class="price"><span class="tab-declare-span">{$voprod.price}</span></td>
+                                            <td class="count"><span class="tab-declare-span">{$voprod.quantity}</span></td>
+                                            <td class="shippingmethod">
+                                                <select name="shippingmethod[]">
+                                                <volist name="voprod.shippingtpl" id="voship">
+                                                    <option value="{$voship['id']}" <eq name="voship.selected" value="1">selected</eq>>{$voship['name']}</option>
+                                                </volist>
+                                                </select>
+                                            </td>
+                                            <td class="amount"><span class="tab-declare-span">￥{$voprod.amount}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" class="comments"><span>留言：</span><input type="text" name="comments[]" value="{$voprod.comment}"></td>
+                                        </tr>
+                                        </volist>
+                                        <tr class="couponrow">
+                                            <input type="hidden" value="{$voshop['id']}" class="shopid" name="shopid[]">
+                                            <td colspan="4"></td>
+                                            <td class="coupon">
+                                                <select name="coupon[]">
+                                                <volist name="voshop.coupon" id="vocoupon">
+                                                    <option value="{$vocoupon['id']}" <eq name="vocoupon.selected" value="1">selected</eq>>{$vocoupon['name']}</option>
+                                                </volist>
+                                                </select>
+                                            </td>
+                                            <td>{$voshop['selcouponvalue']}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4"></td>
+                                            <td>店铺合计：</td>
+                                            <td class="feecolor1">￥{$voshop['amount']}</td>
+                                        </tr>
+                                    </volist>
+                                    <tr>
+                                        <td colspan="4" class="tdborder"></td>
+                                        <td colspan="2" class="tdborder">
+                                            <div id="ajaxshipwarp">
+                                            <table class="am-table am-table-bordered am-table-radius">
+                                                <tr>
+                                                    <td class="bggray">运费信息</td>
+                                                    <td class="bggray"></td>
+                                                </tr>
+                                                <volist name="shipping" id="voshiping">
+                                                <tr>
+                                                    <eq name="voshiping.isempty" value="1">
+                                                    <td>{$voshiping['name']}：</td>
+                                                    <td style="color:red">{$voshiping['error']}</td>
+                                                    <else/>
+                                                    <td>{$voshiping['name']}：</td>
+                                                    <td class="feecolor1 tdshipping{$voshiping['id']}">￥{$voshiping['shipping']}</td>
+                                                    </eq>
+                                                </tr>
+                                                </volist>
+                                                <tr>
+                                                    <td colspan="2"><img src="__IMG__/unionpay.jpg"></td>
+                                                </tr>
+                                                <tr>
+                                                    <input type="hidden" value="{$prodamount}" name="realamount">
+                                                    <td><span class="feetitle">应付金额：</span></td>
+                                                    <td><span class="feecolor2 totalfee">￥{$sumamount}</span></td>
+                                                </tr>
+                                            </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab1-goods-all">
+                                <div class="tab1-goods-clearing">
+                                    <a class="tab1-goods-btn-pay" href="{:U('User/myshopcart')}">返回购物车</a>
+                                    <eq name="issettle" value='1'>
+                                    <button class="tab1-goods-btn-pay" type="submit" id="btok">确认支付</button>
+                                    <else/>
+                                    <button class="tab1-goods-btn-pay disabled" type="submit" id="btok" disabled>确认支付</button>
+                                    </eq>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="mod-uploading">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">加载中...</div>
+        <div class="am-modal-bd">
+          <span class="am-icon-spinner am-icon-spin"></span>
+        </div>
+      </div>
+    </div>
+</block>

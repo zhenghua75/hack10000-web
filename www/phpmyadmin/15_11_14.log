@@ -1,0 +1,30 @@
+[ 2015-11-14T15:13:54+08:00 ] 10.251.196.32 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-11-14T15:13:55+08:00 ] 10.251.196.32 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-11-14T15:14:41+08:00 ] 10.251.196.32 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-11-14T15:14:44+08:00 ] 10.251.196.32 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-11-14T15:14:49+08:00 ] 10.251.196.32 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+
+[ 2015-11-14T15:14:50+08:00 ] 10.251.196.32 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+ERR: 无法加载数据库驱动: Think\Db\Driver\
+

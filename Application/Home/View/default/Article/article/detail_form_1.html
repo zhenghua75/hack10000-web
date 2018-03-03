@@ -1,0 +1,149 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/article.css" rel="stylesheet">
+</block>
+
+<block name="javascript">
+    <script type="text/javascript">
+        var pid="<?php echo $param['province']?>";
+        var cid="<?php echo $param['city']?>";
+        var did="<?php echo $param['district']?>";
+    </script>
+    <script type="text/javascript" src="__JS__/chinacity.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+    <div class="span9 main-content">
+        <!-- Contents
+        ================================================== -->
+        <section id="contents">{$info.content}</section>
+        <hr/>
+    </div>
+    <eq name="signup" value="0">
+    <div>
+        <div class="inputpromt">请认真填写以下报名信息：</div>
+        <form action="{:U('eventsignup')}" class="am-form" data-am-validator method="post">
+            <div class="tab1-signup-left">
+                <fieldset>
+                    <input type="hidden" id="eventid" name="eventid" value="{$info.id}">
+                    <input type="hidden" id="authtype" name="authtype" value="maker">
+                    <div class="am-form-group chinaarea">
+                        <label class="tab1-label">
+                            <span class="asterisk-span">*</span>
+                            您家所在地区
+                        </label>
+                        <select name="province" id="J_province" class="selarea"></select>
+                        <span class="birthday-year">省</span>
+                        <select name="city" id="J_city" class="selarea"></select>
+                        <span class="birthday-year">市</span>
+                        <select name="district" id="J_district" class="selarea"></select>
+                        <span class="birthday-year">区</span>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="truename">
+                            <span class="asterisk-span">*</span>
+                            姓名
+                        </label>
+                        <input type="text" id="truename" name="truename" class="doc-vld-tel-2" placeholder="请输入您的姓名" required/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="schoolname">
+                            <span class="asterisk-span">*</span>
+                            所读大学名称
+                        </label>
+                        <input type="text" id="schoolname" name="schoolname" class="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入您所读大学名称" required/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="schooladdress">
+                            <span class="asterisk-span">*</span>
+                            所读大学详细地址
+                        </label>
+                        <input type="text" id="schooladdress" name="schooladdress" class="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入您所读大学地址全称" required/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="sex">
+                            <span class="asterisk-span">*</span>
+                            性别
+                        </label>
+                        <select name="sex" class="sexsel">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="tab1-signup-right">
+                <fieldset>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="mobile">
+                            <span class="asterisk-span">*</span>
+                            手机号码
+                        </label>
+                        <input type="text" id="mobile" name="mobile" class="doc-vld-tel-2" minlength="11" maxlength="11"
+                               placeholder="请输入您的手机号码" required onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="qq">
+                            <span class="asterisk-span">*</span>
+                            QQ号
+                        </label>
+                        <input type="text" id="qq" name="qq" class="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入您的QQ号" required/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="wxid">
+                            <span class="asterisk-span">*</span>
+                            微信号
+                        </label>
+                        <input type="text" id="wxid" name="wxid" class="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入您的微信号" required/>
+                    </div>
+                    <div class="am-form-group">
+                        <label class="tab1-label" for="idaddress">
+                            <span class="asterisk-span">*</span>
+                            身份证地址
+                        </label>
+                        <input type="text" id="idaddress" name="idaddress" class="doc-vld-tel-2" minlength="3"
+                               placeholder="请输入您的身份证地址" required/>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="am-form-group">
+                <label class="tab1-label" for="checkcondition">
+                    <span class="asterisk-span">*</span>
+                    下列报名条件中，请选择您所满足的条件：
+                </label>
+                <div class="conditionlist">
+                    <label><input type="checkbox" name="checkcondition[]" value="我是创客">我是创客</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="我家所居住城市有机场">我家所居住城市有机场</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="寒假一定回家">寒假一定回家</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="家中有能从机场直达市内的私家车">家中有能从机场直达市内的私家车</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="家中有运营用的车辆">家中有运营用的车辆</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="家中有从事物流的资源">家中有从事物流的资源</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="家中有闲置人员可以从事物流工作">家中有闲置人员可以从事物流工作</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="家中有人正好在家乡机场货场工作或有机场货场关系">家中有人正好在家乡机场货场工作或有机场货场关系</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="自己想带领家人长期从事慧爱鲜花物流工作">自己想带领家人长期从事慧爱鲜花物流工作</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="我自己会开车">我自己会开车</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="我自己会开车，家中也有车">我自己会开车，家中也有车</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="我熟悉家乡城市的各种交通物流设施">我熟悉家乡城市的各种交通物流设施</label>
+                    <label><input type="checkbox" name="checkcondition[]" value="本人是学习物流专业的">本人是学习物流专业的</label>
+                </div>
+            </div>
+            <div class="signupprompt">注：<p>请正确填写你的手机号码，这是团队成员联系你的直接方式。</p><p>请正确填写你的QQ号码，这是你接收慧爱信息的唯一通道。</p><p>请正确填写你的微信号码，这是整个团队联络、工作的通讯方式。</p></div>
+            <div class="signupsubmit"><input type="submit" class="set-shop" value="我要报名"/></div>
+        </form>
+    </div>
+    <else/>
+    <div style="color:blue;margin-bottom:20px;">您已参加该活动，非常感谢您的参与。</div>
+    </eq>
+</div>
+</div>
+</block>

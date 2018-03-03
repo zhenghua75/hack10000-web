@@ -1,0 +1,803 @@
+#enroll-layout{
+    position: relative;
+    /*float: right;*/
+    width: 84%;
+    margin: 0 auto;
+}
+
+#enroll-window{
+    /*background-image: url("../images/enroll-lgbg.png");*/
+    /*background-repeat: no-repeat;*/
+    width: 995px;
+    height: 540px;
+    margin-top: 100px;
+}
+#enroll-head{
+    width: 100%;
+    color: #f0b003;
+    background-color: #292A2D;
+    font-size: 25px;
+    float: left;
+    height: 50px;
+}
+#enroll-head h3{
+    float: left;
+    margin: 0;
+    line-height: 50px;
+    font-family: "微软雅黑";
+    font-weight: normal;
+}
+#enroll-head h3:first-child{
+    margin-left: 48px;
+    margin-right: 15px;
+}
+#enroll-head span{
+    font-size: 18px;
+}
+#enroll-nav{
+    width: 100%;
+    float: left;
+}
+#enroll-nav .am-nav-tabs > li{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    margin-left: 4%;
+}
+#enroll-nav .am-nav-tabs > li.am-active > a, .am-nav-tabs > li.am-active > a:hover, .am-nav-tabs > li.am-active > a:focus{
+    color: #292A2D;
+    border: none;
+    border-bottom: 2px solid #292A2D;
+}
+#enroll-nav .am-nav-tabs > li > a{
+    margin: 0;
+    color: #707070;
+}
+#enroll-nav .am-nav-tabs{
+    border: 2px solid #B5B5B5;
+    border-top: white;
+}
+#enroll-nav .am-tabs-bd{
+    border: 2px solid #B5B5B5;
+    border-top: none;
+}
+#tab1{
+    padding: 0;
+    margin-top: 30px;
+}
+#tel-email{
+    width: 36%;
+    margin: 0 auto;
+    height: 72px;
+}
+#tel-email h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tel-email span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#tel-email .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#tel-email .am-input-group input{
+    background-image: url("../images/tel-emailicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+#set-password{
+    width: 36%;
+    margin: 0 auto;
+    height: 72px;
+}
+#set-password h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    height: 30px;
+    margin: 0;
+    text-align: left;
+}
+#set-password span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    height: 72px;
+}
+#set-password .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#set-password .am-input-group input{
+    background-image: url("../images/set-passwordicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+#phone-nub{
+    width: 36%;
+    margin: 0 auto;
+    height: 72px;
+}
+#phone-nub h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    height: 30px;
+    margin: 0;
+    text-align: left;
+}
+#phone-nub span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    height: 72px;
+}
+#phone-left{
+    width: 20%;
+}
+#phone-left span{
+    color: #707070;
+    height: 40px;
+    width: 70px;
+    padding-right: 34px;
+    font-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 70%30%;
+}
+#phone-left .am-btn-default:active, .am-btn-default.am-active, .am-active .am-btn-default.am-dropdown-toggle{
+    height: 40px;
+    background-color: #ece7e7;
+    border: 1px solid #CCCCCC;
+}
+#phone-right{
+    width: 80%;
+    float: right;
+}
+#phone-right input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #CCCCCC;
+    border-left: none;
+    text-indent: 0.5em;
+}
+#message-code{
+    width: 36%;
+    margin: 0 auto;
+    height: 72px;
+}
+#message-code h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    height: 30px;
+    margin: 0;
+    text-align: left;
+}
+#message-code span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    height: 72px;
+}
+#message-code input{
+    width: 66%;
+    float: left;
+    height: 40px;
+    border-right: none;
+}
+#message-code button{
+    width: 34%;
+    float: left;
+    height: 40px;
+    border: 1px solid #CCCCCC;
+    border-left: none;
+}
+#service-agreement{
+    width: 36%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 2px;
+}
+#service-agreement span{
+    font-size: 13px;
+    font-family: "微软雅黑";
+    color: #adacac;
+    vertical-align: text-top;
+}
+#next-step{
+    width: 36%;
+    margin: 0 auto;
+    height: 40px;
+    margin-bottom: 30px;
+}
+#next-step button{
+    width: 145px;
+    height: 40px;
+    background-color: #f0b003;
+    border: none;
+    font-size: 20px;
+    font-family: "微软雅黑";
+    color: #292A2D;
+}
+#next-step a{
+    font-size: 20px;
+    font-family: "微软雅黑";
+    color: #292A2D;
+}
+
+.reg-submit{
+    width: 36%;
+    margin: 0 auto;
+    height: 40px;
+    margin-bottom: 30px;
+}
+.reg-submit button{
+    width: 145px;
+    height: 40px;
+    background-color: #f0b003;
+    border: none;
+    font-size: 20px;
+    font-family: "微软雅黑";
+    color: #292A2D;
+}
+.page-forgetpass .reg-submit button{
+    margin-top: 20px;
+}
+
+
+/*注册成功*/
+#register-succeed{
+    width: 36%;
+    margin: 0 auto;
+    height: 78px;
+    margin-top: 122px;
+}
+#register-succeed h1{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 36px;
+    color: #292A2D;
+    padding-top: 18px;
+    width: 440px;
+    background-image: url("../images/register-succeedicon.png");
+    background-repeat: no-repeat;
+    background-position: 14%;
+}
+#tab1-over{
+    float: left;
+    position: absolute;
+    padding: 0;
+}
+#tab1-over button{
+    border: none;
+    margin-top: 52px;
+    width: 192px;
+    height: 52px;
+    background-color: #f0b003;
+    color: #292A2D;
+    font-family: "微软雅黑";
+    font-size: 25px;
+}
+
+
+/*TAB2*/
+#tab2{
+    padding: 0;
+    margin-top: 30px;
+}
+#tab2-tel-email{
+    width: 36%;
+    height: 72px;
+    float: left;
+    margin-left: 104px;
+}
+#tab2-tel-email h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tab2-tel-email span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#tab2-tel-email .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#tab2-tel-email .am-input-group input{
+    background-image: url("../images/tel-emailicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+#school-zone{
+    width: 36%;
+    height: 72px;
+    float: right;
+    margin-right: 104px;
+}
+#school-zone h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#school-zone span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#school-zone button{
+    width: 350px;
+    background-color: #ece7e7;
+    border: 1px solid #cccccc;
+    color: #adacac;
+    height: 40px;
+    text-align: left;
+    background-image: url("../images/publish-phonedrop.png");
+    background-repeat: no-repeat;
+    background-position: 94%;
+}
+#tab2-set-password{
+    width: 36%;
+    height: 72px;
+    float: left;
+    margin-left: 104px;
+}
+#tab2-set-password h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tab2-set-password span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#tab2-set-password .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#tab2-set-password .am-input-group input{
+    background-image: url("../images/set-passwordicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+#student-id{
+    width: 36%;
+    height: 72px;
+    float: right;
+    margin-right: 104px;
+}
+#student-id h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#student-id span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#student-id .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#student-id input{
+    height: 40px;
+}
+#shop-category{
+    width: 36%;
+    height: 72px;
+    float: right;
+    margin-right: 104px;
+}
+#shop-category h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#shop-category i{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    font-style: normal;
+}
+#shop-category .am-selected{
+    width: 42%;
+}
+#shop-category .am-selected-status{
+    font-size: 20px;
+    height: 40px;
+    width: 100%;
+    color: #707070;
+    text-align: left;
+    background-position: 100%30%;
+}
+#tab2-name{
+    width: 36%;
+    height: 72px;
+    float: left;
+    margin-left: 104px;
+}
+#tab2-name h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tab2-name span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#tab2-name .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#tab2-name input{
+    height: 40px;
+}
+#tab2-tel{
+    width: 36%;
+    height: 72px;
+    float: right;
+    margin-right: 104px;
+}
+#tab2-tel h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tab2-tel i{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    font-style: normal;
+}
+#tab2-tel #phone-right{
+    width: 79%;
+    float: left;
+}
+#tab2-id-card{
+    width: 36%;
+    height: 72px;
+    float: left;
+    margin-left: 104px;
+}
+#tab2-id-card h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tab2-id-card span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#tab2-id-card .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#tab2-id-card input{
+    height: 40px;
+}
+#tab2-auth-code{
+    width: 36%;
+    height: 72px;
+    float: right;
+    margin-right: 104px;
+}
+#tab2-auth-code h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#tab2-auth-code i{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    font-style: normal;
+}
+#tab2-auth-code span{
+    padding-right: 2px;
+}
+#tab2-auth-code input{
+    height: 40px;
+}
+#tab2-auth-code button{
+    float: left;
+    height: 40px;
+}
+#school-name{
+    width: 36%;
+    height: 72px;
+    float: left;
+    margin-left: 104px;
+}
+#school-name h2{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    margin: 0;
+    height: 30px;
+    text-align: left;
+}
+#school-name span{
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+}
+#school-name .am-input-group{
+    display: inline-block;
+    width: 350px;
+}
+#school-name input{
+    height: 40px;
+}
+#tab2-service-agreement{
+    width: 36%;
+    height: 32px;
+    float: right;
+    margin-right: 104px;
+}
+#tab2-service-agreement span{
+    font-size: 13px;
+    font-family: "微软雅黑";
+    color: #adacac;
+    vertical-align: text-top;
+}
+#tab2-next-step{
+    width: 36%;
+    height: 72px;
+    float: right;
+    margin-right: 104px;
+}
+#tab2-next-step button{
+    width: 145px;
+    height: 40px;
+    background-color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    border: none;
+}
+#tab2-next-step a{
+    color: #292A2D;
+}
+#enroll-window .span12 {
+border: 2px solid #B5B5B5;
+border-top: none;
+float: left;
+width: 100%;
+}
+#enroll-window .span12 .register-form{
+    margin-top: 20px;
+}
+body.page-register footer,
+body.page-login footer,
+body.page-forgetpass footer{
+    position: fixed;
+    bottom: 0;
+}
+body.page-register .am-form-group,
+body.page-forgetpass .am-form-group{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 335px;
+}
+body.page-register .am-form-group label,
+body.page-forgetpass .am-form-group label{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    height: 30px;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+body.page-register .am-form-group.am-form-error label,
+body.page-forgetpass .am-form-group.am-form-error label{
+    color: #dd514c;
+}
+body.page-register .am-form-group label span,
+body.page-forgetpass .am-form-group label span {
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    height: 72px;
+}
+body.page-register .am-form-group input#mobile,
+body.page-forgetpass .am-form-group input#mobile{
+    background-image: url("../images/tel-emailicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+body.page-register .am-form-group input#inputPassword,
+body.page-forgetpass .am-form-group input#inputPassword{
+    background-image: url("../images/set-passwordicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+body.page-register .am-form-group input#repassword,
+body.page-forgetpass .am-form-group input#repassword{
+    background-image: url("../images/set-passwordicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+body.page-register .am-form-group input#verify{
+    background-image: url("../images/verifyicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+body.page-register .am-form-group input#validcode,
+body.page-forgetpass .am-form-group input#validcode{
+    width: 66%;
+    float: left;
+    height: 40px;
+    border-right: none;
+}
+body.page-register .am-form-group .rowvalidcode{
+    width: 100%;
+    height: 40px;
+}
+.am-form-group .verifyimg{
+    width: 100%;
+}
+body.page-register .am-form-group input#btcode,
+body.page-forgetpass .am-form-group input#btcode{
+    width: 34%;
+    float: left;
+    height: 40px;
+    border: 1px solid #CCCCCC;
+    border-left: none;
+    background-color: #f0b003;
+}
+body.page-register .am-form-group input#btcode.getwait,
+body.page-forgetpass .am-form-group input#btcode.getwait{
+    font-size: 13px;
+    background-color: #e6e6e6;
+}
+
+
+body.page-login #logincform .am-form-group{
+    width: 65%;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 335px;
+}
+body.page-login #logincform .am-form-group label{
+    font-weight: normal;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: #707070;
+    height: 30px;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+body.page-login #logincform .am-form-group.am-form-error label {
+    color: #dd514c;
+}
+body.page-login #logincform .am-form-group label span {
+    color: red;
+    vertical-align: sub;
+    padding-right: 5px;
+    height: 72px;
+}
+body.page-login #logincform .am-form-group input#mobile{
+    background-image: url("../images/tel-emailicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+body.page-login #logincform .am-form-group input#inputPassword{
+    background-image: url("../images/set-passwordicon.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+    height: 40px;
+}
+body.page-login #logincform .am-form-group input#validcode{
+    width: 66%;
+    float: left;
+    height: 40px;
+    border-right: none;
+}
+body.page-login #logincform .am-form-group .rowvalidcode{
+    width: 100%;
+    height: 40px;
+}
+body.page-login #logincform #login-submit{
+    margin-top: 20px;
+}
+
+
+
+
+@media all and (max-width: 750px){
+    #enroll-window{
+        width: 100%;
+        height: auto;
+    }
+    body.page-login .am-form-group{
+        width: 80%;
+    }
+    body.page-register .am-form-group input#btcode{
+        font-size: 12px;
+        padding: 0;
+    }
+}
+
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    #enroll-window{
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

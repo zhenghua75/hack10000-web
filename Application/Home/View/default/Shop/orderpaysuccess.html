@@ -1,0 +1,28 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/ordersettle.css" rel="stylesheet">
+</block>
+<block name="javascript">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <div id="user-content">
+                <div class="mgrcenter">
+                    <div class="paysuccess">
+                        <i></i>
+                        <span>支付成功！</span>
+                        <div class="paysuccess-btn">
+                            <a href="{:U('User/myorders?status=3')}">查看订单</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

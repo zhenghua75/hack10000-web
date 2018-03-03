@@ -1,0 +1,101 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makermessages.css" rel="stylesheet">
+    <link href="__CSS__/suppliermessages.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>机构</span>
+</div>
+<ul id="user-leftbar">
+    <li class="message-settings">
+        <a class="message-settings-hover" href="{:U('User/suppliermessages')}">
+            <h3>消息管理&nbsp;&nbsp;>
+                <span>服务管理&nbsp;活动通知</span>
+                <span>派单通知&nbsp;聊天记录</span>
+            </h3>
+        </a>
+    </li>
+    <li class="shop-settings">
+        <a class="shop-settings-hover" href="{:U('User/supplierproductclass')}">
+            <h3>发布商品&nbsp;&nbsp;></h3>
+        </a>
+    </li>
+    <li class="message-settings">
+        <a class="message-settings-hover" href="{:U('User/supplierproducts')}">
+            <h3>商品管理&nbsp;&nbsp;>
+                <span>宝贝&nbsp;&nbsp;&nbsp;&nbsp;上下架</span>
+            </h3>
+        </a>
+    </li>
+    <li class="account-settings">
+        <a class="account-settings-hover" href="#">
+            <h3>卡券管理&nbsp;&nbsp;>
+                <span>消费积分&nbsp;优惠券</span>
+            </h3>
+        </a>
+    </li>
+    <li class="acknowledgement-settings">
+        <a class="acknowledgement-settings-hover" href="{:U('User/supplierorders')}">
+            <h3>订单管理&nbsp;&nbsp;>
+                <span>待付款 &nbsp;&nbsp;待发货&nbsp;&nbsp;已发货</span>
+                <span>已收货 &nbsp;&nbsp;退款中&nbsp;&nbsp;已完成</span>
+                <span>已关闭 &nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </h3>
+        </a>
+    </li>
+    <li class="shop-settings">
+        <a class="shop-settings-hover" href="{:U('User/suppliercomments')}">
+            <h3>评价管理&nbsp;&nbsp;></h3>
+        </a>
+    </li>
+</ul>
+<div id="settings-content">
+<form action="__SELF__" class="am-form" method="post">
+<table class="am-table am-table-bordered am-table-striped am-table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>ID号</th>
+            <th>规格名称</th>
+            <th>规格值</th>
+        </tr>
+    </thead>
+    <tbody>
+        <volist name="speclist" id="vo">
+        <tr>
+            <td><label class="am-checkbox am-secondary"><input type="checkbox" name="prodspec[]" value="{$vo.sid}" data-am-ucheck <if condition="in_array($vo['sid'],$supspec)">checked</if>></label></td>
+            <td>{$vo.sid}</td>
+            <td>{$vo.name}<notempty name="vo.comment">[{$vo.comment}]</notempty></td>
+            <td>
+            <volist name="vo.value" id="val">
+            <span class="specvalspan">{$val.name}</span>
+            </volist>
+            </td>
+        </tr>
+        </volist>
+    </tbody>
+</table>
+<div class="submit-ok">
+    <button type="submit">确定</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</block>

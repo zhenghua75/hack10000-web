@@ -1,0 +1,279 @@
+<block name="header"></block>
+<block name="side">
+    <!-- 左侧 nav body
+    ================================================== -->
+    <div class="span3 bs-docs-sidebar">
+        <block name="publish"></block>
+        <ul class="nav nav-list bs-docs-sidenav">
+            {:W('Category/lists', array($category['id'], ACTION_NAME == 'index'))}
+        </ul>
+    </div>
+</block>
+
+<block name="body">
+
+</block>
+<script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script>
+<if condition="C('WEB_SITE_CLOSE') eq 1">
+    <!-- WPA Button Begin -->
+
+    <!-- WPA Button END -->
+<div id="floating-window">
+    <div id="advisory" onclick="showleft();return false;" onmouseover="leftbar2()" onmouseleave="leftbarer2()"><p>客服咨询</p></div>
+    <div id="advisory-hover" onmouseover="leftbar2()" onmouseout="leftbarer2()">
+        <h2>客服QQ</h2>
+        <p style="margin: 0!important;color: #fff!important;font-size: 14px!important;text-align: center!important;">800092391</p>
+        <div id="BizQQWPA">
+            <a href="#" id="advisory-qq1"></a>
+        </div>
+        <p id="zi-xun">当前咨询人数：99999</p>
+        <p id="zai-xian">在线：8:30-22:00</p>
+    </div>
+    <div id="appdownload" onclick="showleft2();return false;" onmouseover="leftbar1()" onmouseleave="leftbarer1()"><p>APP下载</p></div>
+    <div id="appdownload-hover" onmouseover="leftbar1()" onmouseout="leftbarer1()"><a style="width: 100%;height: 100%;float:left;" href="http://download.kmdx.cn/?app=hack10000" target="_blank"></a></div>
+</div>
+</if>
+<block name="login-eject">
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="login-window">
+        <form id="login-matter" action="{:U('User/logindiag')}" class="am-form" method="post" data-am-validator>
+            <div class="am-form-group">
+                <input type="text" id="username" name="username" minlength="3" placeholder="用户名/手机号/邮箱" tabindex="1" required/>
+                <a href="{:U('User/register')}">注册账户</a>
+            </div>
+            <div class="am-form-group">
+                <input type="password" id="password" name="password" placeholder="请输入密码" tabindex="2" required
+                       data-foolish-msg="请填写密码"/>
+                <a href="{:U('user/forgetpass')}">忘记密码</a>
+            </div>
+            <div class="am-form-group">
+                <input type="text" id="verify" class="span3" placeholder="请输入图形验证码" tabindex="3" autocomplete="off" name="verify" required>
+                <img class="verifyimg reloadverify" alt="点击切换" src="" style="cursor:pointer;">
+                <div class="controls Validform_checktip text-warning"></div>
+            </div>
+            <div id="login-submit">
+                <button type="submit" tabindex="4" id="diaglogin">登录</button>
+            </div>
+        </form>
+        <script type="text/javascript">
+            $(document)
+                .ajaxStart(function(){
+                    $("button#diaglogin:submit").addClass("log-in").attr("disabled", true);
+                })
+                .ajaxStop(function(){
+                    $("button#diaglogin:submit").removeClass("log-in").attr("disabled", false);
+                });
+
+
+            $("form#login-matter").submit(function(){
+                var self = $(this);
+                $.post(self.attr("action"), self.serialize(), success, "json");
+                return false;
+
+                function success(data){
+                    if(data.status){
+                        window.location.href = data.url;
+                    } else {
+                        self.find(".Validform_checktip").text(data.info);
+                        //刷新验证码
+                        $(".reloadverify").click();
+                    }
+                }
+            });
+
+            $(function(){
+                $('#login-window').on('open.modal.amui', function(){
+                    $(".verifyimg").attr("src","{:U('User/verify')}");
+                });
+                var verifyimg = "{:U('User/verify')}";
+                $(".reloadverify").click(function(){
+                    if( verifyimg.indexOf('?')>0){
+                        $(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+                    }else{
+                        $(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+                    }
+                });
+            });
+        </script>
+    </div>
+</block>
+
+<block name="publish-eject">
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="publish-window">
+        <div id="publish-matter">
+            <p>发布<em>>></em></p>
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            <div class="am-form-group">
+                <label class="am-radio-inline">
+                    <input type="radio" name="radio10" value="male" data-am-ucheck> 供方
+                </label>
+                <label class="am-radio-inline">
+                    <input type="radio" name="radio10" value="female" data-am-ucheck> 需方
+                </label>
+            </div>
+            <div id="publish-content">
+                <div id="publish-drop">
+                    <div id="news-sort">
+                        <div id="sort-left"><span>信息类别</span></div>
+                        <div id="sort-right">
+                            <select data-am-selected>
+                                <option value="a">商品类</option>
+                                <option value="b">服务类</option>
+                                <option value="o">资源类</option>
+                                <option value="m">项目类</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="price">
+                        <div id="price-left">
+                            <div id="price-left-one">
+                                <span>价格</span>
+                            </div>
+                            <div id="price-left-two">
+                                <input type="text"/>
+                            </div>
+                        </div>
+                        <div id="price-mid"></div>
+                        <div id="price-right">
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <div id="trading-mode">
+                        <div id="mode-left"><span>信息类别</span></div>
+                        <div id="mode-right">
+                            <select data-am-selected>
+                                <option value="a">竞价</option>
+                                <option value="b">抢单</option>
+                                <option value="o">招标</option>
+                                <option value="m">托管</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="full-name">
+                        <div id="name-left">
+                            <span>姓名</span>
+                        </div>
+                        <div id="name-right">
+                            <input type="text" placeholder="请输入姓名" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                                   onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"/>
+                        </div>
+                    </div>
+                    <div id="contact-way">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">联系电话</span>
+                            <input type="tel" class="am-form-field" placeholder="联系人号码" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        </div>
+                    </div>
+                    <div id="phone-number">
+                        <i>*</i>
+                        <span>手机号</span>
+                    </div>
+                    <div id="tel-number">
+                        <div id="tel-left">
+                            <select data-am-selected>
+                                <option value="a">86</option>
+                                <option value="b">852</option>
+                                <option value="o">886</option>
+                                <option value="m">853</option>
+                            </select>
+                        </div>
+                        <div id="tel-right">
+                            <input type="tel" placeholder="请输入手机号" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                   onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="publish-drop2">
+                    <div id="publish-title">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">标题</span>
+                            <input type="text" class="am-form-field" placeholder="请输入信息标题">
+                        </div>
+                    </div>
+                    <div id="upload-img">
+                        <a class="a-upload">
+                            <input type="file" name="" id="">上传图片
+                        </a>
+                    </div>
+                    <div id="unit-quantity">
+                        <div id="unit-left">
+                            <div id="unit-one">
+                                <span>单位</span>
+                            </div>
+                            <div id="unit-two">
+                                <input type="text"/>
+                            </div>
+                        </div>
+                        <div id="unit-right">
+                            <div id="unit-one">
+                                <span>数量</span>
+                            </div>
+                            <div id="unit-two">
+                                <input type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="starting-time">
+                        <div class="am-g">
+                            <div class="am-u-sm-6">
+                                <button type="button" class="am-btn am-btn-default am-margin-right" id="my-start">开始时间</button><span id="my-startDate"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ending-time">
+                        <div class="am-g">
+                            <div class="am-u-sm-6">
+                                <button type="button" class="am-btn am-btn-default am-margin-right" id="my-end">结束时间</button><span id="my-endDate"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="qq-way">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">QQ号码</span>
+                            <input type="tel" class="am-form-field" placeholder="请输入QQ号码" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                        </div>
+                    </div>
+                    <div id="phone-number">
+                        <i>*</i>
+                        <span>短信验证码</span>
+                    </div>
+                    <div id="auth-code">
+                        <div class="am-u-lg-6">
+                            <div class="am-input-group">
+                                <input type="tel" placeholder="请输入验证码" class="am-form-field" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                                <span class="am-input-group-btn">
+                                    <button class="am-btn am-btn-default" type="button">获取验证码</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="text-field">
+                <textarea placeholder="请输入详细信息"></textarea>
+            </div>
+            <div id="submit-posting">
+                <button type="submit">发布</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</block>
+
+<block name="search-eject">
+    <div class="am-modal am-modal-prompt" tabindex="-1" id="search-window">
+        <div class="am-g">
+            <div class="am-u-lg-6">
+                <div class="am-input-group">
+                    <input placeholder="搜索..." type="search" class="am-form-field">
+      <span class="am-input-group-btn">
+        <button class="am-btn am-btn-default" type="button">GO</button>
+      </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+
+<script type="text/javascript">
+    BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 800092391, selector: 'BizQQWPA'});
+</script>

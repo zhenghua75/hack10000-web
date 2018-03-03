@@ -1,0 +1,65 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<style type="text/css">
+    #centre-layout{
+        min-height: 600px;
+        margin-bottom: 60px;
+    }
+</style>
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+    <form action="__SELF__" method="post">
+        输入查找目录：<input type="text" name="dirname" value="{$curdir}" style="width:500px;">
+        <select name="filtertype">
+            <option value="0" <eq name="filtertype" value='0'>selected</eq>>全部</option>
+            <option value="1" <eq name="filtertype" value='1'>selected</eq>>未处理</option>
+            <option value="2" <eq name="filtertype" value='2'>selected</eq>>200K-500K</option>
+            <option value="3" <eq name="filtertype" value='3'>selected</eq>>500K-1M</option>
+            <option value="4" <eq name="filtertype" value='4'>selected</eq>>大于1M</option>
+        </select>
+        <input type="submit" value="查询">
+    </form>
+    <form action="{:U('user/picture_thumb_refresh')}" method="post">
+        当前目录：{$curdir}&nbsp;&nbsp;一级目录数：{$filelist1|count}&nbsp;&nbsp;二级目录数：{$filelist2|count}&nbsp;&nbsp;三级目录数：{$filelist3|count}<br/>
+        当前目录配置：{$typesize}&nbsp;&nbsp;待处理图片总数：{$dealcnt}
+        <input type="hidden" name="dirnamerefresh" value="{$curdir}" style="width:500px;">
+        <input type="hidden" name="typesize" value="{$typesize}" style="width:500px;">
+        &nbsp;&nbsp;每次处理数(最大50)<input type="txt" name="dealunit" value="50" style="width:50px;">
+        <input type="submit" value="根据配置刷新目录">
+    </form>
+    <table>
+        <volist name="filelist1" id="vo1">
+        <tr>
+            <td>{$vo1['name']}</td>
+            <td>{$vo1['type']}</td>
+            <td>{$vo1['size']}</td>
+        </tr>
+        <volist name="filelist2[$vo1['name']]" id="vo2">
+            <tr>
+                <td colspan="3"></td>
+                <td>{$vo2['name']}</td>
+                <td>{$vo2['type']}</td>
+                <td>{$vo2['size']}</td>
+            </tr>
+                <volist name="filelist3[$vo2['keyw']]" id="vo3">
+                <tr>
+                    <td colspan="6"></td>
+                    <td>{$vo3['name']}</td>
+                    <td>{$vo3['type']}</td>
+                    <td>{$vo3['size']}</td>
+                </tr>
+                </volist>
+        </volist>
+        </volist>
+    </table>
+</div>
+</div>
+</block>

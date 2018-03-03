@@ -1,0 +1,259 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/jquery.Jcrop.min.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/jquery.Jcrop.min.js"></script>
+    <script type="text/javascript" src="__JS__/preview.js"></script>
+    <script type="text/javascript" src="__JS__/shippingaddr.js"></script>
+    <script type="text/javascript">
+        var pid="<?php echo $param['province']?>";
+        var cid="<?php echo $param['city']?>";
+        var did="<?php echo $param['district']?>";
+        var shaddrlisttmp='<?php echo json_encode($shippingaddrlist) ?>';
+        var shaddrlist=eval('(' + shaddrlisttmp + ')');
+    </script>
+    <script type="text/javascript" src="__JS__/chinacity.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+<include file="User:header"/>
+<div id="user-content">
+<div id="user-nav">
+    <span>会员</span>
+</div>
+<div class="mgrcenter">
+<include file="User:myleft"/>
+<div id="settings-content">
+<div class="am-tabs" id="memberindextab" data-am-tabs>
+<ul class="am-tabs-nav am-nav am-nav-tabs">
+    <li class="am-active"><a href="#tab1">头像修改</a></li>
+    <li><a href="#tab2">基本信息</a></li>
+    <li><a href="#tab3">账号绑定</a></li>
+    <li><a href="#tab4">账号安全</a></li>
+    <li><a href="#tab5">收货地址</a></li>
+</ul>
+
+<div class="am-tabs-bd">
+
+<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+    <div id="tab1-content">
+        <div class="leftguide">
+            <img src="__IMG__/guide2.jpg">
+        </div>
+        <div class="centerportrait">
+            <div class="am-form-group am-form-file">
+                <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件<input id="image_file" name="image_file" type="file" onchange="fileSelectHandler()"></button>
+                <input type="hidden" id="cover_id" value="">
+                <p>仅支持JPG、GIF、PNG、JPEG&nbsp;&nbsp;文件小于1M</p>
+            </div>
+            <div class="error"></div>
+            <div>请拖动选框进行选择，确认后“双击”选框</div>
+            <div id="head-window">
+                <div id="head-frame">
+                    <canvas id="preview"></canvas>
+                </div>
+            </div>
+            <div class="info" style="display:none">
+                <label>File size</label> <input type="text" id="filesize" name="filesize" style="width:70px;" />
+                <label>Image dimension</label> <input type="text" id="filedim" name="filedim" style="width:70px;" />
+                <label>W</label> <input type="text" id="w" name="w" style="width:70px;" />
+                <label>H</label> <input type="text" id="h" name="h" style="width:70px;" />
+            </div>
+
+            <form action="{:U('portraitsave')}" enctype="multipart/form-data" method="post" id="portraitform">
+                <input type="hidden" name="cavportrait" id="cavportrait" value=""/>
+                <input type="hidden" id="orgname" name="orgname" value=""/>
+                <input type="hidden" id="filetype" name="filetype" value=""/>
+                <button class="head-save" type="submit">保存</button>
+            </form>
+        </div>
+        <div class="rightguide">
+            <img src="__IMG__/guide3.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade" id="tab2">
+    <div id="tab2-content">
+        <form action="{:U('profileedit')}" class="am-form" data-am-validator method="post">
+            <fieldset class="basic-information">
+                <div class="am-form-group">
+                    <label class="basic-label" for="nickname">昵称</label>
+                    <input type="text" id="nickname" name="nickname" class="doc-vld-name-2" minlength="3" placeholder="昵称除特殊符号外都可用" value="{$userinfo['nickname']}" required/>
+                </div>
+
+                <div class="tab2-gender">
+                    <label>性别</label>
+                    <label class="am-radio am-secondary">
+                        <input type="radio" name="sex" value="1" data-am-ucheck <eq name="userinfo.sex" value="1">checked</eq>> 男
+                    </label>
+                    <label class="am-radio am-secondary">
+                        <input type="radio" name="sex" value="2" data-am-ucheck <eq name="userinfo.sex" value="2">checked</eq>> 女
+                    </label>
+                    <label class="am-radio am-secondary">
+                        <input type="radio" name="sex" value="0" data-am-ucheck <eq name="userinfo.sex" value="0">checked</eq>> 保密
+                    </label>
+                </div>
+
+                <div class="tab2-birthday">
+                    <span class="birthday-span">生日</span>
+                    <select id="birthyear" name="birthyear">
+                        <for start="date('Y')" end="1920" step="-1" comparison="egt">
+                            <option value="{$i}" <eq name="birthday.year" value="$i">selected="selected"</eq>>{$i}</option>
+                        </for>
+                    </select>
+                    <span class="birthday-year">年</span>
+                    <select id="birthmonth" name="birthmonth">
+                        <for start="1" end="13">
+                            <option value="{$i}" <eq name="birthday.month" value="$i">selected="selected"</eq>>{$i}</option>
+                        </for>
+                    </select>
+                    <span class="birthday-year">月</span>
+                    <select id="birthday" name="birthday">
+                        <for start="1" end="32">
+                            <option value="{$i}" <eq name="birthday.day" value="$i">selected="selected"</eq>>{$i}</option>
+                        </for>
+                    </select>
+                    <span class="birthday-year">日</span>
+                </div>
+                <div class="am-form-group">
+                    <label class="name-label" for="truename">真实姓名</label>
+                    <input type="text" id="truename" name="truename" class="doc-vld-name-2" placeholder="请输入您的真实姓名"  value="{$userinfo['truename']}" required/>
+                </div>
+                <button class="tab-btn-save" type="submit">保存</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade" id="tab3">
+    <div id="tab3-content">
+        <fieldset class="basic-information">
+            <div class="am-form-group">
+                <label class="basic-label" for="mobile">手机号绑定：{$userinfo['mobile']}</label>
+            </div>
+            <div class="am-form-group">
+                <label class="mail-label" for="email">邮箱绑定：{$userinfo['email']}</label>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade" id="tab4">
+    <div id="tab4-content">
+        <form action="{:U('modpass')}" class="am-form" data-am-validator method="post">
+            <fieldset class="basic-information">
+                <div class="am-form-group">
+                    <label class="password-label" for="oldpass">&nbsp;&nbsp;&nbsp;&nbsp;密码修改</label>
+                    <input type="password" id="oldpass" name="oldpass" class="doc-vld-name-2" minlength="3" placeholder="请输入当前所用的密码" required/>
+                </div>
+                <div class="am-form-group">
+                    <label class="basic-label" for="password">输入新密码</label>
+                    <input type="password" id="password" name="password" class="doc-vld-name-2" minlength="3" placeholder="6-12位，可由数字、字母组成" required/>
+                </div>
+                <div class="am-form-group">
+                    <label class="basic-label" for="confirmpass">新密码确认</label>
+                    <input type="password" id="confirmpass" name="confirmpass" class="doc-vld-name-2" minlength="3" placeholder="请再次输入新密码" required/>
+                </div>
+                <div class="am-form-group">
+                    <label class="basic-label" for="mobile">手机号更换</label>
+                    <input type="text" id="mobile" name="mobile" class="doc-vld-name-2" minlength="3" placeholder="请输入新的手机号" value="{$userinfo['mobile']}" required/>
+                </div>
+                <div class="am-form-group">
+                    <label class="password-label" for="email">&nbsp;&nbsp;&nbsp;&nbsp;邮箱更换</label>
+                    <input type="text" id="email" name="email" class="doc-vld-name-2" minlength="3" placeholder="请输入新的手机号" value="{$userinfo['email']}" required/>
+                </div>
+
+                <button class="tab-btn-save" type="submit">保存</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="am-tab-panel am-fade <empty name='shippingaddrlist'>emptybg</empty>" id="tab5">
+    <div id="tab5-content">
+        <notempty name="shippingaddrlist">
+        <div class="tab1-goods addbtn">
+            <button onclick="addshippingaddr()">立即添加</button>
+        </div>
+        <div class="tab1-goods" id="addr{$voaddr['id']}">
+            <table class="am-table am-table-bordered am-table-radius">
+                <volist name="shippingaddrlist" id="voaddr">
+                <tr>
+                <td><h4 class="explain-h4"><eq name="voaddr.isdefault" value="1">(默认)&nbsp;&nbsp;</eq>{$voaddr['provincename']}{$voaddr['cityname']}{$voaddr['districtname']}&nbsp;{$voaddr['detailaddr']}&nbsp;({$voaddr['receivename']}&nbsp;收)&nbsp;{$voaddr['linkphone']}</h4>
+                </td>
+                <td>
+                    <eq name="voaddr.isdefault" value="0">
+                    <button onclick="addrdefault({$voaddr['id']})">设为默认</button>
+                    </eq>
+                    <button onclick="addredit({$voaddr['id']})">编辑</button>
+                    <button onclick="addrdel({$voaddr['id']})">删除</button>
+                </td>
+                </tr>
+                </volist>
+            </table>
+        </div>
+        <else/>
+        <div class="tab1-goods">
+            您还没有添加收货地址！<button onclick="addshippingaddr()">立即添加</button>
+        </div>
+        </notempty>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="am-popup" tabindex="-1" id="shippingaddress">
+  <div class="am-popup-inner">
+    <div class="am-popup-hd">
+        <span id="shippingaddrtitle">收货地址</span>
+        <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-popup-bd">
+        <form action="#" class="am-form" data-am-validator>
+            <input type="hidden" value='0' id="addrid">
+            <div class="am-form-group chinaarea">
+                <label class="tab1-label" for="doc-vld-tel-2">
+                    <span class="asterisk-span">*</span>
+                    地址区域
+                </label>
+                <select name="province" id="J_province" class="selarea"></select>
+                <select name="city" id="J_city" class="selarea"></select>
+                <select name="district" id="J_district" class="selarea"></select>
+            </div>
+            <div class="am-form-group">
+                <label class="tab1-label" for="detailaddr">详细地址</label>
+                <input type="text" id="detailaddr" name="detailaddr" class="doc-vld-name-2" placeholder="请输入详细地址" value="" required/>
+            </div>
+            <div class="am-form-group">
+                <label class="tab1-label" for="receivename">收货人</label>
+                <input type="text" id="receivename" name="receivename" class="doc-vld-name-2" placeholder="请输入收货人姓名" value="" required/>
+            </div>
+            <div class="am-form-group">
+                <label class="tab1-label" for="linkphone">联系电话</label>
+                <input type="text" id="linkphone" name="linkphone" class="doc-vld-name-2" placeholder="请输入收货人联系电话" value="" required/>
+            </div>
+        </form>
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn cancel">取消</span>
+      <span class="am-modal-btn ok">提交</span>
+    </div>
+  </div>
+</div>
+</block>

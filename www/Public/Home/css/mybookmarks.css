@@ -1,0 +1,202 @@
+.tab1-goods-img1{
+    /*background-image: url("../images/sm-member-lv2.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: right top;*/
+    margin-left: 0;
+    width: 19%;
+}
+.tab1-goods-img1 img{
+    width: 96px;
+}
+.tab1-goods-declare1{
+    width: 19%;
+    margin-left: 1%;
+    height: 100px;
+    display: table;
+}
+.tab-shop-name{
+    font-family: "黑体";
+    font-size: 20px;
+    position: relative;
+    top:-50%;
+    left: 0;
+}
+.tab1-goods-declare2{
+    width: 40%;
+    margin-left: 1%;
+    height: 100px;
+    display: table;
+}
+.tab1-goods-declare1 .declare-wrap,
+.tab1-goods-declare2 .declare-wrap{
+    display: table-cell;  
+    vertical-align: middle;
+}
+.tab-declare-span{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    position: relative;
+    top:-50%;
+    left: 0;
+}
+.go-and-see{
+    float: right;
+    width: 20%;
+    text-align: center;
+    line-height: 100px;
+}
+.tab-see-btn{
+    background-color: #292A2D;
+    color: #f0b003;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+.tab1-goods-product{
+    width: 15.5%;
+    float: left;
+    margin-left: 40px;
+}
+.tab1-goods-synopsis1{
+    width: 20%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+}
+.tab-synopsis-span{
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.tab1-goods-synopsis2{
+    width: 11%;
+    float: left;
+    text-align: left;
+    height: 50px;
+    margin-left: 20px;
+}
+.go-and-shop{
+    width: 20%;
+    float: right;
+    text-align: center;
+    margin-top: -14px;
+}
+.tab1-goods-synopsis3{
+    width: 10%;
+    float: left;
+    height: 50px;
+    text-align: left;
+    margin-left: 20px;
+}
+.tab-you-huo{
+    color: red;
+    font-size: 14px;
+}
+.tab1-goods-synopsis4{
+    width: 35%;
+    float: left;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 46px;
+}
+.tab-dian-pu{
+    font-family: "Adobe黑体";
+    font-size: 18px;
+}
+
+
+
+
+@media all and (max-width: 750px){
+    .tab1-goods-img1{
+        display: none;
+    }
+    .go-and-see{
+        width: 100%;
+        line-height: normal;
+    }
+    .tab1-goods-declare2{
+        width: 50%!important;
+        line-height: normal;
+        margin-left: 0;
+    }
+    .tab1-goods-synopsis2{
+        width: 35%;
+        height: auto;
+        line-height: 35px;
+    }
+    .tab1-goods-synopsis3{
+        width: 28%;
+        height: auto;
+        margin-left: 0;
+        line-height: 35px;
+    }
+    .tab1-goods-declare1{
+        width: 20%;
+        line-height: normal;
+    }
+    .tab1-goods-product{
+        width: 24%;
+        margin-left: 0;
+    }
+    .tab1-goods-product img{
+        width: 100%;
+        max-width: 120px;
+        min-width: 70px;
+    }
+    .tab1-goods-synopsis1{
+        display: none;
+    }
+    .tab1-goods-synopsis4{
+        display: none;
+    }
+    .go-and-shop{
+        width: 25%;
+        margin: 0;
+    }
+
+}
+
+
+@media all and (min-width: 751px) and (max-width: 1199px){
+    .tab1-goods-img1 img{
+        width: 100%;
+        max-width: 108px;
+    }
+    .go-and-see{
+        width: 13%;
+    }
+    .tab1-goods-declare2{
+        width: auto;
+    }
+    .tab1-goods-product img{
+        width: 100%;
+        max-width: 90px;
+    }
+    .tab1-goods-synopsis4{
+        margin-top: 12px;
+    }
+    .tab1-goods-synopsis2{
+        width: 15%;
+    }
+    .tab1-goods-synopsis3{
+        width: 14%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

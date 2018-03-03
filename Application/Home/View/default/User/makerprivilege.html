@@ -1,0 +1,68 @@
+<extend name="Base/common"/>
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+    <link href="__CSS__/choose-head.css" rel="stylesheet">
+    <link href="__CSS__/makerindex.css" rel="stylesheet">
+    <link href="__CSS__/makerhcoin.css" rel="stylesheet">
+</block>
+<block name="javascript">
+    <script type="text/javascript" src="__JS__/size-color.js"></script>
+</block>
+
+<block name="side"></block>
+
+<block name="body">
+    <div id="content-layout">
+        <div id="left-layout"></div>
+        <div id="centre-layout">
+            <include file="User:header"/>
+            <div id="user-content">
+                <div id="user-nav">
+                    <span>创客时空</span>
+                </div>
+                <div class="mgrcenter">
+                    <include file="User:makerleft"/>
+                    <div id="settings-content">
+                        <div class="am-tabs" data-am-tabs>
+                            <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
+                            <!--<li class="am-active"><a href="#tab1">慧币数量</a></li>-->
+                            <!--<li><a href="#tab2">兑换规则</a></li>-->
+                            <!--<li><a href="#tab3">收支明细</a></li>-->
+                            <!--</ul>-->
+
+                            <div class="am-tabs-bd">
+
+                                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                                    <div id="tab1-content">
+                                        <div class="not-opened" style="width: 100%;float: left; margin-top: 60px;font-size: 28px;">
+                                            <span>此功能暂未开放...</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="am-tab-panel am-fade" id="tab2">
+                                    <div id="tab2-content">
+                                    </div>
+                                </div>
+
+
+                                <div class="am-tab-panel am-fade" id="tab3">
+                                    <div id="tab3-content">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</block>

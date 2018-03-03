@@ -1,0 +1,81 @@
+.event-layout{
+    width: 100%;
+    float: left;
+    padding: 12px;
+}
+.event-list{
+    width: 100%;
+    float: left;
+}
+.event-logo{
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+.event-right{
+    width: 85%;
+    float: left;
+    text-align: left;
+    margin-left: 15px;
+}
+.event-name{
+    width: 100%;
+    float: left;
+}
+.event-name span:last-child{
+    color: #FF0000;
+}
+.event-name a{
+    background-color: #f0b003;
+    float: right;
+    font-style: normal;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.event-content{
+    width: 100%;
+    float: left;
+}
+.event-content span:last-child{
+    font-size: 16px;
+}
+.event-content i{
+    color: #FF0000;
+    font-style: normal;
+}
+.event-details{
+    width: auto;
+    float: right;
+    font-size: 18px;
+}
+.event-details a{
+    color: #FF0000;
+}
+
+
+@media all and (max-width: 750px){
+    .event-name{
+        font-size: 14px;
+    }
+    .event-name a{
+        font-size: 15px;
+        padding: 2px 6px;
+    }
+    .event-content{
+        font-size: 16px;
+    }
+    .event-content span:last-child{
+        font-size: 14px;
+    }
+    .event-right{
+        width: 72%;
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+

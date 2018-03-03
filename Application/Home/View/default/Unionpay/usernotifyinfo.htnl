@@ -1,0 +1,29 @@
+<extend name="Base/common"/>
+
+<block name="style">
+    <link href="__CSS__/member-center.css" rel="stylesheet">
+</block>
+
+<block name="body">
+<div id="content-layout">
+<div id="left-layout"></div>
+<div id="centre-layout">
+	<table width="800px" border="1" align="center">
+		<tr>
+			<th colspan="2" align="center">银联在线交易测试-交易结果</th>
+		</tr>
+		<volist name="unpresp" id="vores">
+			<tr>
+			<td width='30%'>{$key}</td>
+			<td>{$vores}</td>
+			</tr>
+		</volist>
+			<tr>
+			<td width='30%'>验证签名</td>
+			<td>{$issignstatus}</td>
+		</tr>
+
+	</table>
+</div>
+</div>
+</block>
